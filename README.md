@@ -53,7 +53,7 @@ but, most settings are not available on the web, plus there is a bug in the PLOA
 To configure it, you must log in via `UART` or `SSH`.
 
 - UART Baud Rate : `115200 bps`
-- Telnet IP : `192.168.0.1:22`
+- SSH IP : `192.168.0.1:22`
 
 | User | Password |
 | --- | --- |
