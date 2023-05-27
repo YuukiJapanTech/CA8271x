@@ -141,21 +141,21 @@ To obtain scfg.txt for each ONT, see the following links.
 In the XG-99x series ONT, the settings are loaded by four scfg.txt files.
 For rewriting settings, `/userdata/scfg.txt` and `/tmp/scfg.txt` are used.
 
-- `/config/default_scfg.txt`  (ReadOnly)
-Contains the manufacturer's default settings,
-which are read first at ONT startup and are the lowest priority settings.
-- `/config/scfg.txt` (ReadOnly)
-Contains settings set by the firmware creator,
-which have higher priority than default_scfg.txt and will overwrite the settings if there is a conflict.
-Nothing entry in EN-XGSFPP-OMAC Stick.
-- `/userdata/scfg.txt` (RW)
-Contains settings set by the user or ISP.
-It has a higher priority than /config/scfg.txt and will overwritte the settings if there is a conflict.
-Can be edited and saved.
-- `/tmp/scfg.txt` (Can't Save)
-It contains dynamically generated settings based on values stored on its custom ROM (mtd9, mtd10)
-Since they are generated on tmpfs and cannot be saved directly,
-they are rewritten via the `#ONT> system/misc` command on the ONT.
+- `/config/default_scfg.txt`  (ReadOnly) <br>
+Contains the manufacturer's default settings,<br>
+which are read first at ONT startup and are the lowest priority settings.<br>
+- `/config/scfg.txt` (ReadOnly)<br>
+Contains settings set by the firmware creator,<br>
+which have higher priority than default_scfg.txt and will overwrite the settings if there is a conflict.<br>
+Nothing entry in EN-XGSFPP-OMAC Stick.<br>
+- `/userdata/scfg.txt` (RW)<br>
+Contains settings set by the user or ISP.<br>
+It has a higher priority than /config/scfg.txt and will overwritte the settings if there is a conflict.<br>
+Can be edited and saved.<br>
+- `/tmp/scfg.txt` (Can't Save)<br>
+It contains dynamically generated settings based on values stored on its custom ROM (mtd9, mtd10)<br>
+Since they are generated on tmpfs and cannot be saved directly,<br>
+they are rewritten via the `#ONT> system/misc` command on the ONT.<br>
 
 The settings are overwritten and loaded at startup with the following priority.
 
