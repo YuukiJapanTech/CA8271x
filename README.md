@@ -165,14 +165,14 @@ The settings are overwritten and loaded at startup with the following priority.
 In the LTF-726x-BH+ series ONT, the settings are loaded by two scfg.txt files.
 For rewriting settings `/config/scfg.txt` are used.
 
-- `/config/default_scfg.txt`  (RW)
-Contains the manufacturer's default settings,
-which are read first at ONT startup and are the lowest priority settings.
-They can be edited, but must not be rewritten.
-- `/config/scfg.txt` (RW)
-Contains settings set by the user or ISP.
-It has a higher priority than /config/scfg.txt and will overwritte the settings if there is a conflict.
-Can be edited and saved.
+- `/config/default_scfg.txt`  (RW)<br>
+Contains the manufacturer's default settings,<br>
+which are read first at ONT startup and are the lowest priority settings.<br>
+They can be edited, but must not be rewritten.<br>
+- `/config/scfg.txt` (RW)<br>
+Contains settings set by the user or ISP.<br>
+It has a higher priority than /config/scfg.txt and will overwritte the settings if there is a conflict.<br>
+Can be edited and saved.<br>
 
 The settings are overwritten and loaded at startup with the following priority.
 
@@ -202,15 +202,15 @@ The root shell can be obtained by executing the following command in the root CL
 There are several other commands in the root CLI.
 The following is a list of typical commands,
 
-- `/traffic/pon/show onu`
+- `/traffic/pon/show onu`<br>
 Obtain ont's authentication status, SN, LOID password, PLOAM password, etc.
-- `/system/misc`
-Change the SN, vendor, PLOAM password, and other settings stored in its custom ROM (mtd9, mtd10)
-- `/system/mib/show "MIB No."`
-Get MIB values.
-example,
-`#ONT> /system/mib/show 256`
-`/system/mib/show ?` command can get a list of supported MIBs.
+- `/system/misc`<br>
+Change the SN, vendor, PLOAM password, and other settings stored in its custom ROM (mtd9, mtd10)<br>
+- `/system/mib/show "MIB No."`<br>
+Get MIB values.<br>
+example,<br>
+`#ONT> /system/mib/show 256`<br>
+`/system/mib/show ?` command can get a list of supported MIBs.<br>
 
 # ONT config
 ## EN-XGSFPP-OMAC, FOX222 (XG-99x)
