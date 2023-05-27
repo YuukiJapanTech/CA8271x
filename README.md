@@ -1,4 +1,5 @@
 # Hacking CA8271x XGS-PON Stick
+
 Some information has been created with the help of `@stich86_0046`. Thanks!
 
 - Rewrite S/N, Loid, PLOAM, etc… for your ISP FTTx
@@ -11,8 +12,8 @@ Some information has been created with the help of `@stich86_0046`. Thanks!
 | EN-XGSFPP-OMAC | E.C.I Networks | CA8271S | CIG XG-99S | 192.168.100.1 | UART/Telnet | scfg.txt | [Link](https://ecin.ca/xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/) |
 | FOX222 | Frontier | CA8271A | CIG XG-99M | 192.168.188.1 | UART | scfg.txt | -   |
 | LTF-726x-BH+ | Hisense | CA8271S | -   | 192.168.0.1 | UART/SSH/Web | scfg.txt | [Link](https://www.taobao.com/list/item/658650417501.htm) |
-| NSD-G3000T | SONY |     | Sercomm MARINER | 192.168.1.1 | UART/Web | gponctl<br>sc\_ft\_data<br>sys_data<br>(unknown) | [Link](https://www.nuro.jp/device.html) |
-| HN8255Ws (So-net) | Synclayer |     | Huawei | 192.168.1.1 | Web/Telnet | Web (snc_admin) |     |
+| NSD-G3000T<br>***Separation articles is planned*** | SONY |     | Sercomm MARINER | 192.168.1.1 | UART/Web | gponctl<br>sc\_ft\_data<br>sys_data<br>(unknown) | [Link](https://www.nuro.jp/device.html) |
+| HN8255Ws (So-net)<br>***Separation articles is planned*** | Synclayer |     | Huawei | 192.168.1.1 | Web/Telnet | Web (snc_admin) |     |
 
 # Login Password
 
@@ -37,10 +38,12 @@ ONT> enable
 ```
 
 For example, if the SN is `ECIG21100005`, the user name and password would be
+
 ```
 #ONT> system/debug/md5 ECIG21100005 8
 MD5 Value: eWsEuWgG
 ```
+
 - User : `ECIG21100005`
 - Password : `eWsEuWgG`
 
@@ -59,10 +62,145 @@ To configure it, you must log in via `UART` or `SSH`.
 | --- | --- |
 | `root` | `hbmtsfp` |
 
+# UART pin
+The following link summarizes UART pin.
 
+- Link
 
+# scfg.txt
+CA8271x SoC reads the configuration from the `default_scfg.txt` and `scfg.txt` files.
 
+These files are usually found under `/config/` 
+but, some sticks are dynamically generated according to their custom configuration area in ROM,
+or are set to read-only, so you may need to edit `sfcg.txt`, which is stored in a different path.
+
+To obtain scfg.txt for each ONT, see the following links.
+
+- Link
+
+## EN-XGSFPP-OMAC, FOX222 (XG-99x)
+In the XG-99x series ONT, the settings are loaded by four scfg.txt files.
+For rewriting settings, `/userdata/scfg.txt` and `/tmp/scfg.txt` are used.
+
+- `/config/default_scfg.txt`  (ReadOnly)
+Contains the manufacturer's default settings,
+which are read first at ONT startup and are the lowest priority settings.
+<br>
+- `/config/scfg.txt` (ReadOnly)
+Contains settings set by the firmware creator,
+which have higher priority than default_scfg.txt and will overwrite the settings if there is a conflict.
+Nothing entry in EN-XGSFPP-OMAC Stick.
+<br>
+- `/userdata/scfg.txt` (RW)
+Contains settings set by the user or ISP.
+It has a higher priority than /config/scfg.txt and will overwritte the settings if there is a conflict.
+Can be edited and saved.
+<br>
+- `/tmp/scfg.txt` (Can't Save)
+It contains dynamically generated settings based on values stored on its custom ROM (mtd9, mtd10)
+Since they are generated on tmpfs and cannot be saved directly,
+they are rewritten via the `#ONT> system/misc` command on the ONT.
+<br>
+
+The settings are overwritten and loaded at startup with the following priority.
+
+***(High)*** `/tmp/scfg.txt` > `/userdata/scfg.txt` > `/config/scfg.txt` > `/config/default_scfg.txt` ***(Low)***
+
+## LTF-726x-BH+
+In the LTF-726x-BH+ series ONT, the settings are loaded by two scfg.txt files.
+For rewriting settings `/config/scfg.txt` are used.
+
+- `/config/default_scfg.txt`  (RW)
+Contains the manufacturer's default settings,
+which are read first at ONT startup and are the lowest priority settings.
+They can be edited, but must not be rewritten.
+<br>
+- `/config/scfg.txt` (RW)
+Contains settings set by the user or ISP.
+It has a higher priority than /config/scfg.txt and will overwritte the settings if there is a conflict.
+Can be edited and saved.
+<br>
+
+The settings are overwritten and loaded at startup with the following priority.
+
+***(High)***  `/config/scfg.txt` > `/config/default_scfg.txt` ***(Low)***
+
+# How to get root CLI & root Shell
+## LTF-726x-BH+
+Connect via `SSH` or `UART` to obtain root shell.
+
+## EN-XGSFPP-OMAC, FOX222 (XG-99x)
+After logging in via `telnet` or `UART`, you will first get the CLI with user privileges.
+```
+ONT>
+```
+The root CLI can be obtained by executing the `enable` command on this CLI.
+```
+ONT> enable
+#ONT>
+```
+The root shell can be obtained by executing the following command in the root CLI.
+```
+#ONT> system/shell
+#ONT/System/Shell> sh
+#
+```
+
+There are several other commands in the root CLI.
+The following is a list of typical commands,
+
+- `/traffic/pon/show onu`
+Obtain ont's authentication status, SN, LOID password, PLOAM password, etc.
+<br>
+- `/system/misc`
+Change the SN, vendor, PLOAM password, and other settings stored in its custom ROM (mtd9, mtd10)
+<br>
+- `/system/mib/show "MIB No."`
+Get MIB values.
+example,
+`#ONT> /system/mib/show 256`
+`/system/mib/show ?` command can get a list of supported MIBs.
+<br>
+
+# ONT config
+## EN-XGSFPP-OMAC, FOX222 (XG-99x)
+XG-99x series ONT uses scfg.txt file and misc command for configuration.
+
+In the XG-99x series ONT, the MIB OntG Vendor can be set to a value different from the S/N Vendor value.
+example,
+`S/N : ECIG01234567`
+`Vendor : ZTEG`
+
+Configuration by misc command.
+- PON S/N
+- PON S/N Vendor Code
+- MIB OntG (256) Vendor Code
+- Loid Password
+- PLOAM Password
+- FW Version
+- HW Version
+- Manufacture Vendor
+- Product Code
+- Product Serial
+- Product ID
+- MAC Address
+- Management IP
+
+Configuration by scfg.txt
+- PON Mode
+- Loid User
+- OLT mode
+- OMCC Version
+- etc...
+
+The following link summarizes  XG-99x series ONT configuration.
+- Link
+
+## LTF-726x-BH+
+LTF-726x-BH+ series ONT uses scfg.txt file for configuration.
+
+The following link summarizes  XG-99x series ONT configuration.
+- Link
 
 
 # This document is a work in progress. More updates will follow.
-
