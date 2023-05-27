@@ -144,22 +144,18 @@ For rewriting settings, `/userdata/scfg.txt` and `/tmp/scfg.txt` are used.
 - `/config/default_scfg.txt`  (ReadOnly)
 Contains the manufacturer's default settings,
 which are read first at ONT startup and are the lowest priority settings.
-<br>
 - `/config/scfg.txt` (ReadOnly)
 Contains settings set by the firmware creator,
 which have higher priority than default_scfg.txt and will overwrite the settings if there is a conflict.
 Nothing entry in EN-XGSFPP-OMAC Stick.
-<br>
 - `/userdata/scfg.txt` (RW)
 Contains settings set by the user or ISP.
 It has a higher priority than /config/scfg.txt and will overwritte the settings if there is a conflict.
 Can be edited and saved.
-<br>
 - `/tmp/scfg.txt` (Can't Save)
 It contains dynamically generated settings based on values stored on its custom ROM (mtd9, mtd10)
 Since they are generated on tmpfs and cannot be saved directly,
 they are rewritten via the `#ONT> system/misc` command on the ONT.
-<br>
 
 The settings are overwritten and loaded at startup with the following priority.
 
@@ -173,12 +169,10 @@ For rewriting settings `/config/scfg.txt` are used.
 Contains the manufacturer's default settings,
 which are read first at ONT startup and are the lowest priority settings.
 They can be edited, but must not be rewritten.
-<br>
 - `/config/scfg.txt` (RW)
 Contains settings set by the user or ISP.
 It has a higher priority than /config/scfg.txt and will overwritte the settings if there is a conflict.
 Can be edited and saved.
-<br>
 
 The settings are overwritten and loaded at startup with the following priority.
 
@@ -210,16 +204,13 @@ The following is a list of typical commands,
 
 - `/traffic/pon/show onu`
 Obtain ont's authentication status, SN, LOID password, PLOAM password, etc.
-<br>
 - `/system/misc`
 Change the SN, vendor, PLOAM password, and other settings stored in its custom ROM (mtd9, mtd10)
-<br>
 - `/system/mib/show "MIB No."`
 Get MIB values.
 example,
 `#ONT> /system/mib/show 256`
 `/system/mib/show ?` command can get a list of supported MIBs.
-<br>
 
 # ONT config
 ## EN-XGSFPP-OMAC, FOX222 (XG-99x)
