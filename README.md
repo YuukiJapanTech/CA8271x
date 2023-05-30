@@ -22,7 +22,7 @@ The following link summarizes Password.
 # scfg.txt
 The following link summarizes scfg.txt (ONT configuration files)
 
-- [ONT scfg.txt files (CORTINA SoC Configuration file)](/scfg_files)
+- [ONT scfg.txt files (CORTINA SoC Configuration file)](/scfg_files.md)
 
 # UART pin
 The following link summarizes UART pin.
