@@ -75,31 +75,3 @@ MD5 Value: eWsEuWgG
 
 This ont does not know the username and currently there is no way to login via telnet.
 but, UART does not ask for a login, it is possible to get a root shell without know the password.
-
-## NSD-G3000T
-
-This ONT have a web console.
-But this ont doesn't know the username of the telecom admin,
-to configure it, you must log in via `UART`.
-
-- Web IP : `192.168.188.1`
-- UART Baud Rate : `115200 bps`
-
-| User | Password |
-| --- | --- |
-| `unknown` | `admin_super_"your PON-MAC last 4 digit lowercase"` |
-
-This ont does not know the telecomadmin username and currently there is no way to login via WebGui.
-but, UART does not ask for a login, it is possible to get a root shell without know the password.
-
-## HN8255Ws (So-net)
-
-This ONT have Telnet snd web console.
-Many items are configurable in the `Web`
-
-- Web IP : `192.168.1.1`
-- UART Baud Rate : `115200 bps`
-
-| User | Password |
-| --- | --- |
-| `snc_admin` | `So-net_n21r15_"your PON-MAC last 4 digit uppercase"` |
