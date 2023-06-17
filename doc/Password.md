@@ -40,7 +40,7 @@ The only way to get the `PON S/N` on fscom Stick is to check the boot Log from t
 
 ### ATTENTION - 2
 
-[fscom ConfigurationGuide](/C:/Program%20Files/Joplin/resources/app.asar/%28https:/resource.fs.com/mall/doc/20230526164531wpoac7.pdf%29 "(https://resource.fs.com/mall/doc/20230526164531wpoac7.pdf)") mentions password generation by a password generation tool (Telnet tool),<br>
+[fscom ConfigurationGuide](https://resource.fs.com/mall/doc/20230526164531wpoac7.pdf) mentions password generation by a password generation tool (Telnet tool),<br>
 but when we contacted Technical support, **they replied that fscom has no plans to provide this tool.**<br>
 >***Q.<br>***
 > *how do I generate password it from the product I received? <br>
