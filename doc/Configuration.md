@@ -1,5 +1,5 @@
 # ONT config
-## EN-XGSFPP-OMAC, XGS-ONU-25-20NI, FOX222 (XG-99x)
+## XG-99S, XG-99M
 XG-99x series ONT uses scfg.txt file and misc command for configuration.
 
 In the XG-99x series ONT, the MIB OntG Vendor can be set to a value different from the S/N Vendor value.
@@ -30,7 +30,7 @@ Configuration by scfg.txt
 - etc...
 
 The following link summarizes  XG-99x series ONT configuration.
-- Link
+- [XG-99x Config Command](/doc/XG-99x_Config.md)
 
 ## LTF-726x-BH+
 LTF-726x-BH+ series ONT uses scfg.txt file for configuration.

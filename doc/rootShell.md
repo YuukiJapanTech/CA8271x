@@ -4,7 +4,7 @@
 
 Connect via `SSH` or `UART` to obtain root shell.
 
-## EN-XGSFPP-OMAC, XGS-ONU-25-20NI, FOX222 (XG-99x)
+## XG-99S, XG-99M
 
 After logging in via `telnet` or `UART`, you will first get the CLI with user privileges.
 
