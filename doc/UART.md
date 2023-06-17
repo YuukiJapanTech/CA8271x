@@ -3,8 +3,8 @@
 ## LTF-726x-BH+
 This stick has a UART pad pulled out on the board.
 
-Signal level is `3.3V TTL`
-Baud rate is `115200 bps`
+Signal level is `3.3V TTL`<br>
+Baud rate is `115200 bps`<br>
 
 ![LTF-726x-BH+ UART](/Picture/LTF726x/UART.png)
 
@@ -26,11 +26,11 @@ The UART can be accessed by connecting a wire or touching a needle to the follow
 
 ![XG-99S UART](/Picture/XG-99S/UART.png)
 
-Signal level is `3.3V TTL`
-Baud rate is `115200 bps`
+Signal level is `3.3V TTL`<br>
+Baud rate is `115200 bps`<br>
 
 ## XG-99M
 This ONT has UART pins mounted on the board.
 
-Signal level is `3.3V TTL`
-Baud rate is `115200bps`
+Signal level is `3.3V TTL`<br>
+Baud rate is `115200bps`<br>
