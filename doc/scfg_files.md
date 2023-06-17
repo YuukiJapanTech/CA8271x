@@ -9,7 +9,7 @@ To obtain scfg.txt for each ONT, see the following links.
 
 - Link
 
-## EN-XGSFPP-OMAC, FOX222 (XG-99x)
+## EN-XGSFPP-OMAC, XGS-ONU-25-20NI, FOX222 (XG-99x)
 In the XG-99x series ONT, the settings are loaded by four scfg.txt files.
 For rewriting settings, `/userdata/scfg.txt` and `/tmp/scfg.txt` are used.
 

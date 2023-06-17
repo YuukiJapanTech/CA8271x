@@ -1,6 +1,6 @@
 # Login Password
 
-## EN-XGSFPP-OMAC (XG-99S)
+## EN-XGSFPP-OMAC, XGS-ONU-25-20NI (XG-99S)
 
 This stick does not have a web console.
 To configure it, you must log in via `UART` or `Telnet`.

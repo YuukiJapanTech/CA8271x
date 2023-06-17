@@ -1,5 +1,5 @@
 # ONT config
-## EN-XGSFPP-OMAC, FOX222 (XG-99x)
+## EN-XGSFPP-OMAC, XGS-ONU-25-20NI, FOX222 (XG-99x)
 XG-99x series ONT uses scfg.txt file and misc command for configuration.
 
 In the XG-99x series ONT, the MIB OntG Vendor can be set to a value different from the S/N Vendor value.
