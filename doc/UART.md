@@ -6,11 +6,11 @@ This stick has a UART pad pulled out on the board.
 Signal level is `3.3V TTL`
 Baud rate is `115200 bps`
 
-![LTF-726x-BH+ UART](Picture/LTF726x/UART.png)
+![LTF-726x-BH+ UART](/Picture/LTF726x/UART.png)
 
 The pads are connected to the CA8271S `15K` and `16K` pin.
 
-![LTF-726x-BH+ X-ray](Picture/LTF726x/X-ray/01.jpg)
+![LTF-726x-BH+ X-ray](/Picture/LTF726x/X-ray/01.jpg)
 
 
 ## XG-99S
