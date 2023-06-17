@@ -14,7 +14,7 @@ The pads are connected to the CA8271S `15K` and `16K` pin.
 
 
 ## XG-99S
-This stic does not have the UART pad pulled out and the UART needs to be pulled out from a specific point on the board.
+This stick does not have the UART pad pulled out and the UART needs to be pulled out from a specific point on the board.
 
 ![XG-99S Board](/Picture/XG-99S/05.png)
 
