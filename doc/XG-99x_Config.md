@@ -86,3 +86,22 @@ The `exeep_r8` command can also be used to retrieve the set PLOAM password.
 [f0, 240] ff ff ff ff ff ff ff ff - ff ff ff ff 15 91 f3 9f     |  ............k
 ```
 ---
+
+## scfg.txt
+To configure settings using the `scfg.txt`
+
+---
+### CHAR CFG_ID_PON_MAC_MODE = 0xXX
+Configure ONT in which PON MODE<br>
+**(Not sure if it works properly)**
+```
+0x08 : ALL
+0x07 : ETHERNET
+0x06 : NGPON (HW not Supported)
+0x05 : XGSPON
+0x04 : XGPON (HW not Supported)
+0x03 : GPON (HW not Supported)
+0x02 : EPON-BI10G
+0x01 : EPON-D10G
+0x00 : 1G EPON (HW not Supported)
+```
