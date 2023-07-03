@@ -8,13 +8,13 @@ However, the password generation logic is common to GPON CIG ONT, so it can be s
 
 The GponCLI binaries available on this page were extracted from FOG421.
 
-1. Install QEMU in Ubuntu 22.04.2
+1. Install QEMU in Ubuntu 22.04.2<br>
 Install MIPS QEMU on Ubuntu with the following command.
 ```
 sudo apt-get install qemu-user
 ```
 
-2. download and extract `GponCLI.tar.gz`
+2. download and extract `GponCLI.tar.gz`<br>
 [Download GponCLI.tar.gz from here](/emulate_CIG/GponCLI.tar.gz) and extract it to any location.
 ```
 wget https://github.com/YuukiJapanTech/CA8271x/raw/main/emulate_CIG/GponCLI.tar.gz
@@ -22,7 +22,7 @@ sudo tar -xvcf GponCLI.tar.gz -C /emulate_CIG
 ```
 
 
-3. run `GponCLI` binary
+3. run `GponCLI` binary<br>
 Execute `GponCLI` by specifying rootfs with `chroot`.
 ```
 ROOT=/emulate_CIG/root
