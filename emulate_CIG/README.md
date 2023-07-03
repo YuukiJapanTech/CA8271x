@@ -17,7 +17,7 @@ sudo apt-get install qemu-user
 2. download and extract `GponCLI.tar.gz`
 [Download GponCLI.tar.gz from here](/emulate_CIG/GponCLI.tar.gz) and extract it to any location.
 ```
-wget https://github.com/YuukiJapanTech/CA8271x/blob/main/emulate_CIG/GponCLI.tar.gz
+wget https://github.com/YuukiJapanTech/CA8271x/raw/main/emulate_CIG/GponCLI.tar.gz
 sudo tar -xvcf GponCLI.tar.gz -C /emulate_CIG
 ```
 
