@@ -20,6 +20,7 @@ Some information has been created with the help of `@stich86_0046`. Thanks!
 
 - [UART pin](/doc/UART.md)
 - [ONT Login Password](/doc/Password.md)
+	- [emulate CIG ONT in QEMU](emulate_CIG)
 - [How to get root CLI & root Shell](/doc/rootShell.md)
 - [ONT scfg.txt files (CORTINA SoC Configuration file)](/doc/scfg_files.md)
 	- [default scfg.txt dump](/default_scfg)
