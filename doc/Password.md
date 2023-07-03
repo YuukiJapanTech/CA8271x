@@ -18,7 +18,7 @@ To generate a password, emulate CIG ONT in Linux QEMU and run GponCLI and execut
 (or execute the following command from the UART of the appropriate CIG ONT. ONT is GPON also fine)<br>
 
 GponCLI download and Instructions on how to run on QEMU can be found here.<br>
-- [emulate CIG ONT in QEMU](emulate_CIG)
+- [emulate CIG ONT in QEMU](/emulate_CIG)
 
 
 ```
