@@ -1,6 +1,6 @@
 # emulate CIG ONT in QEMU
 
-GPON CIG ONT runs on the `MIPS-I v1` architecture and can be emulated by QEMU to run binaries.
+GPON CIG ONT runs on the `MIPS-I v1` architecture. so can be emulated by QEMU to run binaries.
 This allows the user to generate a login password for CIG ONT.
 
 (For some reason the binary for CORTINA SoC XGS ONT crashes QEMU and cannot be made to work.
