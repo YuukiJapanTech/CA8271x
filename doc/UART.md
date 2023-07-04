@@ -16,6 +16,9 @@ The pads are connected to the CA8271S `15K` and `16K` pin.
 ## XG-99S
 This stick does not have the UART pad pulled out and the UART needs to be pulled out from a specific point on the board.
 
+Signal level is `3.3V TTL`<br>
+Baud rate is `115200 bps`<br>
+
 ![XG-99S Board](/Picture/XG-99S/05.png)
 
 x-ray images show that the 15K and 16K pin on the CA8271S are connected to the chip resistors on the backside of the board.
@@ -26,8 +29,7 @@ The UART can be accessed by connecting a wire or touching a needle to the follow
 
 ![XG-99S UART](/Picture/XG-99S/UART.png)
 
-Signal level is `3.3V TTL`<br>
-Baud rate is `115200 bps`<br>
+![XG-99S UART needle](/Picture/XG-99S/UART_02.jpg)
 
 ## XG-99M
 This ONT has UART pins mounted on the board.
