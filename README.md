@@ -41,7 +41,7 @@ TheCIG XE-99S and CIG XG-99S (and OEM's) have the same hardware and can be switc
 
 ### CIG XE-99S
 
-![XE-99S Stick](/Picture/CIG_XE-99S/Stick.jpg)
+![XE-99S Stick](/Picture/XE-99S/Stick.jpg)
 
 ### Hisense LTF-726x-BH+
 
