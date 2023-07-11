@@ -55,6 +55,8 @@ but when we contacted Technical support, **they replied that fscom has no plans 
 > ***The username and login password we provided is generated from the serial number of the product you purchased. It is not a common username and login password.<br>
 > Unfortunately, it is not possible to generate a password from a purchased product. Nor can we provide a password generation tool.<br>***
 
+**2023/07/07:  fscom has revised the configration guide.**<br>
+
 ## LTF-726x-BH+
 
 This stick have SSH and web console.<br>
@@ -101,3 +103,15 @@ MD5 Value: eWsEuWgG
 
 This ont does not know the username and currently there is no way to login via telnet.<br>
 but, UART does not ask for a login, it is possible to get a root shell without know the password.<br>
+
+## XE-99S
+
+This stick does not have a web console.<br>
+To configure it, you must log in via `UART` or `Telnet`.<br>
+
+- UART Baud Rate : `115200 bps`
+- Telnet IP : `192.168.0.1:23`
+
+| User | Password |
+| --- | --- |
+| `root` | none |

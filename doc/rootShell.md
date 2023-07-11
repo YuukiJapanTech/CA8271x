@@ -19,7 +19,7 @@ ONT> enable
 #ONT>
 ```
 
-The root shell can be obtained by executing the following command in the root CLI.
+can switch to the root shell by executing the following command.
 
 ```
 #ONT> system/shell
@@ -39,3 +39,13 @@ The following is a list of typical commands,
     example,
     `#ONT> /system/mib/show 256`
     `/system/mib/show ?` command can get a list of supported MIBs.
+
+## XE-99S
+
+Connect via `SSH` or `UART` to obtain root shell.
+can switch to the CIG CLI by executing the following command.
+
+```
+XE-99S # cig-cli
+ONT> 
+```
