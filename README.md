@@ -24,7 +24,7 @@ TheCIG XE-99S and CIG XG-99S (and OEM's) have the same hardware and can be switc
 
 - [UART pin](/doc/UART.md)
 - [ONT Login Password](/doc/Password.md)
-    - [emulate CIG ONT in QEMU](/C:/Program%20Files/Joplin/resources/app.asar/emulate_CIG "emulate_CIG")
+    - [emulate CIG ONT in QEMU](/emulate_CIG)
 - [How to get root CLI & root Shell](/doc/rootShell.md)
 - [ONT scfg.txt files (CORTINA SoC Configuration file)](/doc/scfg_files.md)
     - [default scfg.txt dump](/default_scfg)
