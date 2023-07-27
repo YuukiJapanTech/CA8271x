@@ -16,7 +16,7 @@ Some information has been created with the help of `@stich86_0046`. Thanks!
 | [Hisense LTF-726x-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | 10GE/XGS? | CA8271S | -   | 192.168.0.1 | UART/SSH/Web |
 | [CIG XG-99M](https://www.cigtech.com/product_portfolio/xg-99m/) | ONT | XGS | CA8271A | -   | 192.168.0.1 | UART/Telnet |
 | Frontier FOX222 | ONT | XGS | CA8271A | CIG XG-99M | 192.168.188.1 | UART |
-| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | 10GE | NLD0605APB<br>(CA8271 OEM) | - | 192.168.0.1 | UART |
+| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | 10GE | NLD0605APB<br>(CA8271 OEM) | - | 192.168.1.1 | UART |
 
 TheCIG XE-99S and CIG XG-99S (and OEM's) have the same hardware and can be switched by replacing the firmware.
 
