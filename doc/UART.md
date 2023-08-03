@@ -13,7 +13,7 @@ The pads are connected to the CA8271S `15K` and `16K` pin.
 ![LTF-726x-BH+ X-ray](/Picture/LTF726x/X-ray/01.jpg)
 
 
-## XG-99S
+## XG-99S / XE-99S
 This stick has UART pulled out to SFP connectors 2 and 7, but no components are mounted.
 
 Signal level is `3.3V TTL`<br>
