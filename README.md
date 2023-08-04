@@ -3,6 +3,7 @@
 Some information has been created with the help of `@stich86_0046`. Thanks!
 
 - Rewrite S/N, Loid, PLOAM, etc… for your ISP FTTx
+- Switch between 10GEPON and XGSPON.
 
 # XGS-PON ONT
 
@@ -18,7 +19,7 @@ Some information has been created with the help of `@stich86_0046`. Thanks!
 | Frontier FOX222 | ONT | XGS | CA8271A | CIG XG-99M | 192.168.188.1 | UART |
 | NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | 10GE | NLD0605APB<br>(CA8271 OEM) | - | 192.168.1.1 | UART |
 
-TheCIG XE-99S and CIG XG-99S (and OEM's) have the same hardware and can be switched by replacing the firmware.
+The CIG XE-99S and CIG XG-99S (and OEM's) have the same hardware and can be switched by replacing the firmware.
 
 # Menu
 
@@ -43,6 +44,10 @@ TheCIG XE-99S and CIG XG-99S (and OEM's) have the same hardware and can be switc
 ### CIG XE-99S
 
 ![XE-99S Stick](/Picture/XE-99S/Stick.jpg)
+
+### ECIN EN-XGSFPP-OMAC
+
+![ECIN EN-XGSFPP-OMAC Stick](/Picture/ECIN_EN-XGSFPP-OMAC/Stick.jpg)
 
 ### Hisense LTF-726x-BH+
 
