@@ -86,6 +86,22 @@ The `exeep_r8` command can also be used to retrieve the set PLOAM password.
 [f0, 240] ff ff ff ff ff ff ff ff - ff ff ff ff 15 91 f3 9f     |  ............k
 ```
 ---
+### admin_ip set XXX.XXX.XXX.XXX
+ Write management IP.
+ For example, if the management IP like `192.168.100.2`,
+```
+#ONT/system/misc> admin_ip set 192.168.100.2
+```
+---
+### admin_mask set XXX.XXX.XXX.XXX
+ Write management IP netmask.
+ For example, if the management IP like `255.255.0.0`,
+```
+#ONT/system/misc> admin_mask set 255.255.0.0
+```
+
+---
+
 
 ## scfg.txt
 To configure settings using the `scfg.txt`
@@ -104,4 +120,17 @@ Configure ONT in which PON MODE<br>
 0x02 : EPON-BI10G
 0x01 : EPON-D10G
 0x00 : 1G EPON (HW not Supported)
+```
+
+---
+### CHAR-ARRAY CFG_ID_LOID
+Define LOID.
+Add the following line to `/userdata/scfg.txt`
+```
+CHAR-ARRAY CFG_ID_LOID = { 0xXX,0xXX,0xXX,0xXX, 0xXX,0xXX,0xXX,0xXX, 0xXX,0xXX,0xXX,0xXX, 0xXX,0xXX,0xXX,0xXX, 0xXX,0xXX,0xXX,0xXX, 0xXX,0xXX,0xXX,0xXX };
+```
+
+ For example, if the Loid like `0123456` ,
+```
+CHAR-ARRAY CFG_ID_LOID = { 0x30,0x31,0x32,0x33, 0x34,0x35,0x36,0x00, 0x00,0x00,0x00,0x00, 0x00,0x00,0x00,0x00, 0x00,0x00,0x00,0x00, 0x00,0x00,0x00,0x00 };
 ```

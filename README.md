@@ -33,7 +33,7 @@ The CIG XE-99S and CIG XG-99S (and OEM's) have the same hardware and can be swit
     - [XG-99x Config Command](/doc/XG-99x_Config.md)
     - LTF-726x-BH+ Config
 - [NAND dump](/NAND_dump)
-    - [mtd](/mtd)
+    - [mtd dump & Bricked Stick Repair](/mtd)
 
 # Picture
 
