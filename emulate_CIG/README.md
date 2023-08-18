@@ -11,7 +11,7 @@ The GponCLI binaries available on this page were extracted from FOG421.
 1. Install QEMU in Ubuntu 22.04.2<br>
 Install MIPS QEMU on Ubuntu with the following command.
 ```
-sudo apt-get install qemu-user
+sudo apt-get install qemu-user-static
 ```
 
 2. download and extract `GponCLI.tar.gz`<br>
