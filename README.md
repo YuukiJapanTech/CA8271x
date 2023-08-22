@@ -21,6 +21,11 @@ Some information has been created with the help of `@stich86_0046`. Thanks!
 
 The CIG XE-99S and CIG XG-99S (and OEM's) have the same hardware and can be switched by replacing the firmware.
 
+# Quick Start
+## XGS-PON
+For the quick start of XGS-PON, we are porting it to **[Hack-GPON.org](https://hack-gpon.org/xgs/ont-fs-XGS-ONU-25-20NI/)** !<br>
+This github deals with more advanced information about EPON and Stick.
+
 # Menu
 
 - [UART pin](/doc/UART.md)
