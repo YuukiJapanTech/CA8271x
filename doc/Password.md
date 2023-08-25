@@ -107,11 +107,11 @@ but, UART does not ask for a login, it is possible to get a root shell without k
 ## XE-99S
 
 This stick does not have a web console.<br>
-To configure it, you must log in via `UART` or `Telnet`.<br>
+To configure it, you must log in via `UART` or `Telnet` or `SSH`.<br>
 
 - UART Baud Rate : `115200 bps`
 - Telnet IP : `192.168.0.1:23`
 
 | User | Password |
 | --- | --- |
-| `root` | none |
+| `root` | none or `admin` |
