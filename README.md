@@ -65,7 +65,7 @@ This github deals with more advanced information about EPON and Stick.
 
 ### NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; (MITSUBISHI)
 
-![NTT 10G-EPON MITSUBISHI](/Picture/NTT/Stick.JPG)
+![NTT 10G-EPON MITSUBISHI](/Picture/MI_NTT/Stick.JPG)
 
 * * *
 
