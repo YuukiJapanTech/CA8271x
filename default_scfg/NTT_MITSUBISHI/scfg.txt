@@ -1,0 +1,27 @@
+#===== Customized Startup Configurations ========
+# This file contains default startup configuration values
+# specific to ASCI: Saturn - 8271A
+# Values in this field will overwrite values in /config/default_scfg.txt
+CHAR            CFG_ID_PON_REPORT_MODE                          = 0x05;
+INT             CFG_ID_EPON_ENCRYPTION_MODE                     = 0x3; ## 0: disabled; 1: AES_CTR; 2: AES_CFB; 3: MACSEC; 4: SW_CTC_CHURNING; 5: HW_CTC_CHURNING
+CHAR-ARRAY      CFG_ID_PHY_INTERFACE                            = {0x00,0x00,0x00,0x00,0x02,0x0C,0x0C}; ##eth_if_mode: GMII, RGMII, ...
+CHAR            CFG_ID_SIEPON_PACKAGE_B_GRT_PROTECTION_MODE     = 0;
+CHAR            CFG_ID_SIEPON_PACKAGE_B_GRT_PROTECTION_DYNAMIC_MODE  = 1;
+INT             CFG_ID_SIEPON_PACKAGE_B_PROTECTION_GRT_VAL      = 0x3FF;
+INT             CFG_ID_SIEPON_PACKAGE_B_MAX_GRT_VAL             = 0x61A8;    ## /* [STEP2M]Quick-010683,010745 0x1700->0x88BB->0x61A8 */
+INT             CFG_ID_SIEPON_PACKAGE_B_REPORT_LATENCY_ADJ      = 0x464;
+INT             CFG_ID_SIEPON_PACKAGE_B_PUC_PVTCFG              = 0x00280011; ##allow user to set PUC_PVTCFG;    /* [STEP2M]Quick-010683 0x00280010->0x00280011 */
+CHAR            CFG_ID_PON_UPSTREAM_USE_DEEP_QUEUE              = 1; ##0:DeepQueue not used; 1:used; 2: more setting on ARB WAN related;
+INT             CFG_ID_L2TE_PORT00_FREE_BUF_CNT                 = 0x3C900;
+INT             CFG_ID_SIEPON_B_DS_DQ_EQ_POOL1_START_ADDR       = 0x7CE0000;
+INT             CFG_ID_SIEPON_B_DS_DQ_EQ_POOL1_BUF_COUNT        = 800;
+INT             CFG_ID_SIEPON_B_US_DQ_EQ_POOL0_BID_START        = 2916;
+INT             CFG_ID_SIEPON_B_US_DQ_EQ_POOL1_BID_START        = 4874;
+CHAR-ARRAY      CFG_ID_UNI_CONNECTION                           = {0x00,0x00,0x00,0x01,0x01,0x01,0x00}; ##UNI port enable bit
+
+CHAR            CFG_ID_PON_LASER_ON_TIME                        = 0x08; ##Laser ON  time, unit: TQ
+CHAR            CFG_ID_PON_LASER_OFF_TIME                       = 0x08; ##Laser OFF time, unit: TQ
+
+MAC             CFG_ID_MAC_ADDRESS                              = ZZ:ZZ:ZZ:ZZ:ZZ:ZZ;    ##MAC addr in PON MAC
+MAC             CFG_ID_NE_MAC_ADDR0                             = ZZ:ZZ:ZZ:ZZ:ZZ:ZZ;    ##MAC address of NI interface 0
+MAC             CFG_ID_IPHOST_MAC_ADDRESS                       = ZZ:ZZ:ZZ:ZZ:ZZ:ZZ;    ##ONU iphost mac address
