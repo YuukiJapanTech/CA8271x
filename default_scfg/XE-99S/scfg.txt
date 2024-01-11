@@ -1,0 +1,21 @@
+#===== Customized Startup Configurations ========
+# This file contains default startup configuration values
+# specific to CTC
+# Values in this field will overwrite values in /config/default_scfg.txt
+
+MAC         CFG_ID_MAC_ADDRESS                  = 00:19:C7:00:00:00;
+MAC         CFG_ID_NE_MAC_ADDR0                 = 00:19:C7:00:00:00;
+CHAR        CFG_ID_PON_LLID_NUM                 = 0x01; ##EPON LLID num max support
+CHAR        CFG_ID_EN_REGISTER_AFTER_BOOT       = 0x01; ##0--Manual; 1--Auto; 2--OAM Based
+CHAR        CFG_ID_PON_REPORT_MODE              = 0x0;
+INT         CFG_ID_PUC_VOQBUFLIMIT_B            = 0x1000;
+INT         CFG_ID_PUC_VOQBUFLIMIT_C            = 0x1000;
+CHAR        CFG_ID_OAM_MODE                     = 0;#OAM mode: CTC-0, DPoE-1, KT-2...
+CHAR        CFG_ID_PON_REPORT_MODE              = 0;#Report mode, 2QS_8Q-0; 1QS_8Q-1;1QS_1Q-2;2QS_1Q-3;4QS_1Q-4;
+CHAR        CFG_ID_PON_LLID_MODE                = 0;#EPON, 0--single LLID mode; 1--multiple LLID mode
+CHAR        CFG_ID_PON_MAC_MODE                 = 0x02; #10G Down, 10G Up, EPON
+CHAR-ARRAY  CFG_ID_LOID                         = {0x4C,0x4F,0x49,0x44, 0x31,0x32,0x33,0x34, 0x35,0x36,0x37,0x38, 0x00,0x00,0x00,0x00, 0x00,0x00,0x00,0x00, 0x00,0x00,0x00,0x00};
+CHAR-ARRAY  CFG_ID_PASSWD                       = {0x41,0x42,0x43,0x44, 0x45,0x46,0x47,0x48, 0x49,0x4A,0x4B,0x4C};
+INT         CFG_ID_EPON_ENCRYPTION_MODE         = 0x5; ## 0: disabled; 1: AES_CTR; 2: AES_CFB; 3: MACSEC; 4: SW_CTC_CHURNING; 5: HW_CTC_CHURNING
+CHAR        CFG_ID_PON_BC_7FFF_TO_LLID_INDEX    = 0x3f; ##0x7fff/7ffe mapped to internal llid id 63; only 0x3f and 0x3e are valid value
+
