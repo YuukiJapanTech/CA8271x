@@ -32,7 +32,7 @@ tftp -r userdata.tar.gz -g tftp-server-ip
 tar -xvzf userdata.tar.gz -C /userdata
 ```
 
-5. Delete the transferred `userdata.bin`.
+5. Delete the transferred `userdata.tar.gz`.
 ```
 rm userdata.tar.gz
 ```
