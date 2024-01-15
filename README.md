@@ -5,6 +5,8 @@ Some information has been created with the help of `@stich86_0046`. Thanks!
 - Rewrite S/N, Loid, PLOAM, etc… for your ISP FTTx
 - Switch between 10GEPON and XGSPON.
 
+This content is maintained by reverse engineering by enthusiasts. Use of this content is at your own risk!
+
 # XGS-PON ONT
 
 | 10GE/XGS-PON ONT | Form | PON | SoC | OEM | Mgmt IP | Mgmt |
@@ -39,7 +41,14 @@ This github deals with more advanced information about EPON and Stick.
     - [XG-99x Config Command](/doc/XG-99x_Config.md)
     - LTF-726x-BH+ Config
 - [NAND dump](/NAND_dump)
+    - [Switch between XGS and 10GE](/XG-XE_Switch)
     - [mtd dump & Bricked Stick Repair](/mtd)
+
+# switches dependent
+
+- This Stick is reported to the SFP as an "unknown module". For this reason, some switches such as Alaxala will not link up. (i2c-0xA0 0x03 : 0x00)
+- This Stick has its own vendor name registered in the vendor information, so it will not link up on switches with vendor lock enabled.
+- Some switches may refuse to link up if the SFP LOS pin is High. In this case, fiber must be connected to the Stick.
 
 # Picture
 
