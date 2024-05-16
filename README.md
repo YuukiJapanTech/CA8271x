@@ -1,7 +1,5 @@
 # Hacking CA8271x XGS-PON Stick
 
-Some information has been created with the help of `@stich86_0046`. Thanks!
-
 - Rewrite S/N, Loid, PLOAM, etc… for your ISP FTTx
 - Switch between 10GEPON and XGSPON.
 
@@ -27,7 +25,14 @@ The CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be sw
 # Quick Start
 ## XGS-PON
 For the quick start of XGS-PON, we are porting it to **[Hack-GPON.org](https://hack-gpon.org/xgs/ont-fs-XGS-ONU-25-20NI/)** !<br>
-This github deals with more advanced information about EPON and Stick.
+
+## Quick script
+A useful script has been developed by [@rssor](https://github.com/rssor)
+[FS.com XGS-ONU-25-20NI / CIG XG-99S Modification Utility](https://github.com/rssor/fs_xgspon_mod)
+
+## xPON SFP ONU (RTL960x)
+The RLT960x hacking was carried out by [@anime4000](https://github.com/Anime4000) <br>
+For RTL960x xPON Hacking, checkout [@anime4000](https://github.com/Anime4000) on **[Hacking RTL960x](https://github.com/Anime4000/RTL960x)** !
 
 # Menu
 
@@ -39,10 +44,10 @@ This github deals with more advanced information about EPON and Stick.
     - [default scfg.txt dump](/default_scfg)
 - [ONT Configuration](/doc/Configuration.md)
     - [XG-99x Config Command](/doc/XG-99x_Config.md)
-    - LTF-726x-BH+ Config
 - [NAND dump](/NAND_dump)
     - [Switch between XGS and 10GE](/XG-XE_Switch)
     - [mtd dump & Bricked Stick Repair](/mtd)
+- [Picture](/ONT_Picture) 
 
 # switches dependent
 
@@ -50,31 +55,15 @@ This github deals with more advanced information about EPON and Stick.
 - This Stick has its own vendor name registered in the vendor information, so it will not link up on switches with vendor lock enabled.
 - Some switches may refuse to link up if the SFP LOS pin is High. In this case, fiber must be connected to the Stick.
 
-# Picture
+# cooperative worker
+Some information has been created with the help of :
+- [@stich86](https://github.com/stich86) 
+- [@missing233](https://github.com/missing233) 
+- [rssor](https://github.com/rssor)
 
-### FS XGS-ONU-25-20NI
+Thanks!
 
-![XGS-ONU-25-20NI Stick](/Picture/FSCOM_XGS-ONU-25-20NI/Stick.jpg)
 
-### CIG XE-99S
-
-![XE-99S Stick](/Picture/XE-99S/Stick.jpg)
-
-### ECIN EN-XGSFPP-OMAC
-
-![ECIN EN-XGSFPP-OMAC Stick](/Picture/ECIN_EN-XGSFPP-OMAC/Stick.jpg)
-
-### Hisense LTF-726x-BH+
-
-![LTF-726x-BH+ Stick](/Picture/LTF726x/Stick.jpg)
-
-### NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; (OKI)
-
-![NTT 10G-EPON OKI](/Picture/NTT/Stick.jpg)
-
-### NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; (MITSUBISHI)
-
-![NTT 10G-EPON MITSUBISHI](/Picture/MI_NTT/Stick.JPG)
 
 * * *
 
