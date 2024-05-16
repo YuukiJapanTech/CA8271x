@@ -131,7 +131,7 @@ For new CIG models (XGS-ONU-25-20NI, XE-99S, etc.), uboot can be accessed by sen
 RAW binaries can usually be sent using Teraterm Macro or PComm Terminal Emulator.
 [^1]: [@rssor](https://github.com/rssor) analysis revealed!
 
-### Preparing for restor
+### Restore Prepare
 Next, download Stick's mtd dump from [mtd dump](https://github.com/YuukiJapanTech/CA8271x/tree/main/mtd).
 or, prepare a backup of the mtd partition obtained beforehand.
 
