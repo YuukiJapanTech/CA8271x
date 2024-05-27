@@ -1,0 +1,16 @@
+#===== Customized Startup Configurations ========
+# This file contains default startup configuration values
+# specific to ASCI: Saturn - 8271S
+# Values in this field will overwrite values in /config/default_scfg.txt
+
+STRING          CFG_ID_PON_VENDOR_ID                            = HBAF;
+INT             CFG_ID_PON_VSSN                                 = 0x12345678;
+
+MAC             CFG_ID_MAC_ADDRESS                              = 10:39:4e:b5:dc:a5;
+MAC             CFG_ID_NE_MAC_ADDR0                              = 10:39:4e:b5:dc:a5;
+MAC             CFG_ID_NE_MAC_ADDR1                              = 10:39:4e:b5:dc:a6;
+CHAR            CFG_ID_PON_MAC_MODE                              = 0x05;
+
+STRING          CFG_ID_PON_OLT_TYPE                             = HUAWEI; ##GPON OLT Vendor name, support ZTE,ADTRAN,ALCL,CALIX,SUMITOMO,CORTINA,HUAWEI
+
+CHAR-ARRAY      CFG_ID_PHY_INTERFACE                            = {0x00,0x00,0x00,0x00,0x02,0x08,0x08}; ##eth_if_mode: GMII, RGMII, ...

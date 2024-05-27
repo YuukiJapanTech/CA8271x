@@ -70,6 +70,20 @@ To configure it, you must log in via `UART` or `SSH`.<br>
 | --- | --- |
 | `root` | `hbmtsfp` |
 
+## NATYWISH LTF-7267-BH+
+
+This stick have Telnet and web console. but, the login password to the web console is not known.<br>
+To configure it, you must log in via `UART` or `Telnet`.
+
+- UART Baud Rate : `115200 bps`
+- Telnet IP : `192.168.1.1:23`
+
+| Console | User | Password |
+| --- | --- | --- |
+| UART | `admin` | `hbmt521@` |
+| Telnet | `hbmt` | `hbmt521@` |
+| Web | ? | ? |
+
 ## XG-99M
 
 This ONT does not have a web console.<br>
