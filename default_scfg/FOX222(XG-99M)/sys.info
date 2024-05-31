@@ -1,0 +1,4 @@
+PRODUCT Type = sfu
+SS  Type     = sip
+DSP Type     = rtl
+WIFI Type    = nowifi
