@@ -14,8 +14,10 @@ This content is maintained by reverse engineering by enthusiasts. Use of this co
 | [ECIN EN-XGSFPP-OMAC-V1](https://ecin.ca/xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/)<br>***End of Sales*** | SFP+ | XGS | CA8271S | CIG XG-99S (old model) | 192.168.100.1 | UART/Telnet |
 | [ECIN EN-XGSFPP-OMAC-V2](https://ecin.ca/custom-xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/)<br>***Not CA8271x SoC*** | SFP+ | XGS | ***MxL PRX126*** | AZORES WAS-110 | 192.168.11.1 | Telnet/Web |
 | [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | SFP+ | XGS | CA8271S | CIG XG-99S | 192.168.100.1 | UART/Telnet |
-| [Hisense LTF-726x-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | 10GE/XGS? | CA8271S | -   | 192.168.0.1 | UART/SSH/Web |
-| NATYWISH LTF-7267-BH+ | SFP+ | XGS | CA8271S | Hisense LTF-7267-BH+ | 192.168.1.1 | UART/Telnet/Web |
+| [Hisense LTF-7263-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | 10GE (XGS, XG) | CA8271S | -   | 192.168.0.1 | UART/SSH/Web |
+| [Hisense LTF-7267-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | XGS, XG (10GE) | CA8271S | -   | 192.168.0.1 | UART/SSH/Web |
+| NATYWISH LTF-7267-BH+ | SFP+ | XGS | CA8271S | Hisense LTF-7267-BH+<br>(NATYWISH Custom Farm) | 192.168.1.1 | UART/Telnet/Web |
+| XGS800E | SFP+ | XGS, XG (10GE) | CA8271S | Hisense LTF-7267-BH+ | 192.168.0.1 | UART/Telnet/Web |
 | [CIG XG-99M](https://www.cigtech.com/product_portfolio/xg-99m/) | ONT | XGS | CA8271A | -   | 192.168.0.1 | UART/Telnet |
 | Frontier FOX222 | ONT | XGS | CA8271A | CIG XG-99M | 192.168.188.1 | UART |
 | NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | 10GE | NLD0605APB<br>(CA8271 OEM) | - | 192.168.1.1 | UART |

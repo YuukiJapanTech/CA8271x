@@ -66,9 +66,12 @@ To configure it, you must log in via `UART` or `SSH`.<br>
 - UART Baud Rate : `115200 bps`
 - SSH IP : `192.168.0.1:22`
 
-| User | Password |
-| --- | --- |
-| `root` | `hbmtsfp` |
+| Console | User | Password |
+| --- | --- | --- |
+| UART | `root` | `hbmtsfp` |
+| Telnet | `root` | `hbmtsfp` |
+| Web (Admin) | `admin` | `system` |
+| Web (User) | `user` | `user` |
 
 ## NATYWISH LTF-7267-BH+
 

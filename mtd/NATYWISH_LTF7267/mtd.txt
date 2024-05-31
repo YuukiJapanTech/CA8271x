@@ -1,8 +1,0 @@
-Creating 7 MTD partitions on "spi0.0":
-0x000000000000-0x000000400000 : "ssb"
-0x000000400000-0x000000500000 : "uboot-env"
-0x000000500000-0x000000f00000 : "KernelA"
-0x000000f00000-0x000003200000 : "RootfsA" mtd: device 3 (RootfsA) set to be root filesystem
-0x000003200000-0x000003c00000 : "KernelB"
-0x000003c00000-0x000005f00000 : "RootfsB"
-0x000005f00000-0x000007b00000 : "Userdata"
