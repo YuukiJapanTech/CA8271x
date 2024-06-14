@@ -19,6 +19,7 @@ This content is maintained by reverse engineering by enthusiasts. Use of this co
 | NATYWISH LTF-7267-BH+ | SFP+ | XGS | CA8271S | Hisense LTF-7267-BH+<br>(NATYWISH Custom Farm) | 192.168.1.1 | UART/Telnet/Web |
 | XGS800E | SFP+ | XGS, XG (10GE) | CA8271S | Hisense LTF-7267-BH+ | 192.168.0.1 | UART/Telnet/Web |
 | [CIG XG-99M](https://www.cigtech.com/product_portfolio/xg-99m/) | ONT | XGS | CA8271A | -   | 192.168.0.1 | UART/Telnet |
+| [Nokia XS-010X-Q](https://hack-gpon.org/xgs/ont-nokia-xs-010x-q/) | ONT | XGS | CA8271A | CIG XG-99YF | 192.168.100.1 | UART/Telnet/SSH/Web |
 | Frontier FOX222 | ONT | XGS | CA8271A | CIG XG-99M | 192.168.188.1 | UART |
 | NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | 10GE | NLD0605APB<br>(CA8271 OEM) | - | 192.168.1.1 | UART |
 | NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | ONT | 10GE | NLD0605APB<br>(CA8271 OEM) | - | 192.168.1.1 | UART |
