@@ -99,7 +99,7 @@ Warning: Bad CRC, using default environment
  
  - **XE-99S -> XG-99S ( Change to XGS-PON mode )**
 ```
-partenv='setenv partitions ca_spinand_flash:4M@0x0(ssb),1M(uboot-env),1M(dtb${active_part}),6M(kernel${active_part}),40M(rootfs${active_part}),1M(dtb${standby_part}),6M(kernel${standby_part}),40M(rootfs${standby_part}),20M(userdata),1M(mfginfo1),1M(mfginfo2),1M(uboot-env2)
+partenv='setenv partitions ca_spinand_flash:4M@0x0(ssb),1M(uboot-env),1M(dtb${active_part}),6M(kernel${active_part}),40M(rootfs${active_part}),1M(dtb${standby_part}),6M(kernel${standby_part}),40M(rootfs${standby_part}),20M(userdata),1M(mfginfo1),1M(mfginfo2),1M(uboot-env2)'
 argsenv='ubi.mtd=rootfs0 root=/dev/mtdblock12 rootfstype=squashfs'
 fw_setenv setpartlayout $partenv
 fw_setenv more_args $argsenv
@@ -111,9 +111,8 @@ partenv='setenv partitions ${flash_id}:4M@0x0(ssb),1M(uboot-env),1M(dtb${active_
 argsenv='ubi.mtd=rootfs0 root=/dev/mtdblock11 rootfstype=squashfs'
 fw_setenv setpartlayout $partenv
 fw_setenv more_args $argsenv
+fw_setenv flash_id ca_spinand_flash
 ```
-
-
 
 11. reboot
 ```
