@@ -4,6 +4,10 @@
 
 ![XGS-ONU-25-20NI Stick](/Picture/FSCOM_XGS-ONU-25-20NI/Stick.jpg)
 
+### CIG XG-99S (New model)
+
+![XG-99S Stick](/Picture/XG-99S/Stick.jpg)
+
 ### CIG XE-99S (New model)
 
 ![XE-99S Stick](/Picture/XE-99S/Stick.jpg)
