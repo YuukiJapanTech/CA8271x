@@ -8,6 +8,10 @@
 
 ![XE-99S Stick](/Picture/XE-99S/Stick.jpg)
 
+### Nokia XS-010S-Q (CIG old model)
+
+![Nokia XS-010S-Q Stick](/Picture/NOKIA_XS-010S-Q/Stick.jpg)
+
 ### ECIN EN-XGSFPP-OMAC (CIG old model)
 
 ![ECIN EN-XGSFPP-OMAC Stick](/Picture/ECIN_EN-XGSFPP-OMAC/Stick.jpg)
