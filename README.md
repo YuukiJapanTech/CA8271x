@@ -11,6 +11,7 @@ This content is maintained by reverse engineering by enthusiasts. Use of this co
 | --- | --- | --- | --- | --- | --- | --- |
 | [CIG XG-99S](https://www.cigtech.com/product_portfolio/xg-99x-3/) | SFP+ | XGS | CA8271S | -   | 192.168.100.1 | UART/Telnet |
 | [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SFP+ | 10GE | CA8271S | -   | 192.168.0.1 | UART/Telnet/SSH |
+| Nokia XS-010S-Q | SFP+ | XGS | CA8271S | CIG XG-99S (old model) | 192.168.100.1 | UART/Telnet |
 | [ECIN EN-XGSFPP-OMAC-V1](https://ecin.ca/xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/)<br>***End of Sales*** | SFP+ | XGS | CA8271S | CIG XG-99S (old model) | 192.168.100.1 | UART/Telnet |
 | [ECIN EN-XGSFPP-OMAC-V2](https://ecin.ca/custom-xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/)<br>***Not CA8271x SoC*** | SFP+ | XGS | ***MxL PRX126*** | AZORES WAS-110 | 192.168.11.1 | Telnet/Web |
 | [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | SFP+ | XGS | CA8271S | CIG XG-99S | 192.168.100.1 | UART/Telnet |
