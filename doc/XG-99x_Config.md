@@ -165,7 +165,7 @@ The following values can be used for set values:
 0x07 : ETHERNET
 0x06 : NGPON (HW not Supported)
 0x05 : XGSPON
-0x04 : XGPON (HW not Supported)
+0x04 : XGPON
 0x03 : GPON (HW not Supported)
 0x02 : EPON-BI10G (10G/10G)
 0x01 : EPON-D10G (10G/1G)
