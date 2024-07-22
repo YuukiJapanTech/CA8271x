@@ -12,6 +12,10 @@
 
 ![XE-99S Stick](/Picture/XE-99S/Stick.jpg)
 
+### CIG XE-99S (Old model)
+
+![XE-99S Stick_old_model](/Picture/XE-99S/Stick_old_model.jpg)
+
 ### Nokia XS-010S-Q (CIG old model)
 
 ![Nokia XS-010S-Q Stick](/Picture/NOKIA_XS-010S-Q/Stick.jpg)
