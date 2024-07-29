@@ -17,7 +17,7 @@ This content is maintained by reverse engineering by enthusiasts. Use of this co
 | [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | SFP+ | XGS, XG | CA8271S | CIG XG-99S | 192.168.100.1 | UART/Telnet |
 | [Hisense LTF-7263-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | 10GE (XGS, XG) | CA8271S | -   | 192.168.0.1 | UART/SSH/Web |
 | [Hisense LTF-7267-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | XGS, XG (10GE) | CA8271S | -   | 192.168.0.1 | UART/SSH/Web |
-| NATYWISH LTF-7267-BH+ | SFP+ | XGS | CA8271S | Hisense LTF-7267-BH+<br>(NATYWISH Custom Farm) | 192.168.1.1 | UART/Telnet/Web |
+| NATYWISH LTF-7267-BH+ | SFP+ | XGS, XG | CA8271S | Hisense LTF-7267-BH+<br>(NATYWISH Custom Farm) | 192.168.1.1 | UART/Telnet/Web |
 | XGS800E | SFP+ | XGS, XG (10GE) | CA8271S | Hisense LTF-7267-BH+ | 192.168.0.1 | UART/Telnet/Web |
 | [CIG XG-99M](https://www.cigtech.com/product_portfolio/xg-99m/) | ONT | XGS | CA8271A | -   | 192.168.0.1 | UART/Telnet |
 | [Nokia XS-010X-Q](https://hack-gpon.org/xgs/ont-nokia-xs-010x-q/) | ONT | XGS | CA8271A | CIG XG-99YF | 192.168.100.1 | UART/Telnet/SSH/Web |
