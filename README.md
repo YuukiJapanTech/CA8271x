@@ -41,7 +41,7 @@
     * [XG-99x Config Command](/doc/XG-99x_Config.md)
 3. Firmware Modify & Reaper
     * [Dump images & Bricked Stick Repair](/mtd/README.md)
-    * [Switch between XGS and 10GE](/XG-XE_Switch/README.md)
+    * [Switch between XGS and 10GE](/XG-XE_Switch/)
     * [UART pin](/doc/UART.md)
 4. Device & SoC info
     * [ONT devices Picture](/ONT_Picture/README.md)

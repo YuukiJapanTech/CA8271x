@@ -2,18 +2,18 @@
 This dump images can be used to repair bricked sticks, replace firmware, switch between XGS-PON and 10GE-PON, etc.
 
 ## Mtd dump files and partition list
-* [CIG XE-99S](/mtd/CIG_XE-99S/README.md)
-* [CIG XG-99C](/mtd/CIG_XG-99C/README.md)
-* [CIG XG-99M](/mtd/CIG_XG-99M/README.md)
-* [ECIN EN-XGSFPP-OMAC](/mtd/ECIN_EN-XGSFPP-OMAC/README.md)
-* [FS XGS-ONU-25-20NI](/mtd/FS_XGS-ONU-25-20NI/README.md)
-* [Hisense LTF-7263-BH+](/mtd/LTF7263/README.md)
-* [NATYWISH LTF-7267-BH+](/mtd/NATYWISH_LTF7267/README.md)
-* [NOKIA XS-010X-Q](/mtd/NOKIA_XS-010X-Q/README.md)
-* [XGS800E](/mtd/XGS800E/README.md)
-* [NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt;](/mtd/NTT_OCONU4/README.md)
-* [NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; (Hardware v1)](/mtd/NTT_MCONU4_HWVer01/README.md)
-* [NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; (Hardware v2)](/mtd/NTT_MCONU4_HWVer02/README.md)
+* [CIG XE-99S](/mtd/CIG_XE-99S/)
+* [CIG XG-99C](/mtd/CIG_XG-99C/)
+* [CIG XG-99M](/mtd/CIG_XG-99M/)
+* [ECIN EN-XGSFPP-OMAC](/mtd/ECIN_EN-XGSFPP-OMAC/)
+* [FS XGS-ONU-25-20NI](/mtd/FS_XGS-ONU-25-20NI/)
+* [Hisense LTF-7263-BH+](/mtd/LTF7263/)
+* [NATYWISH LTF-7267-BH+](/mtd/NATYWISH_LTF7267/)
+* [NOKIA XS-010X-Q](/mtd/NOKIA_XS-010X-Q/)
+* [XGS800E](/mtd/XGS800E/)
+* [NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt;](/mtd/NTT_OCONU4/)
+* [NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; (Hardware v1)](/mtd/NTT_MCONU4_HWVer01/)
+* [NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; (Hardware v2)](/mtd/NTT_MCONU4_HWVer02/)
 
 ## How to dump / write firmware from a Linux shell
 To obtain a dump, use the `dd` command to save it on `/tmp`,

@@ -26,7 +26,7 @@ It is strongly recommended to backup all partitions before proceeding.<br>
 > If Stick bricked, repair according to [mtd dump & Bricked Stick Repair](/mtd#bricked-stick-repair) <br>
 
 1. Download the firmware to be switched from [Switch between XGS and 10GE](/XG-XE_Switch) and place it on the tftp server.
-> [!INFO]
+> [!NOTE]
 > When using this firmware image, the GPON Sirial Number / EPON MAC Address will be :
 > - XG-99S GPON Sirial Number : `GPON2350004b`
 > - XG-99S Login Password : `UzwugGYT`
