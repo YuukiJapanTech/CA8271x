@@ -20,10 +20,17 @@ To switch between XG-99S and XE-99S, replace the following partition, file and c
 ## Procedure
 To prevent crashes due to exhaustion of tmpfs, the following procedure is recommended. 
 It is strongly recommended to backup all partitions before proceeding.<br>
-***Never disconnect power to the Stick while the partition is being written. Otherwise the Stick will brick.***<br>
-If Stick bricked, repair according to [mtd dump & Bricked Stick Repair](/mtd#bricked-stick-repair) <br>
+> [!WARNING]
+> ***Never disconnect power to the Stick while the partition is being written. Otherwise the Stick will brick.***
+> 
+> If Stick bricked, repair according to [mtd dump & Bricked Stick Repair](/mtd#bricked-stick-repair) <br>
 
 1. Download the firmware to be switched from [Switch between XGS and 10GE](/XG-XE_Switch) and place it on the tftp server.
+> [!INFO]
+> When using this firmware image, the GPON Sirial Number / EPON MAC Address will be :
+> - XG-99S GPON Sirial Number : `GPON2350004b`
+> - XG-99S Login Password : `UzwugGYT`
+> - XE-99S MAC Address : `CC:CF:83:59:FF:F8`
 
 2. Log into the Stick root shell and go to `/tmp`.
 

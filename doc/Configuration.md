@@ -35,5 +35,4 @@ The following link summarizes  XG-99x series ONT configuration.
 ## LTF-726x-BH+
 LTF-726x-BH+ series ONT uses scfg.txt file for configuration.
 
-The following link summarizes  XG-99x series ONT configuration.
-- Link
+

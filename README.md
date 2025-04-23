@@ -1,78 +1,92 @@
-# Hacking CA8271x XGS-PON Stick
+# Hacking CA8271x and CA8289x XGS-PON/10GE-PON ONT
 
 - Rewrite S/N, Loid, PLOAM, etc… for your ISP FTTx
-- Switch between 10GEPON and XGSPON.
+- Switch between 10GEPON and XGS-PON.
 
-This content is maintained by reverse engineering by enthusiasts. Use of this content is at your own risk!
+> [!CAUTION]
+> Use of this content is at your own risk!
+> * This content is maintained by reverse engineering by enthusiasts.
+> * If ISP service is suspended due to modified ONT connected, you may be subject to punishment under the laws of your country.
+> * The creator of this content assumes no responsibility for any problems that may arise from this content.
 
-# XGS-PON ONT
+# CA8271 / CA8289 SoC ONT
+| Device | Form | SoC | PON | Mode | OEM | Mgmt IP | Mgmt |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [CIG XG-99S](https://www.cigtech.com/product_portfolio/xg-99x-3/) | SFP+ | CA8271S | XGS | PPTP | -   | 192.168.100.1 | UART/Telnet |
+| [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SFP+ | CA8271S | 10GE | SFU EPON | -   | 192.168.0.1 | UART/Telnet/SSH |
+| [ECIN EN-XGSFPP-OMAC-V1](https://ecin.ca/xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/)<br>***End of Sales*** | SFP+ | CA8271S | XGS | PPTP | CIG XG-99S (old model) | 192.168.100.1 | UART/Telnet |
+| [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | SFP+ | CA8271S | XGS | PPTP | CIG XG-99S | 192.168.100.1 | UART/Telnet |
+| [Hisense LTF-7263-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | CA8271S | 10GE | SFU EPON | - | 192.168.0.1 | UART/SSH/Web |
+| [Hisense LTF-7267-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | CA8271S | XGS, XG | PPTP | - | 192.168.0.1 | UART/SSH/Web |
+| NATYWISH LTF-7267-BH+ | SFP+ | CA8271S | XGS | PPTP | Hisense LTF-7267-BH+<br>(NATYWISH Custom Farm) | 192.168.1.1 | UART/Telnet/Web |
+| XGS800E | SFP+ | CA8271S | XGS, XG | PPTP | Hisense LTF-7267-BH+ | 192.168.0.1 | UART/Telnet/Web |
+| [CIG XG-99M](https://www.cigtech.com/product_portfolio/xg-99m/) | ONT | CA8271A | XGS | PPTP | - | 192.168.0.1 | UART/Telnet |
+| Frontier FOX222 | ONT | CA8271A | XGS | PPTP | CIG XG-99M | 192.168.188.1 | UART |
+| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON | - | 192.168.1.1 | UART |
+| NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON | - | 192.168.1.1 | UART |
+| HOSECOM X67S | ONT | RTL9615C (CA8289 OEM) | XGS, XG | PPTP/VEIP | - | 192.168.1.1 | UART/Telnet/SSH/Web |
+| NEC BL3000HM | HGU | CA8289 | 10GE | HGU EPON | - | 192.168.0.1 | Web |
 
-| 10GE/XGS-PON ONT | Form | PON | SoC | OEM | Mgmt IP | Mgmt |
-| --- | --- | --- | --- | --- | --- | --- |
-| [CIG XG-99S](https://www.cigtech.com/product_portfolio/xg-99x-3/) | SFP+ | XGS | CA8271S | -   | 192.168.100.1 | UART/Telnet |
-| [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SFP+ | 10GE | CA8271S | -   | 192.168.0.1 | UART/Telnet/SSH |
-| [ECIN EN-XGSFPP-OMAC-V1](https://ecin.ca/xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/)<br>***End of Sales*** | SFP+ | XGS | CA8271S | CIG XG-99S (old model) | 192.168.100.1 | UART/Telnet |
-| [ECIN EN-XGSFPP-OMAC-V2](https://ecin.ca/custom-xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/)<br>***Not CA8271x SoC*** | SFP+ | XGS | ***MxL PRX126*** | AZORES WAS-110 | 192.168.11.1 | Telnet/Web |
-| [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | SFP+ | XGS | CA8271S | CIG XG-99S | 192.168.100.1 | UART/Telnet |
-| [Hisense LTF-7263-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | 10GE (XGS, XG) | CA8271S | -   | 192.168.0.1 | UART/SSH/Web |
-| [Hisense LTF-7267-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | XGS, XG (10GE) | CA8271S | -   | 192.168.0.1 | UART/SSH/Web |
-| NATYWISH LTF-7267-BH+ | SFP+ | XGS | CA8271S | Hisense LTF-7267-BH+<br>(NATYWISH Custom Farm) | 192.168.1.1 | UART/Telnet/Web |
-| XGS800E | SFP+ | XGS, XG (10GE) | CA8271S | Hisense LTF-7267-BH+ | 192.168.0.1 | UART/Telnet/Web |
-| [CIG XG-99M](https://www.cigtech.com/product_portfolio/xg-99m/) | ONT | XGS | CA8271A | -   | 192.168.0.1 | UART/Telnet |
-| [Nokia XS-010X-Q](https://hack-gpon.org/xgs/ont-nokia-xs-010x-q/) | ONT | XGS | CA8271A | CIG XG-99YF | 192.168.100.1 | UART/Telnet/SSH/Web |
-| Frontier FOX222 | ONT | XGS | CA8271A | CIG XG-99M | 192.168.188.1 | UART |
-| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | 10GE | NLD0605APB<br>(CA8271 OEM) | - | 192.168.1.1 | UART |
-| NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | ONT | 10GE | NLD0605APB<br>(CA8271 OEM) | - | 192.168.1.1 | UART |
+> [!TIP]
+> The CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
 
-The CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
+# Gide, Info
+1. Shell access
+    * [How to get root CLI & root Shell](/doc/rootShell.md)
+    * [ONT Login Password](/doc/Password.md)
+    * [emulate CIG ONT in QEMU](/emulate_CIG/README.md)
+2. Configration
+    * [ONT scfg.txt files (CORTINA SoC Configuration file)](/doc/scfg_files.md)
+      * [default scfg.txt dump](/default_scfg)
+    * [XG-99x Config Command](/doc/XG-99x_Config.md)
+3. Firmware Modify & Reaper
+    * [Dump images & Bricked Stick Repair](/mtd/README.md)
+    * [Switch between XGS and 10GE](/XG-XE_Switch/README.md)
+    * [UART pin](/doc/UART.md)
+4. Device & SoC info
+    * [ONT devices Picture](/ONT_Picture/README.md)
 
-# Quick Start
-## XGS-PON
-For the quick start of XGS-PON, we are porting it to **[Hack-GPON.org](https://hack-gpon.org/xgs/ont-fs-XGS-ONU-25-20NI/)** !<br>
+> [!NOTE]
+> Hardware dependent.
+> * This Stick is reported to the SFP as an "unknown module". For this reason, some switches such as Alaxala will not link up. (i2c-0xA0 0x03 : 0x00)
+> * This Stick has its own vendor name registered in the vendor information, so it will not link up on switches with vendor lock enabled.
+> * Some switches may refuse to link up if the SFP LOS pin is High. In this case, fiber must be connected to the Stick.
 
-## Quick script
-A useful script has been developed by [@rssor](https://github.com/rssor)
-[FS.com XGS-ONU-25-20NI / CIG XG-99S Modification Utility](https://github.com/rssor/fs_xgspon_mod)
+# CA8271-SoC vs CA8289-SoC
+| SoC | CPU | Applications |
+| --- | --- | --- |
+| CA8271 | MIPS R3000 | This is an SoC optimized for SFU ONTs, providing the minimum PHY ports required for a bridge device, and the CPU uses the power-efficient MIPS architecture. |
+| CA8289 | AArch64 Cortex-A55 | This SoC is optimized for HGU ONT, equipped with PHY for connecting multiple LAN devices, USB3.0, and PCIe for connecting WiFi SoC. The CPU uses high-performance ARM architecture. |
 
-## xPON SFP ONU (RTL960x)
-The RLT960x hacking was carried out by [@anime4000](https://github.com/Anime4000) <br>
-For RTL960x xPON Hacking, checkout [@anime4000](https://github.com/Anime4000) on **[Hacking RTL960x](https://github.com/Anime4000/RTL960x)** !
+# OEM SoC family and CodeName
+| SoC | family | CodeName | OEM Vendor | Applications |
+| --- | --- |--- | --- | --- |
+| CA8271A | CA8271 | SATURN | CORTINA | Cable TV RF / PON SFU ONT |
+| CA8271S | CA8271 | SATURN | CORTINA | SFP+ ONT Stick |
+| NLD0605APB | CA8271 | SATURN2 | NTT Electronics | NTT-East/West 10GE-PON ONU in japan
+| CA8289 | CA8289 | VENUS | CORTINA | PON HGU ONT |
+| RTL9615C | CA8289 | TAURUS | Realtek | Realtek XG/XGS PON ONT |
 
-## AZORES WAS-110 (MxL PRX126)
-The RLT960x hacking was carried out by 8311 community.<br>
-For WAS-110 Hacking, checkout **[PON dot WIKI](https://pon.wiki/category/was-110/)** !
-
-# Menu
-
-- [UART pin](/doc/UART.md)
-- [ONT Login Password](/doc/Password.md)
-    - [emulate CIG ONT in QEMU](/emulate_CIG)
-- [How to get root CLI & root Shell](/doc/rootShell.md)
-- [ONT scfg.txt files (CORTINA SoC Configuration file)](/doc/scfg_files.md)
-    - [default scfg.txt dump](/default_scfg)
-- [ONT Configuration](/doc/Configuration.md)
-    - [XG-99x Config Command](/doc/XG-99x_Config.md)
-- [NAND dump](/NAND_dump)
-    - [Switch between XGS and 10GE](/XG-XE_Switch)
-    - [mtd dump & Bricked Stick Repair](/mtd)
-- [Picture](/ONT_Picture) 
-
-# switches dependent
-
-- This Stick is reported to the SFP as an "unknown module". For this reason, some switches such as Alaxala will not link up. (i2c-0xA0 0x03 : 0x00)
-- This Stick has its own vendor name registered in the vendor information, so it will not link up on switches with vendor lock enabled.
-- Some switches may refuse to link up if the SFP LOS pin is High. In this case, fiber must be connected to the Stick.
+# Links
+* XGS-PON quick start
+    For the quick start of XGS-PON.
+    * **[Hack-GPON.org](https://hack-gpon.org/xgs/ont-fs-XGS-ONU-25-20NI/)**
+* Quick script
+    A useful script has been developed by [@rssor](https://github.com/rssor)
+    * **[FS.com XGS-ONU-25-20NI / CIG XG-99S Modification Utility](https://github.com/rssor/fs_xgspon_mod)**
+* xPON SFP ONU (RTL960x)
+    The RLT960x hacking was carried out by [@anime4000](https://github.com/Anime4000)
+    * **[Hacking RTL960x](https://github.com/Anime4000/RTL960x)**
+* AZORES WAS-110 (MxL PRX126)
+    The WAS-110 hacking was carried out by 8311 community.
+    * **[PON dot WIKI](https://pon.wiki/category/was-110/)**
 
 # Collaborator
 Some information has been created with the help of :
-- [@stich86](https://github.com/stich86) 
-- [@missing233](https://github.com/missing233) 
-- [rssor](https://github.com/rssor)
+* [@stich86](https://github.com/stich86) 
+* [@missing233](https://github.com/missing233) 
+* [rssor](https://github.com/rssor)
 
 Thanks!
 
-
-
 * * *
-
-# This document is a work in progress. More updates will follow.
