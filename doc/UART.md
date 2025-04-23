@@ -50,7 +50,7 @@ RX : `7 pin`<br>
 
 Some Sticks will show an extra log echo, which must be suppressed by rewriting mtd2 and mtd5 (dtb0, dtb1)
 
-## XG-99M
+## XG-99M, Nokia XS-010X-Q
 This ONT has UART pins mounted on the board.
 
 Signal level is `3.3V TTL`<br>
