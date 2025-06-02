@@ -22,10 +22,10 @@
 | XGS800E | SFP+ | CA8271S | XGS, XG | PPTP | Hisense LTF-7267-BH+ | 192.168.0.1 | UART/Telnet/Web |
 | [CIG XG-99M](https://www.cigtech.com/product_portfolio/xg-99m/) | ONT | CA8271A | XGS | PPTP | - | 192.168.0.1 | UART/Telnet |
 | Frontier FOX222 | ONT | CA8271A | XGS | PPTP | CIG XG-99M | 192.168.188.1 | UART |
-| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON | - | 192.168.1.1 | UART |
-| NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON | - | 192.168.1.1 | UART |
-| HOSECOM X67S | ONT | RTL9615C (CA8289 OEM) | XGS, XG | PPTP/VEIP | - | 192.168.1.1 | UART/Telnet/SSH/Web |
-| NEC BL3000HM | HGU | CA8289 | 10GE | HGU EPON | - | 192.168.0.1 | UART/Telnet/Web |
+| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON<br>(SIEPON-B) | - | 192.168.1.1 | UART |
+| NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON<br>(SIEPON-B) | - | 192.168.1.1 | UART |
+| HOSECOM X67S | ONT | RTL9615C (CA8289 Customize) | XGS, XG | PPTP/VEIP | - | 192.168.1.1 | UART/Telnet/SSH/Web |
+| NEC BL3000HM | HGU | CA8289 | 10GE | HGU EPON<br>(SIEPON-C) | - | 192.168.0.1 | UART/Telnet/Web |
 
 > [!TIP]
 > The CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
@@ -52,11 +52,12 @@
 > * This Stick has its own vendor name registered in the vendor information, so it will not link up on switches with vendor lock enabled.
 > * Some switches may refuse to link up if the SFP LOS pin is High. In this case, fiber must be connected to the Stick.
 
-# CA8271-SoC vs CA8289-SoC
+# CA8271-SoC vs CA8289-SoC vs RTL9615C
 | SoC | CPU | Applications |
 | --- | --- | --- |
 | CA8271 | MIPS R3000 | This is an SoC optimized for SFU ONTs, providing the minimum PHY ports required for a bridge device, and the CPU uses the power-efficient MIPS architecture. |
-| CA8289 | AArch64 Cortex-A55 | This SoC is optimized for HGU ONT, equipped with PHY for connecting multiple LAN devices, USB3.0, and PCIe for connecting WiFi SoC. The CPU uses high-performance ARM architecture. |
+| CA8289 | AArch64 Cortex-A55</br>4 Cores | This SoC is optimized for HGU ONT, equipped with PHY for connecting multiple LAN devices, USB3.0, and PCIe for connecting WiFi SoC. The CPU uses high-performance ARM architecture. |
+| RTL9615C | AArch64 Cortex-A55</br>2 Cores | This SoC is a low-cost version customized based on the CA8289. The ARM core and memory channels are halved, and the interfaces are two XFIs and one 1G LAN. USB and PCIe are probably omitted. |
 
 # OEM SoC family and CodeName
 | SoC | family | CodeName | OEM Vendor | Applications |
@@ -65,7 +66,7 @@
 | CA8271S | CA8271 | SATURN | CORTINA | SFP+ ONT Stick |
 | NLD0605APB | CA8271 | SATURN2 | NTT Electronics | NTT-East/West 10GE-PON ONU in japan
 | CA8289 | CA8289 | VENUS | CORTINA | PON HGU ONT |
-| RTL9615C | CA8289 | TAURUS | Realtek | Realtek XG/XGS PON ONT |
+| RTL9615C | CA8289 base | TAURUS | Realtek | Realtek XG/XGS PON ONT |
 
 # Links
 * XGS-PON quick start
