@@ -56,7 +56,7 @@
 > * Some switches may refuse to link up if the SFP LOS pin is High. In this case, fiber must be connected to the Stick.
 
 # CA8271-SoC vs CA8289-SoC vs RTL9615C
-| SoC | CPU | Applications |
+| family | CPU | Applications |
 | --- | --- | --- |
 | CA8271 | MIPS R3000 | This is an SoC optimized for SFU ONTs, providing the minimum PHY ports required for a bridge device, and the CPU uses the power-efficient MIPS architecture. |
 | CA8289 | AArch64 Cortex-A55</br>4 Cores | This SoC is optimized for HGU ONT, equipped with PHY for connecting multiple LAN devices, USB3.0, and PCIe for connecting WiFi SoC. The CPU uses high-performance ARM architecture. |
