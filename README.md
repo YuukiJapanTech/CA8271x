@@ -26,6 +26,9 @@
 | NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON<br>(SIEPON-B) | - | 192.168.1.1 | UART |
 | HOSECOM X67S | ONT | RTL9615C (CA8289 Customize) | XGS, XG | PPTP/VEIP | - | 192.168.1.1 | UART/Telnet/SSH/Web |
 | NEC BL3000HM | HGU | CA8289 | 10GE | HGU EPON<br>(SIEPON-C) | - | 192.168.0.1 | UART/Telnet/Web |
+| [Nokia XS-2426X-A](https://device.report/m/0d8026c89c07e6bfca963368c018fd8b4ca689ef2bcf32f56794b3ab2b78b119/) | HGU | CA8289 | XGS | PPTP/VEIP | - | ? | Web |
+| [Nokia XS-2426G-B](https://fcc.report/FCC-ID/2ADZRXS2426GB/5593067.pdf) | HGU | CA8289 | XGS | PPTP/VEIP | - | ? | Web |
+| [Nokia WiFi Beacon G6](https://device.report/m/89a7e8e644b326c7030274954d16a3452c2f5c2d0792383bb53eae670b3cae78/) | AP | CA8289 | - | - | - | ? | ? |
 
 > [!TIP]
 > The CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
