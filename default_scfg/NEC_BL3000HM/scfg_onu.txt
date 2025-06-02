@@ -1,0 +1,9 @@
+#===== Customized Startup Configurations ========
+# Values in this file will overwrite default values.
+CHAR	    	 CFG_ID_NECPF_ONU_MODE	     = 1;					## HGU mode:0, ONU mode:1
+CHAR		 CFG_ID_DATAPATH_MODE	     = 1;					# 0 = R/G mode, 1 =# bridge mode
+INT-ARRAY	 CFG_ID_FLOODING_DOMAIN_1    = {0, 1, 2, 3, 0xFF, 0x11, 0x06, 7};
+INT-ARRAY	 CFG_ID_DOMAIN_1_MEMBERS     = {0, 1, 2, 3, 4, 6, 17, 7};		##member ports for default VLAN
+CHAR-ARRAY	 CFG_ID_L2FE_CLS_PORT_ENTRY_NUM = {0,0,0,0,0,0,32,32,0,0,0,0,0,0,0,0,32,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+CHAR-ARRAY	 CFG_ID_UNI_CONNECTION       = {0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x1};
+CHAR-ARRAY	 CFG_ID_NE_INTF_PORTS1       = {0x06, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};

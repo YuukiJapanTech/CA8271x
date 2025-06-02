@@ -25,7 +25,7 @@
 | NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON | - | 192.168.1.1 | UART |
 | NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON | - | 192.168.1.1 | UART |
 | HOSECOM X67S | ONT | RTL9615C (CA8289 OEM) | XGS, XG | PPTP/VEIP | - | 192.168.1.1 | UART/Telnet/SSH/Web |
-| NEC BL3000HM | HGU | CA8289 | 10GE | HGU EPON | - | 192.168.0.1 | Web |
+| NEC BL3000HM | HGU | CA8289 | 10GE | HGU EPON | - | 192.168.0.1 | UART/Telnet/Web |
 
 > [!TIP]
 > The CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
