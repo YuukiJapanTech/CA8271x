@@ -1,0 +1,516 @@
+/dts-v1/;
+
+/ {
+	compatible = "rtk,sheipa";
+	#address-cells = <0x01>;
+	#size-cells = <0x01>;
+	model = "Cortina Access Saturn SFP+";
+
+	cpus {
+		#address-cells = <0x01>;
+		#size-cells = <0x00>;
+
+		cpu@0 {
+			compatible = "mips,mips24KEc";
+		};
+	};
+
+	cpuintc@0 {
+		#address-cells = <0x00>;
+		#interrupt-cells = <0x01>;
+		interrupt-controller;
+		compatible = "mti,cpu-interrupt-controller";
+		linux,phandle = <0x01>;
+		phandle = <0x01>;
+	};
+
+	vecintc@0 {
+		#address-cells = <0x00>;
+		#interrupt-cells = <0x01>;
+		interrupt-controller;
+		compatible = "cortina,vec-interrupt-controller";
+		linux,phandle = <0x03>;
+		phandle = <0x03>;
+	};
+
+	io_clk {
+		compatible = "fixed-clock";
+		#clock-cells = <0x00>;
+		clock-frequency = <0x7735940>;
+		linux,phandle = <0x05>;
+		phandle = <0x05>;
+	};
+
+	efuse@bc100190 {
+		compatible = "cortina,cortina-efuse";
+		#address-cells = <0x01>;
+		#size-cells = <0x01>;
+		reg = <0xbc100190 0x14>;
+		ngroups = <0x20>;
+		redundant;
+
+		uuid@0 {
+			reg = <0x00 0x04>;
+		};
+
+		hvsid@4 {
+			reg = <0x04 0x04>;
+		};
+
+		param@c {
+			reg = <0x0c 0x04>;
+		};
+
+		patch@10 {
+			reg = <0x10 0x10>;
+		};
+
+		calib@20 {
+			reg = <0x20 0x20>;
+		};
+	};
+
+	system_ictl@bc100070 {
+		compatible = "cortina,per-ictl";
+		reg = <0xbc100070 0x08>;
+		interrupt-controller;
+		#interrupt-cells = <0x01>;
+		interrupt-parent = <0x01>;
+		interrupts = <0x02>;
+		linux,phandle = <0x02>;
+		phandle = <0x02>;
+	};
+
+	misc_ictl@bc1000e0 {
+		compatible = "cortina,per-ictl";
+		reg = <0xbc1000e0 0x08>;
+		interrupt-controller;
+		#interrupt-cells = <0x01>;
+		interrupt-parent = <0x02>;
+		interrupts = <0x00>;
+	};
+
+	psds_prbs_ictl@b403a220 {
+		compatible = "cortina,per-ictl";
+		reg = <0xb403a220 0x08>;
+		interrupt-controller;
+		#interrupt-cells = <0x01>;
+		interrupt-parent = <0x02>;
+		interrupts = <0x07>;
+	};
+
+	per_ictl@b2224004 {
+		compatible = "cortina,per-ictl";
+		reg = <0xb2224004 0x08>;
+		interrupt-controller;
+		#interrupt-cells = <0x01>;
+		interrupt-parent = <0x01>;
+		interrupts = <0x03>;
+		linux,phandle = <0x06>;
+		phandle = <0x06>;
+	};
+
+	ne_ictl@bc10009c {
+		compatible = "cortina,per-ictl";
+		reg = <0xbc10009c 0x08>;
+		interrupt-controller;
+		#interrupt-cells = <0x01>;
+		interrupt-parent = <0x03>;
+		interrupts = <0x04>;
+		linux,phandle = <0x04>;
+		phandle = <0x04>;
+	};
+
+	ipc0_ictl@bc10007C {
+		compatible = "cortina,per-ictl";
+		reg = <0xbc10007c 0x08>;
+		interrupt-controller;
+		#interrupt-cells = <0x01>;
+		interrupt-parent = <0x03>;
+		interrupts = <0x06>;
+	};
+
+	wol_ictl@bc1000e0 {
+		compatible = "cortina,per-ictl";
+		reg = <0xbc1000e0 0x08>;
+		interrupt-controller;
+		#interrupt-cells = <0x01>;
+		interrupt-parent = <0x04>;
+		interrupts = <0x07>;
+	};
+
+	reset-controller@bc100028 {
+		compatible = "cortina,rst-mgr";
+		reg = <0xbc100028 0x04>;
+		#reset-cells = <0x01>;
+		linux,phandle = <0x0c>;
+		phandle = <0x0c>;
+	};
+
+	reset-controller@bc100048 {
+		compatible = "cortina,rst-mgr";
+		reg = <0xbc100048 0x04>;
+		#reset-cells = <0x01>;
+		linux,phandle = <0x0d>;
+		phandle = <0x0d>;
+	};
+
+	aliases {
+		serial0 = "/uart@b2224148";
+		serial1 = "/uart@b2224178";
+		ethernet0 = "/ethernet@0xd0000000/ethernet@0";
+		ethernet1 = "/ethernet@0xd0000000/ethernet@1";
+		ethernet2 = "/ethernet@0xd0000000/ethernet@2";
+		ethernet3 = "/ethernet@0xd0000000/ethernet@3";
+	};
+
+	uart@b2224148 {
+		device_type = "serial";
+		compatible = "cortina,serial";
+		reg = <0xb2224148 0x30>;
+		clocks = <0x05>;
+		interrupt-parent = <0x02>;
+		interrupts = <0x04>;
+	};
+
+	uart@b2224178 {
+		device_type = "serial";
+		compatible = "cortina,serial";
+		reg = <0xb2224178 0x30>;
+		clocks = <0x05>;
+		interrupt-parent = <0x02>;
+		interrupts = <0x05>;
+	};
+
+	wdt@b222401c {
+		compatible = "cortina,wdt";
+		reg = <0xb222401c 0x30 0xbc100048 0x04>;
+		interrupt-parent = <0x06>;
+		interrupts = <0x04>;
+		clocks = <0x05>;
+		reset-on-timeout;
+	};
+
+	soc {
+		compatible = "cortina,saturn-sfu";
+		reg = <0xbc100000 0x04 0xbc109000 0x40 0xbc100034 0x04>;
+		reg-names = "JTAG_ID\0CLOCK\0STRAP";
+	};
+
+	chosen {
+		bootargs = "rd_start=0x86000000 rd_size=8018950 root=/dev/ram console=ttyS0,115200 rdinit=/sbin/init ";
+	};
+
+	spi-nand@b2223000 {
+		#address-cells = <0x01>;
+		#size-cells = <0x01>;
+		compatible = "cortina,spi-nand";
+		reg = <0xb2223000 0x40>;
+		io-mode = <0xa00>;
+		pinctrl-0 = <0x07>;
+		pinctrl-names = "default";
+
+		SSB@0 {
+			label = "bootloader";
+			reg = <0x00 0x400000>;
+		};
+
+		uboot-env@400000 {
+			label = "uboot-env";
+			reg = <0x400000 0x100000>;
+		};
+
+		dtb@500000 {
+			label = "device-tree";
+			reg = <0x500000 0x100000>;
+		};
+
+		kernel@600000 {
+			label = "kernel";
+			reg = <0x600000 0x600000>;
+		};
+
+		rootfs@C00000 {
+			label = "rootfs";
+			reg = <0xc00000 0x5000000>;
+		};
+
+		userdata@5C00000 {
+			label = "userdata";
+			reg = <0x5c00000 0x1400000>;
+		};
+	};
+
+	sflash@b2223000 {
+		#address-cells = <0x01>;
+		#size-cells = <0x01>;
+		compatible = "cortina,sflash";
+		reg = <0xb2223000 0x40>;
+		sflash_mem_addr = <0xb0000000>;
+		sflash_mem_size = <0x2000000>;
+
+		SSB@0 {
+			label = "bootloader";
+			reg = <0x00 0x300000>;
+		};
+
+		uboot-env@300000 {
+			label = "uboot-env";
+			reg = <0x300000 0x80000>;
+		};
+
+		dtb@380000 {
+			label = "device-tree";
+			reg = <0x380000 0x80000>;
+		};
+
+		kernel@400000 {
+			label = "kernel";
+			reg = <0x400000 0x600000>;
+		};
+
+		rootfs@A00000 {
+			label = "rootfs";
+			reg = <0xa00000 0x1200000>;
+		};
+
+		userdata@1C00000 {
+			label = "userdata";
+			reg = <0x1c00000 0x400000>;
+		};
+	};
+
+	memory {
+		device_type = "memory";
+		reg = <0x00 0x8000000>;
+	};
+
+	ca_peri {
+		compatible = "cortina,ca-peri";
+		reg = <0xb2224018 0x1000 0xbc100000 0x60>;
+		interrupt-parent = <0x06>;
+		interrupts = <0x02>;
+		interrupt-names = "TMR1";
+		mcu-sync-gpio = <0x08 0x02 0x01>;
+	};
+
+	qm_ictl@bc100094 {
+		compatible = "cortina,per-ictl";
+		reg = <0xbc100094 0x08>;
+		interrupt-controller;
+		#interrupt-cells = <0x01>;
+		interrupt-parent = <0x01>;
+		interrupts = <0x04>;
+		linux,phandle = <0x0b>;
+		phandle = <0x0b>;
+	};
+
+	lso_fbm_ictl@bc100080 {
+		status = "disabled";
+		reg = <0xbc100084 0x08>;
+		linux,phandle = <0x09>;
+		phandle = <0x09>;
+	};
+
+	dma_ssp_ictl@b400ae08 {
+		status = "disabled";
+		compatible = "cortina,per-ictl";
+		reg = <0xb400ae08 0x08>;
+		interrupt-controller;
+		#interrupt-cells = <0x01>;
+		interrupt-parent = <0x09>;
+		interrupts = <0x08>;
+	};
+
+	gpio-controller@b2224280 {
+		#address-cells = <0x01>;
+		#size-cells = <0x00>;
+		compatible = "cortina,ca77xx-gpio";
+		reg = <0xb2224280 0x90 0xbc100058 0x10>;
+		id = <0x00>;
+
+		bank@0 {
+			gpio-controller;
+			interrupt-controller;
+			reg = <0x00>;
+			ngpios = <0x20>;
+			#gpio-cells = <0x02>;
+			#interrupt-cells = <0x02>;
+			interrupt-parent = <0x06>;
+			interrupts = <0x06>;
+			gpio-ranges = <0x0a 0x00 0x00 0x20>;
+			linux,phandle = <0x08>;
+			phandle = <0x08>;
+		};
+
+		bank@1 {
+			gpio-controller;
+			interrupt-controller;
+			reg = <0x01>;
+			ngpios = <0x20>;
+			#gpio-cells = <0x02>;
+			#interrupt-cells = <0x02>;
+			interrupt-parent = <0x06>;
+			interrupts = <0x07>;
+			gpio-ranges = <0x0a 0x00 0x20 0x20>;
+		};
+
+		bank@2 {
+			gpio-controller;
+			interrupt-controller;
+			reg = <0x02>;
+			ngpios = <0x20>;
+			#gpio-cells = <0x02>;
+			#interrupt-cells = <0x02>;
+			interrupt-parent = <0x06>;
+			interrupts = <0x08>;
+			gpio-ranges = <0x0a 0x00 0x40 0x20>;
+		};
+
+		bank@3 {
+			gpio-controller;
+			interrupt-controller;
+			reg = <0x03>;
+			ngpios = <0x20>;
+			#gpio-cells = <0x02>;
+			#interrupt-cells = <0x02>;
+			interrupt-parent = <0x06>;
+			interrupts = <0x09>;
+			gpio-ranges = <0x0a 0x00 0x60 0x20>;
+		};
+	};
+
+	pinctrl@0xbc100050 {
+		compatible = "cortina,saturn-pinctrl";
+		reg = <0xbc100050 0x18>;
+		linux,phandle = <0x0a>;
+		phandle = <0x0a>;
+
+		uart1_active {
+
+			data_signals {
+				pins = "GPIO_000\0GPIO_001\0PMUX_003";
+				function = "multi-fn";
+			};
+		};
+
+		sflash4_enable_multi-io {
+			linux,phandle = <0x07>;
+			phandle = <0x07>;
+
+			data_signals {
+				pins = "PMUX_024";
+				function = "multi-fn";
+			};
+		};
+	};
+
+	thermal@bc10017c {
+		compatible = "cortina,thermal-sensor";
+		reg = <0xbc10017c 0x10>;
+		status = "okay";
+	};
+
+	spi@b2224098 {
+		compatible = "cortina,ca77xx-spi";
+		reg = <0xb2224098 0x40>;
+		interrupt-parent = <0x06>;
+		interrupts = <0x05>;
+		clocks = <0x05>;
+		#address-cells = <0x01>;
+		#size-cells = <0x00>;
+
+		proslic_spi0@0 {
+			compatible = "silabs,proslic_spi\0rohm,dh2228fv";
+			status = "okay";
+			spi-max-frequency = <0x2625a0>;
+			isi;
+			reg = <0x00>;
+			spi-cpha;
+			channel_count = <0x02>;
+			debug_level = <0x07>;
+			reset-gpio = <0x08 0x03 0x01>;
+		};
+	};
+
+	reserved-memory {
+		#address-cells = <0x01>;
+		#size-cells = <0x01>;
+		ranges;
+
+		ddr_cache_buffer@0x03c48000 {
+			reg = <0x3c48000 0x2000000>;
+			linux,phandle = <0x0e>;
+			phandle = <0x0e>;
+		};
+	};
+
+	ethernet@0xd0000000 {
+		compatible = "cortina,ni-interface";
+		reg = <0xd0000000 0xa000 0x4410009c 0x10 0x522240d8 0x48 0xf4500000 0x2000 0xd000a000 0x900 0x40000000 0x40000 0x3c48000 0x2000000 0x2c48000 0x1000000 0xd000b000 0x1000 0xd000c000 0x2124 0xd000e000 0x40>;
+		interrupt-parent = <0x0b>;
+		interrupts = <0x08 0x09 0x0a 0x0b 0x0c 0x0d 0x0e 0x0f 0x10 0x11>;
+		resets = <0x0c 0x00 0x0c 0x01 0x0c 0x02 0x0c 0x03 0x0c 0x04 0x0c 0x05 0x0c 0x10 0x0c 0x1a 0x0d 0x09>;
+		reset-names = "ni_reset\0l2fe_reset\0l2tm_reset\0l3fe_reset\0sdram_reset\0tqm_reset\0dma_reset\0fbm_reset\0ext_reset";
+		memory-region = <0x0e>;
+		dyinggasp-gpio = <0x08 0x01 0x01>;
+		ADB-dyinggasp-gpio = <0x08 0x05 0x00>;
+		lasertx-gpio = <0x08 0x0c 0x01>;
+
+		ethernet@0 {
+			local-mac-address = [00 00 00 00 00 00];
+		};
+
+		ethernet@1 {
+			local-mac-address = [00 00 00 00 00 00];
+		};
+
+		ethernet@2 {
+			local-mac-address = [00 00 00 00 00 00];
+		};
+
+		ethernet@3 {
+			local-mac-address = [00 00 00 00 00 00];
+		};
+
+		pon_ictl@0 {
+			interrupt-controller;
+			#interrupt-cells = <0x01>;
+			interrupt-parent = <0x03>;
+			interrupts = <0x02>;
+		};
+
+		ni_hv_ictl@0xd000435c {
+			compatible = "cortina,per-ictl";
+			interrupt-controller;
+			interrupt-parent = <0x04>;
+			interrupts = <0x00>;
+			linux,phandle = <0x0f>;
+			phandle = <0x0f>;
+		};
+
+		ni_ptp_ictl@0xd000433c {
+			compatible = "cortina,per-ictl";
+			interrupt-controller;
+			interrupt-parent = <0x04>;
+			interrupts = <0x10>;
+		};
+
+		ptp_stat_ictl@0xd000433c {
+			compatible = "cortina,per-ictl";
+			interrupt-controller;
+			interrupt-parent = <0x0f>;
+			interrupts = <0x1b>;
+		};
+	};
+
+	i2c@b2224120 {
+		compatible = "cortina,ca77xx-i2c";
+		reg = <0xb2224120 0x28>;
+		interrupt-parent = <0x06>;
+		interrupts = <0x0b>;
+		device_type = "i2c";
+		clocks = <0x05>;
+		clock-frequency = <0x186a0>;
+	};
+};
