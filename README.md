@@ -29,6 +29,7 @@
 | [Nokia XS-2426X-A](https://device.report/m/0d8026c89c07e6bfca963368c018fd8b4ca689ef2bcf32f56794b3ab2b78b119/) | HGU | CA8289 | XGS | PPTP/VEIP | - | ? | Web |
 | [Nokia XS-2426G-B](https://fcc.report/FCC-ID/2ADZRXS2426GB/5593067.pdf) | HGU | CA8289 | XGS | PPTP/VEIP | - | ? | Web |
 | [Nokia WiFi Beacon G6](https://device.report/m/89a7e8e644b326c7030274954d16a3452c2f5c2d0792383bb53eae670b3cae78/) | AP | CA8289 | - | - | - | ? | ? |
+| [XG-100NE](https://web116.jp/shop/hikari_r/xg_100ne/xg_100ne_00.html) | Router | CA7774 | - | - | - | 192.168.1.1 | Telnet/Web/RCE |
 
 > [!TIP]
 > The CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
@@ -48,6 +49,7 @@
     * [UART pin](/doc/UART.md)
 4. Device & SoC info
     * [ONT devices Picture](/ONT_Picture/README.md)
+    * [Device-tree Source code](/dts/)
 
 > [!NOTE]
 > Hardware dependent.
@@ -61,6 +63,7 @@
 | CA8271 | MIPS R3000 | This is an SoC optimized for SFU ONTs, providing the minimum PHY ports required for a bridge device, and the CPU uses the power-efficient MIPS architecture. |
 | CA8289 | AArch64 Cortex-A55</br>4 Cores | This SoC is optimized for HGU ONT, equipped with PHY for connecting multiple LAN devices, USB3.0, and PCIe for connecting WiFi SoC. The CPU uses high-performance ARM architecture. |
 | RTL9615C | AArch64 Cortex-A55</br>2 Cores | This SoC is a low-cost version customized based on the CA8289. The ARM core and memory channels are halved, and the interfaces are two XFIs and one 1G LAN. USB and PCIe are probably omitted. |
+| CA7774 | AArch64 Cortex-A53</br>4 Cores | This SoC is optimized for HGU routers. It has almost the same functions as the CA8289, and the CPU is Cortex-A53. It is for routers, so the PON IF is omitted. |
 
 # OEM SoC family and CodeName
 | SoC | family | CodeName | OEM Vendor | Applications |
@@ -70,6 +73,7 @@
 | NLD0605APB | CA8271 | SATURN2 | NTT Electronics | NTT-East/West 10GE-PON ONU in japan
 | CA8289 | CA8289 | VENUS | CORTINA | PON HGU ONT |
 | RTL9615C | CA8289 base | TAURUS | Realtek | Realtek XG/XGS PON ONT |
+| CA7774 | CA7774 | G3 | CORTINA | Router ( Without PON ) |
 
 # Links
 * XGS-PON quick start
