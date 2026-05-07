@@ -1,9 +1,99 @@
-# Switch between XGS and 10GE (XG-99S/XE99S)
+# Switch between XGS and 10GE
+Because certain Sticks share the same hardware, it's possible to switch between XGS mode and 10GE mode by swapping the firmware.
 
+| Stick |
+| ----- |
+| **LTF7267-BH+** (XG/XGS-PON) :left_right_arrow: **LTF7263-BH+** (10GE-PON) |
+| **XG-99S** (XG/XGS-PON) :left_right_arrow: **XE-99S** (10GE-PON) |
+
+> [!NOTE]
+> Stick cannot switch between XGS/10GE by changing only `scfg.txt`<br>
+
+## LTF7267-BH+ :left_right_arrow: LTF7263-BH+
+The LTF7267-BH+ (and OEM's) and LTF7263-BH+ are hardware compatible.<br>
+By replacing the Stick firmware,
+it can switch between XGS-PON mode (LTF7267-BH+) and 10GE-PON mode (LTF7263-BH+).<br>
+
+> [!WARNING]
+> The following OEM sticks are not compatible with this method!
+> * NATYWISH LTF-7267-BH+
+
+To switch between LTF726x-BH+, replace the following partition, file and change uboot env.
+- Partition
+  - `kernel` : mtd3 / mtd6
+  - `rootfs` : mtd4 / mtd7
+
+### Procedure
+To prevent crashes due to exhaustion of tmpfs, the following procedure is recommended. 
+It is strongly recommended to backup all partitions before proceeding.<br>
+> [!WARNING]
+> ***Never disconnect power to the Stick while the partition is being written. Otherwise the Stick will brick.***
+> 
+> If Stick bricked, repair according to [mtd dump & Bricked Stick Repair](/mtd#bricked-stick-repair) <br>
+
+
+1. Download the firmware to be switched from [Switch between XGS and 10GE](/XG-XE_Switch) and place it on the tftp server.
+> [!NOTE]
+> When using this firmware image, the GPON Sirial Number / EPON MAC Address will be :
+> - LTF7267-BH+ GPON Sirial Number : `HBMT00000001`
+> - LTF7263-BH+ MAC Address : `00:13:25:00:00:01`
+
+2. Log into the Stick root shell and go to `/tmp`.
+
+3. Transfer `kernel.bin`.
+```
+tftp -r kernel.bin -g tftp-server-ip
+```
+
+4. Write `kernel` partition.
+```
+flash_eraseall /dev/mtd3
+flashcp -v kernel.bin /dev/mtd3
+flash_eraseall /dev/mtd6
+flashcp -v kernel.bin /dev/mtd6
+```
+
+5.  Delete the transferred `kernel.bin`.
+```
+rm kernel.bin
+```
+
+6. Transfer `rootfs.bin`.
+```
+tftp -r rootfs.bin -g tftp-server-ip
+```
+
+7. Write `rootfs` partition.
+```
+flash_eraseall /dev/mtd4
+flashcp -v rootfs.bin /dev/mtd4
+flash_eraseall /dev/mtd7
+flashcp -v rootfs.bin /dev/mtd7
+```
+
+8. Reset Configuration
+```
+rm -r /overlay/upper*
+```
+
+9. reboot
+```
+reboot
+```
+
+10.  Stick will boot with replaced firmware!
+
+Stick's current mode can be found in the dmesg or messages log.
+```
+# grep "app dev mode:1, scfg mode:" /var/log/boot
+Fri May 27 05:31:39 2022: app dev mode:1, scfg mode:[XGS-PON]
+```
+
+
+## XG-99S :left_right_arrow: XE-99S
 The XG-99S (and OEM's) and XE-99S are hardware compatible.<br>
 By replacing the Stick firmware,
 it can switch between XGS-PON mode (XG-99S) and 10GE-PON mode (XE-99S).<br>
-CIG's Stick cannot switch between XGS/10GE by changing only `scfg.txt`<br>
 
 To switch between XG-99S and XE-99S, replace the following partition, file and change uboot env.
 - Partition
@@ -17,7 +107,7 @@ To switch between XG-99S and XE-99S, replace the following partition, file and c
   - `setpartlayout` : Partition layout
   - `more_args` : Boot partition and options
 
-## Procedure
+### Procedure
 To prevent crashes due to exhaustion of tmpfs, the following procedure is recommended. 
 It is strongly recommended to backup all partitions before proceeding.<br>
 > [!WARNING]
