@@ -27,7 +27,7 @@ The custom firmware provides two Web UIs:
   | http://192.168.0.1:88 | admin | system |
 
 ## Main WebUI menu
-![SIEPON-A Farm WebUI](/Picture/siepon_a/menu.png)
+![SIEPON-A Firm WebUI](/Picture/siepon_a/menu.png)
 
 ### Status
 Displays PON status and ONT information.

@@ -22,7 +22,7 @@ Most commercially available ONTs are manufactured in China and support only SIEP
 However, by flashing custom firmware onto these ONTs, it is possible to enable support for SIEPON-A.
 
 ## CA8271S Device's ( Stick )
-| Device | Default EPON | Mgmt IP | SIEPON-A Farm Support |
+| Device | Default EPON | Mgmt IP | SIEPON-A Firm Support |
 | ------ | ------------ | ------- |------------- |
 | [Hisense LTF-7263-BH+](https://ja.aliexpress.com/item/1005005067825095.html) | SIEPON-C | 192.168.0.1 | ✅ |
 | [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SIEPON-C | 192.168.0.1 | ❌ |
@@ -67,7 +67,7 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | ECIN EN-XGSFPP-OMAC-V1 | PPTP |192.168.100.1 | CIG XG-99S OEM |
 | [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | PPTP |192.168.100.1 | CIG XG-99S OEM |
 | Hisense LTF-7263-BH+ | PPTP | 192.168.0.1 | |
-| NATYWISH LTF-7267-BH+ | PPTP | 192.168.1.1 | Hisense LTF-7267-BH+ NATYWISH Custom Farm |
+| NATYWISH LTF-7267-BH+ | PPTP | 192.168.1.1 | Hisense LTF-7267-BH+ NATYWISH Custom Firm |
 | XGS800E | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM |
 > [!TIP]
 > * CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.

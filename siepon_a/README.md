@@ -1,9 +1,9 @@
-# SIEPON-A Farm QuickStart
+# SIEPON-A Firm QuickStart
 
 This is custom firmware designed to enable SIEPON-A support on China-made stick-type ONTs.
 By flashing it onto a supported device, the stick can operate with SIEPON-A.
 
-![SIEPON-A Farm WebUI](/Picture/siepon_a/menu.png)
+![SIEPON-A Firm WebUI](/Picture/siepon_a/menu.png)
 
 > [!WARNING]
 > ***Never disconnect power from the stick while writing to flash. Doing so will brick the device.***
@@ -11,7 +11,7 @@ By flashing it onto a supported device, the stick can operate with SIEPON-A.
 > If the stick becomes bricked, refer to [mtd dump & Bricked Stick Repair](/mtd#bricked-stick-repair) <br>
 
 ## Support Stick
-| Device | Default EPON | Mgmt IP | SIEPON-A Farm Support |
+| Device | Default EPON | Mgmt IP | SIEPON-A Firm Support |
 | ------ | ------------ | ------- |------------- |
 | [Hisense LTF-7263-BH+](https://ja.aliexpress.com/item/1005005067825095.html) | SIEPON-C | 192.168.0.1 | ✅ |
 | [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SIEPON-C | 192.168.0.1 | ❌ |
