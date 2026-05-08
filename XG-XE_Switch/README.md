@@ -18,7 +18,7 @@ it can switch between XGS-PON mode (LTF7267-BH+) and 10GE-PON mode (LTF7263-BH+)
 > The following OEM sticks are not compatible with this method!
 > * NATYWISH LTF-7267-BH+
 
-To switch between LTF726x-BH+, replace the following partition, file and change uboot env.
+To switch between LTF726x-BH+, replace the following partition.
 - Partition
   - `kernel` : mtd3 / mtd6
   - `rootfs` : mtd4 / mtd7
