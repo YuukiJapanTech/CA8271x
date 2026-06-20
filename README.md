@@ -84,10 +84,10 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 
 # Gide, Info
 1. SIEPON-A Custom Farmware
-    * [Quick Start](/siepon_a/)
-    * [SIEPON-A Firmware Configuration](/siepon_a/config.md)
-    * [au-hikari (Japan) ONT MAC Address](/siepon_a/kddi.md)
-    * [sample ONT TLV List (pdf)](/siepon_a/TLV_LIST.pdf)
+    * [Quick Start](/mod/siepon_a/)
+    * [SIEPON-A Firmware Configuration](/mod/siepon_a/config.md)
+    * [au-hikari (Japan) ONT MAC Address](/mod/siepon_a/kddi.md)
+    * [sample ONT TLV List (pdf)](/mod/siepon_a/TLV_LIST.pdf)
 2. Shell access
     * [How to get root CLI & root Shell](/doc/rootShell.md)
     * [ONT Login Password](/doc/Password.md)
