@@ -1,13 +1,28 @@
-# Hacking CA8271x and CA8289x XGS-PON/10GE-PON ONT
+# Hacking CA8271x / CA8289x XGS-PON & 10G-EPON ONTs
 
-- Rewrite S/N, Loid, PLOAM, etc… for your ISP FTTx
-- Switch between 10GEPON and XGS-PON.
+## Features
+
+- 🔓 Rewrite Serial Number, LOID, PLOAM and ISP credentials
+- 🔄 Switch between **10G-EPON** and **XGS-PON**
+- 🛠 Root shell, firmware modification and recovery
+- 📚 Device compatibility database
+- 🌏 Support worldwide ISPs ( **auひかり, eoひかり, コミュファひかり, Free/Iliad, etc** )
+
+## Table of Contents
+
+- [EPON](#epon-ont)
+- [GPON](#gpon-ont)
+- [Guide & Documentation](#guide-info)
+- [SoC Family](#cortina-family)
+- [Links](#links)
 
 > [!CAUTION]
 > Use of this content is at your own risk!
 > * This content is maintained by reverse engineering by enthusiasts.
 > * If ISP service is suspended due to modified ONT connected, you may be subject to punishment under the laws of your country.
 > * The creator of this content assumes no responsibility for any problems that may arise from this content.
+
+---
 
 # EPON ONT
 10G EPON can be broadly categorized into the following three standards defined by IEEE 1904.1:
@@ -21,7 +36,7 @@
 Most commercially available ONTs are manufactured in China and support only SIEPON-C.
 However, by flashing custom firmware onto these ONTs, it is possible to enable support for SIEPON-A.
 
-## CA8271S Device's ( Stick )
+## CA8271S Devices ( Stick )
 | Device | Default EPON | Mgmt IP | SIEPON-A Firm Support |
 | ------ | ------------ | ------- |------------- |
 | [Hisense LTF-7263-BH+](https://ja.aliexpress.com/item/1005005067825095.html) | SIEPON-C | 192.168.0.1 | ✅ |
@@ -30,7 +45,7 @@ However, by flashing custom firmware onto these ONTs, it is possible to enable s
 > * CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
 > * Hisense LTF-7263-BH+ and Hisense LTF-7267-BH+ (and OEM’s) have the same hardware and can be switched by replacing the firmware.
 
-## CA8271 / CA8289 EPON Device's
+## CA8271 / CA8289 EPON Devices
 All SIEPON-A ONTs in the table below can be replaced with stick-type custom firmware.
 | Device | EPON | SoC |
 | ------ | ------------ | --- |
@@ -39,7 +54,7 @@ All SIEPON-A ONTs in the table below can be replaced with stick-type custom firm
 | NEC BL3000HM | SIEPON-A | CA8289 |
 | Sumitomo FTE7263R | SIEPON-A | CA8271A |
 
-## Other EPON Device's
+## Other EPON Devices
 All SIEPON-A ONTs in the table below can be replaced with stick-type custom firmware.
 | Device | EPON | SoC |
 | ------ | ---- | --- |
@@ -60,7 +75,7 @@ XG-PON / XGS-PON mainly use the following two transmission modes:
 
 While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not support VEIP.
 
-## CA8271S Device's ( Stick )
+## CA8271S Devices ( Stick )
 | Device | GPON | Mgmt IP | Info |
 | ------ | ---- | ------- | ---- |
 | CIG XG-99S | PPTP | 192.168.100.1 | |
@@ -73,7 +88,7 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 > * CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
 > * Hisense LTF-7263-BH+ and Hisense LTF-7267-BH+ (and OEM’s) have the same hardware and can be switched by replacing the firmware.
 
-## CA8271 / CA8289 GPON Device's
+## CA8271 / CA8289 GPON Devices
 | Device | GPON | Mgmt IP | SoC | Info |
 | ------ | ---- | ------- | --- | ---- |
 | CIG XG-99M | PPTP | 192.168.0.1 | CA8271A | |
@@ -82,8 +97,8 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | Nokia XS-2426X-A | PPTP VEIP | | CA8289 | |
 | Nokia XS-2426G-B | PPTP VEIP | | CA8289 | |
 
-# Gide, Info
-1. SIEPON-A Custom Farmware
+# Guide & Documentation
+1. SIEPON-A Custom Firmware
     * [Quick Start](/mod/siepon_a/)
     * [SIEPON-A Firmware Configuration](/mod/siepon_a/config.md)
     * [au-hikari (Japan) ONT MAC Address](/mod/siepon_a/kddi.md)
@@ -92,11 +107,11 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
     * [How to get root CLI & root Shell](/doc/rootShell.md)
     * [ONT Login Password](/doc/Password.md)
     * [emulate CIG ONT in QEMU](/emulate_CIG/README.md)
-3. Configration
+3. Configuration
     * [ONT scfg.txt files (CORTINA SoC Configuration file)](/doc/scfg_files.md)
       * [default scfg.txt dump](/default_scfg)
     * [XG-99x Config Command](/doc/XG-99x_Config.md)
-4. Firmware Modify & Reaper
+4. Firmware Modification & Recovery
     * [Dump images & Bricked Stick Repair](/mtd/README.md)
     * [Switch between XGS and 10GE](/XG-XE_Switch/)
     * [UART pin](/doc/UART.md)
@@ -107,8 +122,7 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 
 > [!NOTE]
 > Hardware dependent.
-> * This Stick is reported to the SFP as an "unknown module". For this reason, some switches such as Alaxala will not link up. (i2c-0xA0 0x03 : 0x00)
-> * This Stick has its own vendor name registered in the vendor information, so it will not link up on switches with vendor lock enabled.
+> * This stick has a unique vendor name registered in its vendor information, the vendor information needs to be rewritten when connecting it to a switch with vendor locking enabled.
 > * Some switches may refuse to link up if the SFP LOS pin is High. In this case, fiber must be connected to the Stick.
 
 # CORTINA family
@@ -133,7 +147,7 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 * XGS-PON quick start
     For the quick start of XGS-PON.
     * **[Hack-GPON.org](https://hack-gpon.org/xgs/ont-fs-XGS-ONU-25-20NI/)**
-* Quick script
+* Utility Script
     A useful script has been developed by [@rssor](https://github.com/rssor)
     * **[FS.com XGS-ONU-25-20NI / CIG XG-99S Modification Utility](https://github.com/rssor/fs_xgspon_mod)**
 * xPON SFP ONU (RTL960x)
@@ -149,7 +163,7 @@ Version C01 (newest version)](https://www.cablelabs.com/specifications/dpoe-oam-
     * **[DPoE OAM Extensions Specification
 Version I15 (newest version)](https://www.cablelabs.com/specifications/DPoE-SP-OAMv2.0)**
 
-# Collaborator
+# Contributors
 Some information has been created with the help of :
 * [@stich86](https://github.com/stich86) 
 * [@missing233](https://github.com/missing233) 
