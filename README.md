@@ -6,21 +6,23 @@
 - 🔄 Switch between **10G-EPON** and **XGS-PON**
 - 🛠 Root shell, firmware modification and recovery
 - 📚 Device compatibility database
-- 🌏 Support worldwide ISPs ( **auひかり, eoひかり, コミュファひかり, Free/Iliad, etc** )
+- 🌏 Support SIEPON-A ISPs ( **auひかり, eoひかり, コミュファひかり, Free/Iliad, etc** )
 
 ## Table of Contents
 
 - [EPON](#epon-ont)
 - [GPON](#gpon-ont)
-- [Guide & Documentation](#guide-info)
+- [Guide, Document](#guide-document)
 - [SoC Family](#cortina-family)
-- [Links](#links)
 
 > [!CAUTION]
 > Use of this content is at your own risk!
 > * This content is maintained by reverse engineering by enthusiasts.
 > * If ISP service is suspended due to modified ONT connected, you may be subject to punishment under the laws of your country.
 > * The creator of this content assumes no responsibility for any problems that may arise from this content.
+> 
+> **This project promotes open knowledge and interoperability.**
+> **Do not endanger shared infrastructure, Do not disrupt others.**
 
 ---
 
@@ -97,7 +99,7 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | Nokia XS-2426X-A | PPTP VEIP | | CA8289 | |
 | Nokia XS-2426G-B | PPTP VEIP | | CA8289 | |
 
-# Guide & Documentation
+# Guide, Document
 1. SIEPON-A Custom Firmware
     * [Quick Start](/mod/siepon_a/)
     * [SIEPON-A Firmware Configuration](/mod/siepon_a/config.md)
