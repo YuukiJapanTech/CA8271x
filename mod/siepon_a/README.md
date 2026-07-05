@@ -79,12 +79,13 @@ tftp -r SIEPONA_rootfs.bin -g 192.168.0.2
 cd /tmp
 tftp -r SIEPONA_kernel.bin -g 192.168.100.2
 tftp -r SIEPONA_rootfs.bin -g 192.168.100.2
+mkdir /userdata/upper
 ```
 
 ### 6. Reset Configuration
 Reset the configuration files:
 ```
-rm -r /overlay/upper*
+rm -r /overlay/upper/*
 ```
 
 ### 7. Flash the Firmware
