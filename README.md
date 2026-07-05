@@ -28,12 +28,24 @@
 
 # EPON ONT
 10G EPON can be broadly categorized into the following three standards defined by IEEE 1904.1:
-* SIEPON-A ( CableLabs DPoE-OAM )
-  Used by ISPs in the United States, Europe, Japan (excluding NTT), and many other countries worldwide.
-* SIEPON-B ( NTT-OAM )
+* **SIEPON-A ( CableLabs DOCSIS DPoE-OAM )**
+  Used by ISPs in the United States, Europe, Japan, and many other countries worldwide.
+    * [auひかり 🇯🇵](https://www.au.com/internet/)
+    * [eo光 🇯🇵](https://eonet.jp/)
+    * [コミュファ光 🇯🇵](https://www.commufa.jp/)
+    * [MegaEGG 🇯🇵](https://www.megaegg.jp/)
+    * [Free/Iliad 🇫🇷 🇮🇹](https://www.iliad.fr/)
+    * [Xfinity 🇺🇸](https://www.xfinity.com/learn/internet-service)
+    * [Spectrum 🇺🇸](https://www.spectrum-isp.com/)
+* **SIEPON-B ( NTT-OAM )**
   Used exclusively by NTT East and NTT West in Japan.
-* SIEPON-C ( ChinaTelecom-OAM )
+    * [NTT東日本 🇯🇵](https://www.ntt-east.co.jp/)
+    * [NTT西日本 🇯🇵](https://www.ntt-west.co.jp/)
+* **SIEPON-C ( ChinaTelecom-OAM )**
   Used only by ISPs within China.
+    * [中国电信 🇨🇳](https://www.chinatelecom.com.cn/)
+    * [中国联通 🇨🇳](https://www.chinaunicom.com/)
+    * [中国移动 🇨🇳](https://www.10086.cn/index/bj/index_100_100.html)
 
 Most commercially available ONTs are manufactured in China and support only SIEPON-C.
 However, by flashing custom firmware onto these ONTs, it is possible to enable support for SIEPON-A.
@@ -42,10 +54,19 @@ However, by flashing custom firmware onto these ONTs, it is possible to enable s
 | Device | Default EPON | Mgmt IP | SIEPON-A Firm Support |
 | ------ | ------------ | ------- |------------- |
 | [Hisense LTF-7263-BH+](https://ja.aliexpress.com/item/1005005067825095.html) | SIEPON-C | 192.168.0.1 | ✅ |
-| [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SIEPON-C | 192.168.0.1 | ❌ |
+| [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SIEPON-C | 192.168.0.1 | ✅ |
+
 > [!TIP]
-> * CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
-> * Hisense LTF-7263-BH+ and Hisense LTF-7267-BH+ (and OEM’s) have the same hardware and can be switched by replacing the firmware.
+> The following devices use the same hardware and can be switched by changing the firmware.
+> * **CIG XE-99S compatible.**
+>   * [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html)
+>   * CIG XG-99S
+>   * ECIN EN-XGSFPP-OMAC-V1
+> * **Hisense LTF-7263-BH+ compatible.**
+>   * Hisense LTF-7267-BH+
+>   * XGS800E
+>
+> You can also flash the SIEPON-A firmware onto these devices.
 
 ## CA8271 / CA8289 EPON Devices
 All SIEPON-A ONTs in the table below can be replaced with stick-type custom firmware.
@@ -83,12 +104,16 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | CIG XG-99S | PPTP | 192.168.100.1 | |
 | ECIN EN-XGSFPP-OMAC-V1 | PPTP |192.168.100.1 | CIG XG-99S OEM |
 | [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | PPTP |192.168.100.1 | CIG XG-99S OEM |
-| Hisense LTF-7263-BH+ | PPTP | 192.168.0.1 | |
+| Hisense LTF-7267-BH+ | PPTP | 192.168.0.1 | |
 | NATYWISH LTF-7267-BH+ | PPTP | 192.168.1.1 | Hisense LTF-7267-BH+ NATYWISH Custom Firm |
 | XGS800E | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM |
+
 > [!TIP]
-> * CIG XE-99S and CIG XG-99S (and OEM’s) have the same hardware and can be switched by replacing the firmware.
-> * Hisense LTF-7263-BH+ and Hisense LTF-7267-BH+ (and OEM’s) have the same hardware and can be switched by replacing the firmware.
+> The following devices use the same hardware and can be switched by changing the firmware.
+> * **CIG XG-99S compatible.**
+>   * CIG XE-99S
+> * **Hisense LTF-7267-BH+ compatible.**
+>   * Hisense LTF-7263-BH+
 
 ## CA8271 / CA8289 GPON Devices
 | Device | GPON | Mgmt IP | SoC | Info |
