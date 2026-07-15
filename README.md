@@ -123,6 +123,7 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | ------ | ---- | ------- | --- | ---- |
 | CIG XG-99M | PPTP | 192.168.0.1 | CA8271A | |
 | Frontier FOX222 | PPTP | 192.168.188.1 | CA8271A | CIG XG-99M OEM |
+| Nokia XS-010X-R | PPTP | 192.168.100.1 | CA8271NI | CIG XG-99YF OEM |
 | HOSECOM X67S | PPTP VEIP | 192.168.1.1 | RTL9615C | |
 | Nokia XS-2426X-A | PPTP VEIP | | CA8289 | |
 | Nokia XS-2426G-B | PPTP VEIP | | CA8289 | |
@@ -168,6 +169,7 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | --- | --- |--- | --- | --- |
 | CA8271A | CA8271 | SATURN | CORTINA | Cable TV RF / PON SFU ONT |
 | CA8271S | CA8271 | SATURN | CORTINA | SFP+ ONT Stick |
+| CA8271NI | CA8271 | SATURN2 | CORTINA | PON SFU ONT |
 | NLD0605APB | CA8271 | SATURN2 | NTT Electronics | NTT-East/West 10GE-PON ONU in japan
 | CA8289 | CA8289 | VENUS | CORTINA | PON HGU ONT |
 | RTL9615C | CA8289 base | TAURUS | Realtek | Realtek XG/XGS PON ONT |
