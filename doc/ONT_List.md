@@ -5,7 +5,7 @@
 | [CIG XG-99S](https://www.cigtech.com/product_portfolio/xg-99x-3/) | SFP+ | CA8271S | XGS | PPTP | Linux-4.4.198.saturn-sfpplus-r1 | - | 192.168.100.1 | UART/Telnet |
 | [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SFP+ | CA8271S | 10GE | SFU EPON | Linux-4.4.198.cig-R1.0.2.8 | - | 192.168.0.1 | UART/Telnet/SSH |
 | [ECIN EN-XGSFPP-OMAC-V1](https://ecin.ca/xgs-pon-sfp-stick-module-xgspon-ont-w-t-mac-function-mounted-on-sfp-package/)<br>***End of Sales*** | SFP+ | CA8271S | XGS | PPTP | Linux-4.4.140.saturn-sfpplus-R1 | CIG XG-99S (old model) | 192.168.100.1 | UART/Telnet |
-| [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | SFP+ | CA8271S | XGS | PPTP | Linux-4.4.198.saturn-sfpplus-r1 | CIG XG-99S | 192.168.100.1 | UART/Telnet |
+| [FS XGSPON ONU Stick SFP+,N1,Ind (SKU:185594)](https://www.fs.com/jp/products/185594.html) | SFP+ | CA8271S | XGS | PPTP | Linux-4.4.198.saturn-sfpplus-r1 | CIG XG-99S | 192.168.100.1 | UART/Telnet |
 | [Hisense LTF-7263-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | CA8271S | 10GE | SFU EPON | Linux-4.4.198.saturn-sfpplus-r1 | - | 192.168.0.1 | UART/SSH/Web |
 | [Hisense LTF-7267-BH+](https://www.taobao.com/list/item/658650417501.htm) | SFP+ | CA8271S | XGS, XG | PPTP | Linux-4.4.198.saturn-sfpplus-r1 | - | 192.168.0.1 | UART/SSH/Web |
 | NATYWISH LTF-7267-BH+ | SFP+ | CA8271S | XGS | PPTP | Linux-4.14.172.saturn-sfpplus-r1 | Hisense LTF-7267-BH+<br>(NATYWISH Custom Farm) | 192.168.1.1 | UART/Telnet/Web |

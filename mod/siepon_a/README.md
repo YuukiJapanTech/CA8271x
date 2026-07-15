@@ -15,8 +15,13 @@ By flashing it onto a supported device, the stick can operate with SIEPON-A.
 | ------ | ------- | ---- | --------- |-------- |
 | [Hisense LTF-7263-BH+](https://ja.aliexpress.com/item/1005005067825095.html) | 192.168.0.1 | `root` | `hbmtsfp` | ✅ |
 | [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | 192.168.0.1 | `root` | none | ✅ |
-| [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | 192.168.100.1 | `PON S/N` | [8digit HMAC-MD5 (PON S/N uppercase)](https://hack-gpon.org/xgs/ont-fs-XGS-ONU-25-20NI/#login-and-enable) | ✅ |
+| [FS XGSPON ONU Stick SFP+,N1,Ind (SKU:185594)](https://www.fs.com/jp/products/185594.html) | 192.168.100.1 | `PON S/N` | [8digit HMAC-MD5 (PON S/N uppercase)](https://hack-gpon.org/xgs/ont-fs-XGS-ONU-25-20NI/#login-and-enable) | ✅ |
 | CIG XG-99S | 192.168.100.1 | `PON S/N` | [8digit HMAC-MD5 (PON S/N uppercase)](https://hack-gpon.org/xgs/ont-fs-XGS-ONU-25-20NI/#login-and-enable) | ✅ |
+
+> [!WARNING]
+> FS currently sells PON Sticks under SKU:185594 and SKU:378865.<br>
+> SKU:185594, which uses a built-in Cortina chip, supports custom firmware.<br>
+> **SKU:378865 (Maxliear Chip) is not supported!**
 
 ## QuickStart
 ### 1. Obtain the Stick
@@ -28,7 +33,7 @@ Purchase the stick from AliExpress, Taobao, or FScom.
 ### 2. Configure IP Address
 Set your PC’s IP address to :
 * Hisense LTF-7263-BH+ / CIG XE-99S : `192.168.0.2/24`
-* FS XGS-ONU-25-20NI / CIG XG-99S : `192.168.100.2/24`.
+* FS XGSPON ONU Stick / CIG XG-99S : `192.168.100.2/24`.
 
 ### 3. Download Custom Firmware
 Download the following firmware files and place them on a TFTP server (e.g., 3CDaemon):
@@ -53,7 +58,7 @@ $ ssh root@192.168.0.1
 root@XE-99S:~#
 ```
 
-#### FS XGS-ONU-25-20NI / CIG XG-99S
+#### FS XGSPON ONU Stick / CIG XG-99S
 ```
 $ telnet 192.168.100.1
 
@@ -74,7 +79,7 @@ cd /tmp
 tftp -r SIEPONA_kernel.bin -g 192.168.0.2
 tftp -r SIEPONA_rootfs.bin -g 192.168.0.2
 ```
-#### FS XGS-ONU-25-20NI / CIG XG-99S
+#### FS XGSPON ONU Stick / CIG XG-99S
 ```
 cd /tmp
 tftp -r SIEPONA_kernel.bin -g 192.168.100.2
