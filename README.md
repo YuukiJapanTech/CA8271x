@@ -24,7 +24,7 @@ This project is a member of the OPEN PON FOUNDATION, led by [Hacking RTL960x](ht
 > * If ISP service is suspended due to modified ONT connected, you may be subject to punishment under the laws of your country.
 > * The creator of this content assumes no responsibility for any problems that may arise from this content.
 > 
-> **This project promotes open knowledge and interoperability.**
+> **This project promotes open knowledge and interoperability.**<br>
 > **Do not endanger shared infrastructure, Do not disrupt others.**
 
 ---
@@ -62,7 +62,7 @@ However, by flashing custom firmware onto these ONTs, it is possible to enable s
 > [!TIP]
 > The following devices use the same hardware and can be switched by changing the firmware.
 > * **CIG XE-99S compatible.**
->   * [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html)
+>   * [FS XGSPON ONU Stick SFP+,N1,Ind (SKU:185594)](https://www.fs.com/jp/products/185594.html)
 >   * CIG XG-99S
 >   * ECIN EN-XGSFPP-OMAC-V1
 > * **Hisense LTF-7263-BH+ compatible.**
@@ -106,7 +106,7 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | ------ | ---- | ------- | ---- |
 | CIG XG-99S | PPTP | 192.168.100.1 | |
 | ECIN EN-XGSFPP-OMAC-V1 | PPTP |192.168.100.1 | CIG XG-99S OEM |
-| [FS XGS-ONU-25-20NI](https://www.fs.com/jp/products/185594.html) | PPTP |192.168.100.1 | CIG XG-99S OEM |
+| [FS XGSPON ONU Stick SFP+,N1,Ind (SKU:185594)](https://www.fs.com/jp/products/185594.html) | PPTP |192.168.100.1 | CIG XG-99S OEM, **NOT SKU:378865** |
 | Hisense LTF-7267-BH+ | PPTP | 192.168.0.1 | |
 | NATYWISH LTF-7267-BH+ | PPTP | 192.168.1.1 | Hisense LTF-7267-BH+ NATYWISH Custom Firm |
 | XGS800E | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM |
