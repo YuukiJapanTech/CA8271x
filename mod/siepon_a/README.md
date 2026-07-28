@@ -32,8 +32,8 @@ Purchase the stick from AliExpress, Taobao, or FScom.
 
 ### 2. Configure IP Address
 Set your PC’s IP address to :
-* Hisense LTF-7263-BH+ / CIG XE-99S : `192.168.0.2/24`
-* FS XGSPON ONU Stick / CIG XG-99S : `192.168.100.2/24`.
+* Hisense LTF-7263-BH+ / CIG XE-99S : `192.168.0.5/24`
+* FS XGSPON ONU Stick / CIG XG-99S : `192.168.100.5/24`.
 
 ### 3. Download Custom Firmware
 Download the following firmware files and place them on a TFTP server (e.g., 3CDaemon):
@@ -76,14 +76,14 @@ Run the following commands to download the firmware via TFTP:
 #### Hisense LTF-7263-BH+ / CIG XE-99S
 ```
 cd /tmp
-tftp -r SIEPONA_kernel.bin -g 192.168.0.2
-tftp -r SIEPONA_rootfs.bin -g 192.168.0.2
+tftp -r SIEPONA_kernel.bin -g 192.168.0.5
+tftp -r SIEPONA_rootfs.bin -g 192.168.0.5
 ```
 #### FS XGSPON ONU Stick / CIG XG-99S
 ```
 cd /tmp
-tftp -r SIEPONA_kernel.bin -g 192.168.100.2
-tftp -r SIEPONA_rootfs.bin -g 192.168.100.2
+tftp -r SIEPONA_kernel.bin -g 192.168.100.5
+tftp -r SIEPONA_rootfs.bin -g 192.168.100.5
 mkdir /userdata/upper
 ```
 
@@ -108,7 +108,7 @@ nandwrite -p /dev/$(awk -F: '$2 ~ /"rootfs0"/ {print $1}' /proc/mtd) /tmp/SIEPON
 ```
 
 ### 8. Reboot the Stick
-Reboot the device:
+Reboot or power off the device:
 ```
 reboot
 ```
