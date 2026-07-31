@@ -1,0 +1,32 @@
+<html>
+<body>
+
+<h2>Traffic Control</h2>
+<hr>
+<p>Force rule.<br>
+enabled, force add.</p>
+
+<form method="POST" action="cgi-bin/set_TrafficControl_set.sh">
+  <p>Force bridge classifier rule.<br>
+    enabled, Classifier rule force add.</p>
+  <input type="radio" name="ForceBridge" value="Disable" id="fb_off">Disable
+  <input type="radio" name="ForceBridge" value="Enable" id="fb_on">Enable
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+  fetch("cgi-bin/set_TrafficControl_get.sh")
+    .then(res => res.json())
+    .then(data => {
+      if (data.aaa === "1") {
+        document.getElementById("fb_on").checked = true;
+      } else {
+        document.getElementById("fb_off").checked = true;
+      }
+    })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>

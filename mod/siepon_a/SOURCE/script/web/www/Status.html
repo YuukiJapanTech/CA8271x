@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <style type="text/css">
+        table , td, th {
+    border: 1px solid #595959;
+    border-collapse: collapse;
+    }
+    td, th {
+        padding: 3px;
+        width: 300px;
+        height: 25px;
+    }
+    th {
+        background: #f0e6cc;
+    }
+    .even {
+        background: #fbf8f0;
+    }
+    .odd {
+        background: #fefcf9;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<h2>Status</h2>
+<hr>
+<p>ONU Status.</p>
+
+<table>
+	<tbody>
+		<tr>
+			<td colspan="2" bgcolor="#b0c4de">PON Status</td>
+		</tr>
+		<tr>
+			<td bgcolor="#b0c4de">AUTH</td>
+			<td id="UPLink"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#b0c4de">PON</td>
+			<td id="Regist"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#b0c4de">POWER</td>
+			<td>OK</td>
+		</tr>
+	</tbody>
+</table>
+<br>
+<table>
+	<tbody>
+		<tr>
+			<td colspan="2" bgcolor="#b0c4de">OLT Info</td>
+		</tr>
+		<tr>
+			<td bgcolor="#b0c4de">OLT MAC</td>
+			<td id="OLT"></td>
+		</tr>
+	</tbody>
+</table>
+<br>
+<table>
+        <tbody>
+                <tr>
+                        <td colspan="2" bgcolor="#b0c4de">ONU Info</td>
+                </tr>
+                <tr>
+                    <td bgcolor="#b0c4de">Stick Model</td>
+                    <td id="MODEL"></td>
+            </tr>
+                <tr>
+                        <td bgcolor="#b0c4de">Version</td>
+                        <td id="SVER"></td>
+                </tr>
+                <tr>
+                        <td bgcolor="#b0c4de">Base Version</td>
+                        <td id="BVER"></td>
+                </tr>
+        </tbody>
+</table>
+<br>
+<table>
+    <tbody>
+            <tr>
+                    <td colspan="2" bgcolor="#b0c4de">ONU Status</td>
+            </tr>
+            <tr>
+                <td bgcolor="#b0c4de">Temp [ C ]</td>
+                <td id="TEMP"></td>
+            </tr>
+            <tr>
+                    <td bgcolor="#b0c4de">Vcc [ V ]</td>
+                    <td id="Vcc"></td>
+            </tr>
+            <tr>
+                <td bgcolor="#b0c4de">TX Bias [ mA ]</td>
+                <td id="TxBias"></td>
+            </tr>
+            <tr>
+                    <td bgcolor="#b0c4de">TX Power [ dBm ]</td>
+                    <td id="TXLVL"></td>
+            </tr>
+            <tr>
+                    <td bgcolor="#b0c4de">RX Power [ dBm ]</td>
+                    <td id="RXLVL"></td>
+            </tr>
+    </tbody>
+</table>
+<br>
+
+<script>
+    function updateStatus() {
+        fetch("cgi-bin/status.sh")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('OLT').textContent = data.OLT;
+            document.getElementById('Regist').textContent = data.Regist;
+            document.getElementById('UPLink').textContent = data.UPLink;
+            document.getElementById('SVER').textContent = data.SVER;
+            document.getElementById('BVER').textContent = data.BVER;
+            document.getElementById('MODEL').textContent = data.MODEL;
+            document.getElementById('TEMP').textContent = data.TEMP;
+            document.getElementById('Vcc').textContent = data.Vcc;
+            document.getElementById('TxBias').textContent = data.TxBias;
+            document.getElementById('RXLVL').textContent = data.RXLVL;
+            document.getElementById('TXLVL').textContent = data.TXLVL;
+        })
+        .catch(err => console.error(err));
+    }
+    updateStatus();
+    setInterval(updateStatus, 5000);
+    </script>
+</body>
+</html>
+

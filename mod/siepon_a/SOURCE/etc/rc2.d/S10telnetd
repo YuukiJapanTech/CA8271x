@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+
+. /etc/init.d/functions
+
+case $1 in
+	start)
+		/usr/sbin/telnetd &
+		;;
+	*)
+		;;
+esac
+
+exit 0

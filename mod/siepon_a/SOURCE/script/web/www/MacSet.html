@@ -1,0 +1,24 @@
+<html>
+<body>
+
+<h2>PON MAC Address</h2>
+<hr>
+<p>EPON ONU MAC address.<br>
+Exanple : AA:BB:CC:11:22:33</p>
+
+<form method="POST" action="cgi-bin/set_ponmac_set.sh">
+  EPON MAC : <input type="text" id="MacAddr" name="MacAddr" pattern="^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$" placeholder="AA:BB:CC:11:22:33" required><br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+  fetch("cgi-bin/set_ponmac_get.sh")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("MacAddr").value = data.MacAddr;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+
+<h2>Date of Manufacture (D7/05)</h2>
+<hr>
+<p>Configure the ONU Manufacture Date.<br>
+  The configured value will be reported to the OLT as the DPoE TLV D7/0005 value.</p>
+
+<form method="POST" action="cgi-bin/set_TLV_D705_set.sh">
+  Year ( Hex 4 Byte. 0000 - FFFF. Example : 2026 )<br>
+  Year : <input type="text" id="year" name="year" pattern="[0-9A-Fa-f]{4}" maxlength="4" required><br>
+  <br>
+  Month / Date ( Hex 2 Byte. 00 - FF. Example : 01 )<br>
+  Due to the limitations of the ONU's program, month and day are setting to the same value.<br>
+  Month / Date : <input type="text" id="Date" name="Date" pattern="[0-9A-Fa-f]{2}" maxlength="2" required><br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+fetch("cgi-bin/set_TLV_D705_get.sh")
+  .then(res => res.json())
+  .then(data => {
+    if (data.year)  document.getElementById("year").value = data.year;
+    if (data.Date)  document.getElementById("Date").value = data.Date;
+  })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>
+

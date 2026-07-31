@@ -1,0 +1,50 @@
+<html>
+<body>
+
+<h2>Chipset Info (D7/04)</h2>
+<hr>
+<p>Configure the ONU SoC Chipset Info.<br>
+  The configured value will be reported to the OLT as the DPoE TLV D7/0004 value.</p>
+
+<form method="POST" action="cgi-bin/set_TLV_D704_set.sh">
+  JTAG JDEC ID ( Hex 4 Byte. 0000 - FFFF )<br>
+  JDECID : <input type="text" id="JDECID" name="JDECID" pattern="[0-9A-Fa-f]{4}" maxlength="4" required><br>
+  <ul>
+    <li>CORTINA Access : 0879</li>
+    <li>Broadcom : 0203</li>
+    <li>Sumitomo Electric : 01F2</li>
+  </ul>
+  <br>
+  Chip Model ( Hex 4 Byte. 0000 - FFFF )<br>
+  Chip Model : <input type="text" id="Model" name="Model" pattern="[0-9A-Fa-f]{4}" maxlength="4" required><br>
+  <ul>
+    <li>CORTINA Access - CA8289 : 4701</li>
+    <li>Broadcom - BCM55030 : 4701</li>
+    <li>Sumitomo Electric - FTE7653R (CA8271) : 6858</li>
+  </ul>
+  <br>
+  Chip Version ( Hex 8 Byte. 00000000 - FFFFFFFF )<br>
+  Chip Version : <input type="text" id="Version" name="Version" pattern="[0-9A-Fa-f]{8}" maxlength="8" required><br>
+  <ul>
+    <li>CORTINA Access - CA8289 : 00001000</li>
+    <li>Broadcom - BCM55030 : B2110816</li>
+    <li>Sumitomo Electric - FTE7653R (CA8271) : A17C0449</li>
+  </ul>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+fetch("cgi-bin/set_TLV_D704_get.sh")
+  .then(res => res.json())
+  .then(data => {
+    if (data.JDECID)  document.getElementById("JDECID").value = data.JDECID;
+    if (data.Model)  document.getElementById("Model").value = data.Model;
+    if (data.Version)  document.getElementById("Version").value = data.Version;
+  })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>
+

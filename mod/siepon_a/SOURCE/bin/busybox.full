@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/lib230/ld.so.1 --library-path /lib230 /bin/busybox_230 "$@"
+

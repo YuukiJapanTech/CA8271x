@@ -1,0 +1,39 @@
+<html>
+<body>
+
+<h2>Firmware Info (D7/03)</h2>
+<hr>
+<p>Configure the ONU Firmware Info.<br>
+  The configured value will be reported to the OLT as the DPoE TLV D7/0003 value.</p>
+
+<form method="POST" action="cgi-bin/set_TLV_D703_set.sh">
+  ONU Boot Version ( Hex 4 Byte. 0000 - FFFF )<br>
+  BootVer : <input type="text" id="BootVer" name="BootVer" pattern="[0-9A-Fa-f]{4}" maxlength="4" required><br>
+  <br>
+  ONU Boot CRC ( Hex 8 Byte. 00000000 - FFFFFFFF )<br>
+  BootCRC : <input type="text" id="BootCRC" name="BootCRC" pattern="[0-9A-Fa-f]{8}" maxlength="8" required><br>
+  <br>
+  ONU Firmware Version ( Hex 4 Byte. 0000 - FFFF )<br>
+  FirmVer : <input type="text" id="FirmVer" name="FirmVer" pattern="[0-9A-Fa-f]{4}" maxlength="4" required><br>
+  <br>
+  ONU Firmware CRC ( Hex 8 Byte. 00000000 - FFFFFFFF )<br>
+  FirmCRC : <input type="text" id="FirmCRC" name="FirmCRC" pattern="[0-9A-Fa-f]{8}" maxlength="8" required><br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+fetch("cgi-bin/set_TLV_D703_get.sh")
+  .then(res => res.json())
+  .then(data => {
+    if (data.BootVer)  document.getElementById("BootVer").value = data.BootVer;
+    if (data.BootCRC)  document.getElementById("BootCRC").value = data.BootCRC;
+    if (data.FirmVer)  document.getElementById("FirmVer").value = data.FirmVer;
+    if (data.FirmCRC)  document.getElementById("FirmCRC").value = data.FirmCRC;
+  })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>
+
