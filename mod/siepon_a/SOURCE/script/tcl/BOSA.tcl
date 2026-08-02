@@ -1,5 +1,3 @@
-source /etc/cortina/iros/qa/wca/SC_COMMAND_LIB.tcl
-namespace import gw::*
 
 proc BOSA_read_dom {} {
 

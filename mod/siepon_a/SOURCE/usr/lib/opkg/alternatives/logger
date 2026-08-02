@@ -1,0 +1,2 @@
+/usr/bin/logger
+/bin/busybox.nosuid 50

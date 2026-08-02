@@ -1,8 +1,8 @@
-source /etc/cortina/iros/qa/wca/SC_COMMAND_LIB.tcl
-namespace import gw::*
 
 proc network_pon_classifier_force_bridge_up {} {
     #LAN->PON
+    #priority-1 entry is dummy for Tibit OLT use.
+    wca_classifier_rule_add -device_id 0 -priority 1 -src_port 0x30006 -action_forward 3 -action_dest_port 0x20007 -action_option_flow_id 0x0007
     wca_classifier_rule_add -device_id 0 -priority 7 -src_port 0x30006 -action_forward 3 -action_dest_port 0x20007 -action_option_flow_id 0x0007
     wca_classifier_rule_add -device_id 0 -priority 7 -src_port 0x30006 -action_forward 3 -action_dest_port 0x20007 -action_option_flow_id 0x090f
     wca_classifier_rule_add -device_id 0 -priority 7 -src_port 0x30006 -action_forward 3 -action_dest_port 0x20007 -action_option_flow_id 0x1217

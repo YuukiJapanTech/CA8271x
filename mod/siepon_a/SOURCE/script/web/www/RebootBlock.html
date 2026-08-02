@@ -1,0 +1,31 @@
+<html>
+<body>
+
+<h2>Reboot Block mode</h2>
+<hr>
+<p>This ignores the restart command from the OLT.<br>
+  When enabled, the ONU will continue to operate even if the ISP orders it to restart.</p>
+
+<form method="POST" action="cgi-bin/set_RebootBlock_set.sh">
+  Reboot Block mode : <br>
+  <input type="radio" name="RebootBlock" value="Disable" id="rb_off">Disable<br>
+  <input type="radio" name="RebootBlock" value="Enable" id="rb_on">Enable<br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+  fetch("cgi-bin/set_RebootBlock_get.sh")
+    .then(res => res.json())
+    .then(data => {
+      if (data.CA8271_REBOOT_BLOCK === "1") {
+        document.getElementById("rb_on").checked = true;
+      } else {
+        document.getElementById("rb_off").checked = true;
+      }
+    })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>

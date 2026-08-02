@@ -86,6 +86,19 @@ mkdir $LIB_PATH
 cp $LIB_BASE $LIB_PATH/$TARGET_LIB
 chmod 755 $LIB_PATH/$TARGET_LIB
 
+#FORCE_BRIDGE
+ENV_FORCE_BRIDGE=$(fw_printenv -n CA8271_FORCE_BRIDGE 2>/dev/null || echo 0)
+if [ "$ENV_FORCE_BRIDGE" = "1" ]; then
+        patch_lib "0x78c4c" "ffff0234" "8"
+        patch_lib "0x78c80" "5c006210" "8"
+fi
+
+#REBOOT_BLOCK
+ENV_REBOOT_BLOCK=$(fw_printenv -n CA8271_REBOOT_BLOCK 2>/dev/null || echo 0)
+if [ "$ENV_REBOOT_BLOCK" = "1" ]; then
+        patch_lib "0x8a48c" "0800e00300000000" "16"
+fi
+
 #D7/0003
 ENV_FW_BOOTVER=$(fw_printenv -n CA8271_FW_BOOTVER 2>/dev/null || echo 0000)
 patch_lib "0x64654" $ENV_FW_BOOTVER "4"
@@ -126,6 +139,11 @@ ENV_HW_VER=$(fw_printenv -n CA8271_HW_VER 2>/dev/null || echo 00000000)
 patch_lib "0x65650" ${ENV_HW_VER:0:4} "4"
 patch_lib "0x65648" ${ENV_HW_VER:4:4} "4"
 
+iros <<EOF > /dev/null 2>&1
+ca_port_enable_set 0 0x20007 0
+EOF
+
+echo "PON port disabled."
 
 sleep 1
 

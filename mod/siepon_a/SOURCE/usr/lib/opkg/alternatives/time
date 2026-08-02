@@ -1,0 +1,2 @@
+/usr/bin/time
+/bin/busybox.nosuid 50

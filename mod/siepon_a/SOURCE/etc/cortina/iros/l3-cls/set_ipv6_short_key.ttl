@@ -1,0 +1,35 @@
+;;please enter app-cli config/aal/l3_cls tree before sending the following commands
+
+;;clean ipv6 short key fields in key table index 64
+sendln 'key_clean 64 3'
+
+;;set the key of src ip_addr to 3000::1, msk 128
+sendln 'ipv6_short_key ip_addr_3 64 0x30000000'
+sendln 'ipv6_short_key ip_addr_2 64 0'
+sendln 'ipv6_short_key ip_addr_1 64 0'
+sendln 'ipv6_short_key ip_addr_0 64 0x00000001'
+sendln 'ipv6_short_key ip_addr_type 64 1'
+sendln 'ipv6_short_key msk_ip_addr_l 64 0'
+sendln 'ipv6_short_key msk_ip_addr_h 64 1'
+
+;;enable the key
+sendln 'ipv6_short_key cls_key_valid 64 1'
+sendln 'ipv6_short_key cls_pri 64 10'
+sendln 'ipv6_short_key cls_rslt_type 64 1'
+
+;;clean fib 2 fields in fib table index 256
+sendln 'fib_clean 256 2'
+
+;;set the fib of mac_sa to 00:bb:aa:cc:dd:ee
+sendln 'fib_2 mac_sa_vld 256 1'
+sendln 'fib_2 mac_sa_5 256 0'
+sendln 'fib_2 mac_sa_4 256 0xbb'
+sendln 'fib_2 mac_sa_3 256 0xaa'
+sendln 'fib_2 mac_sa_2 256 0xcc'
+sendln 'fib_2 mac_sa_1 256 0xdd'
+sendln 'fib_2 mac_sa_0 256 0xee'
+
+;;show key and fib settings
+sendln 'show aal l3_cls ipv6_short_key 64'
+sendln 'show aal l3_cls fib_2 256'
+

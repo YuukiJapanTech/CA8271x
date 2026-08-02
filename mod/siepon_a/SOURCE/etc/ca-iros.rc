@@ -1,0 +1,26 @@
+lappend auto_path /usr/lib/tclreadline2.1.0
+package require tclreadline 
+namespace eval tclreadline { 
+    proc prompt1 {} { 
+        return "ca-iros-> "
+    }
+}
+proc load_wca_commands {args} {
+    set res 0
+    set res [catch {source /etc/cortina/iros/qa/wca/SC_COMMAND_LIB.tcl;namespace import -force gw::*} err]
+    if {$res} {
+        puts "Failed to import WCA commands. $err"
+        return $res
+    } 
+    puts ".SUCCESS. WCA commands loaded"
+    set cmdlst [info commands wca*]
+    foreach cmd $cmdlst {
+        ::tclreadline::readline add "$cmd "
+    } 
+    return $res
+}
+if {[catch {load_wca_commands} err]} {puts "Failed to load wca commands"} 
+if {[string first "venus" [exec uname -a]] >= 0} {source /etc/cortina/iros/qa/iros_lib.tcl}
+ca_init_signal
+::tclreadline::Loop
+

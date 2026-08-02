@@ -1,0 +1,2 @@
+/bin/df
+/bin/busybox.nosuid 50

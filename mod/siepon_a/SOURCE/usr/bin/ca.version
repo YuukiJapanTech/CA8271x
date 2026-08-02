@@ -1,0 +1,63 @@
+#!/usr/bin/env sh
+
+get_boot_index()
+{
+        sb0=$(($1 & 0x0f))
+        sb1=$(($1 >> 4))
+
+        commit=4
+
+        if [ $((sb0 & $commit)) -eq $commit ]; then
+                echo 0
+                return
+        fi
+
+        if [ $((sb1 & $commit)) -eq $commit ]; then
+                echo 1
+                return
+        fi
+
+        echo 2
+}
+
+
+usage()
+{
+	echo 'ca.version [option]'
+	echo 'ca.version -c   -> clear'
+	echo 'ca.version -n version -> update version informaton'
+}
+
+
+sb_val=$(fw_printenv -n sb_flag)
+boot=$(get_boot_index $sb_val)
+standby=$((1 - ${boot}))
+
+if [ "$boot" = "2" ]; then
+	echo "invalid sb_flag"
+	exit 1
+fi
+
+while getopts n:cv? argv 
+do
+	case $argv in
+		n)
+                        echo "set partition group #${standby} version: $OPTARG"
+			fw_setenv img_version${standby} $OPTARG
+			;;
+		c)
+                        echo "clear partition group #${standby} version"
+			fw_setenv img_version${standby} 0.0.0.0
+			;;
+		v)
+			;;
+		?)
+			usage
+			exit
+			;;
+	esac
+done
+
+
+exit 0
+

@@ -1,0 +1,2 @@
+/usr/bin/xargs
+/bin/busybox.nosuid 50

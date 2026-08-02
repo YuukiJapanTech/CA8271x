@@ -1,0 +1,1 @@
+/config/httpd/web/multi_wanptm.asp

@@ -1,0 +1,2 @@
+/bin/sleep
+/bin/busybox.nosuid 50

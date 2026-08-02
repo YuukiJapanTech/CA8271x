@@ -1,0 +1,2 @@
+/sbin/devmem
+/bin/busybox.nosuid 50

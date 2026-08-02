@@ -1,0 +1,2 @@
+/usr/bin/mkfifo
+/bin/busybox.nosuid 50

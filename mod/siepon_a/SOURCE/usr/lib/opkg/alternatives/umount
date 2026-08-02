@@ -1,0 +1,2 @@
+/bin/umount
+/bin/busybox.nosuid 50

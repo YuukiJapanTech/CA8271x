@@ -1,0 +1,3 @@
+/sbin/sulogin
+/bin/busybox.nosuid 50
+/sbin/sulogin.util-linux 80

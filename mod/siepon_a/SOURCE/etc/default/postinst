@@ -1,0 +1,2 @@
+POSTINST_LOGGING=1
+LOGFILE=/var/log/postinstall.log

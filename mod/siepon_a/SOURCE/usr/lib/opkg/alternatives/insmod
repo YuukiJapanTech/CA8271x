@@ -1,0 +1,2 @@
+/sbin/insmod
+/bin/busybox.nosuid 50

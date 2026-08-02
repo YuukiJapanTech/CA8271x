@@ -1,0 +1,2 @@
+/usr/bin/tee
+/bin/busybox.nosuid 50

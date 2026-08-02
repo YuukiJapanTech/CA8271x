@@ -1,0 +1,4 @@
+# Aliases extracted from modules themselves.
+alias net-pf-10 ipv6
+alias of:N*T*Ccortina,ca-peri* ca_plat_kernel
+alias of:N*T*Ccortina,ni-interface* ca_ne

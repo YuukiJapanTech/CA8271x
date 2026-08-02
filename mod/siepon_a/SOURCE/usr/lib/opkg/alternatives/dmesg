@@ -1,0 +1,2 @@
+/bin/dmesg
+/bin/busybox.nosuid 50

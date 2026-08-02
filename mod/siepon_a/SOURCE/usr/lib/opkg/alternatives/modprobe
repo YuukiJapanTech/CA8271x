@@ -1,0 +1,2 @@
+/sbin/modprobe
+/bin/busybox.nosuid 50

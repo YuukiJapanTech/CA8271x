@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/usr/bin/ca-iros /etc/ca-iros.rc
+

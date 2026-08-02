@@ -1,0 +1,2 @@
+/sbin/ip
+/bin/busybox.nosuid 50

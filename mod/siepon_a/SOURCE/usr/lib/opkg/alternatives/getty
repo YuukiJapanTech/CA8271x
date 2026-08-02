@@ -1,0 +1,2 @@
+/sbin/getty
+/bin/busybox.nosuid 50

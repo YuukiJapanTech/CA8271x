@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+global_strap=$(devmem 0x44100034)
+
+val=0
+
+# spi-nand 2x plane
+[ $((${global_strap} & 0x7000)) -eq 4096 ] && val=0x0c62736f
+
+# spi-nand
+[ $((${global_strap} & 0x7c00)) -eq 2048 ] && val=0x0a62736f
+
+devmem 0x441000fc 32 ${val}
+

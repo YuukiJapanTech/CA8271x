@@ -1,0 +1,26 @@
+#!/bin/sh -e
+
+case "$1" in
+start)
+        echo -n "Start ca-app ... "
+        echo "256" > /proc/sys/fs/mqueue/msg_max
+        ulimit -c unlimited
+        ulimit -s 128
+        echo "/tmp/core.%e.%p" > /proc/sys/kernel/core_pattern
+        /usr/bin/ca-app -d 1>/dev/console 2>&1
+        echo "done."
+        ;;
+
+stop)
+        echo -n "Stop ca-app ... "
+        killall ca-app
+        echo "done."
+        ;;
+*)
+        echo "Usage: /etc/init.d/ca-app {start|stop}"
+        exit 1
+        ;;
+esac
+
+exit 0
+
