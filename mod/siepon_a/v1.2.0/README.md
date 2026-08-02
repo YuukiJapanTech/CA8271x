@@ -1,4 +1,6 @@
-# v1.2.0 Release Notes
+# v1.3.0 Release Notes
 
-* Modified to send a Gratuitous ARP at startup so that the Stick can connect even if its MAC address changes.
-* Of the two management interfaces, eth0 and eth1, the unused eth1 interface has been disabled.
+* Added a "Reboot Block mode" that ignores ISP reboot commands.
+* Force Bridge Mode has been enhanced. [(Discussions #36)](https://github.com/YuukiJapanTech/CA8271x/discussions/36)
+* Suppressing unnecessary library loading in Tcl.
+* Modified so that PON input is disabled until the stick has finished starting up.
