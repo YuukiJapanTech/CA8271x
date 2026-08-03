@@ -1,0 +1,15 @@
+set config [ us_rate_manager_global_control_create ]
+us_rate_manager_global_control_set_max_rate_manager_app_spec_streams		$config		128
+us_rate_manager_global_control_set_default_stream_bandwidth_percentage 		$config 	10
+us_rate_manager_global_control_set_remaining_bandwidth_distribution_scheme 	$config 	1
+us_rate_manager_global_control_set_default_stream_scheduler			$config		0
+us_rate_manager_global_control_set_default_stream_voq_weigths  $config 0x1 0
+us_rate_manager_global_control_set_default_stream_voq_weigths  $config 0x2 1
+us_rate_manager_global_control_set_default_stream_voq_weigths  $config 0x3 2
+us_rate_manager_global_control_set_default_stream_voq_weigths  $config 0x4 3
+us_rate_manager_global_control_set_default_stream_voq_weigths  $config 0x5 4
+us_rate_manager_global_control_set_default_stream_voq_weigths  $config 0x6 5
+us_rate_manager_global_control_set_default_stream_voq_weigths  $config 0x7 6
+us_rate_manager_global_control_set_default_stream_voq_weigths  $config 0x8 7
+us_rate_manager_global_control_set_max_egress_rate	       $config	 1000000
+ca_us_rate_manager_global_configuration_set  0  $config

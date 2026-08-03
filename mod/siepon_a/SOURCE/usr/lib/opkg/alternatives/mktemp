@@ -1,0 +1,2 @@
+/bin/mktemp
+/bin/busybox.nosuid 50

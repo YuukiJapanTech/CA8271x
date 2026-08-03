@@ -1,0 +1,31 @@
+<html>
+<body>
+
+<h2>Forced Traffic mode</h2>
+<hr>
+<p>This ignores the upstream transmission permission from the OLT and sends traffic to the OLT even if the ONU does not have permission.<br>
+  When enabled, communication will be possible even if the ONU is banned by the ISP.</p>
+
+<form method="POST" action="cgi-bin/set_ForceTraffic_set.sh">
+  Forced Traffic mode : <br>
+  <input type="radio" name="ForceTraffic" value="Disable" id="ft_off">Disable<br>
+  <input type="radio" name="ForceTraffic" value="Enable" id="ft_on">Enable<br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+  fetch("cgi-bin/set_ForceTraffic_get.sh")
+    .then(res => res.json())
+    .then(data => {
+      if (data.CA8271_FORCE_TRAFFIC === "1") {
+        document.getElementById("ft_on").checked = true;
+      } else {
+        document.getElementById("ft_off").checked = true;
+      }
+    })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>

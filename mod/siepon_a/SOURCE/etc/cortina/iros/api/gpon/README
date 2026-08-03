@@ -1,0 +1,48 @@
+Description:
+This is the script => configure ONU to GPON VEIP mode on """VENUS"""
+		    => NAT configuration example
+
+TOPO:
+IXIA----|GPON OLT|----port7----|VENUS|----port3----IXIA
+
+The following sets:
+1.	GPON VEIP mode
+2.	WAN interface eth0.100 in Linux, ip is 192.168.0.1
+3.	GEM mapping for upstream/downstream at CLS & HashLite
+	- Also combine with upstream DSCP mapping: UDP & l4_dport 63 => DSCP 1
+4.	GEM mapping for CPU-to-PON at HashLite
+5.	Two NAT entries:
+	- Upstream UDP, src=192.168.1.100:63, dst=192.168.0.100:63
+		      => src=192.168.0.1:63, dst=192.168.0.100:63
+	- Downstream UDP, src=192.168.0.100:63, dst=192.168.0.1:63
+		        => src=192.168.0.100:63, dst=192.168.1.100:63
+
+Step 0: The script must change according to console log.
+    FUNC __gpon_intl_add_tcont_cb LINE 442 :ADD tcont cb OK
+    Set TCONT 1 to be Enable, (Internal TCONT Idx 1) Alloc-ID 1024
+    FUNC __gpon_intl_add_tcont_cb LINE 442 :ADD tcont cb OK
+    Set TCONT 2 to be Enable, (Internal TCONT Idx 2) Alloc-ID 1025
+    __gpon_intl_add_gem(): alloc gem index 15 for gem_id 1023
+    GEM port id 0x3ff  - Internal 0xf created,returned gem_index 0xf0f
+    Set QueueID 15, TCONT 1, SchedulerId 65535, Weight 0, pri 7
+    __gpon_intl_add_gem(): alloc gem index 22 for gem_id 1024
+    GEM port id 0x400  - Internal 0x16 created,returned gem_index 0x1616  => only this works for Tx/Rx
+    Set QueueID 22, TCONT 2, SchedulerId 65535, Weight 0, pri 6
+     __gpon_intl_add_gem(): alloc gem index 7 for gem_id 65533
+    GEM port id 0xfffd  - Internal 0x7 created,returned gem_index 0xff07
+
+Step 1: Setup scfg then reboot
+CHAR            CFG_ID_L3QM_LDPID_TO_PON_PORT_MAP_OFFSET                = 4;
+CHAR            CFG_ID_PON_MAC_MODE                                     = 0x05;
+STRING          CFG_ID_PON_VENDOR_ID                                    = XHGU;
+INT             CFG_ID_PON_VSSN                                         = 0x1234aaaa;
+CHAR-ARRAY      CFG_ID_NE_DMA_TO_L3FE                                   = {1, 0, 0, 0, 0, 0, 0, 0};
+CHAR-ARRAY      CFG_ID_NE_TX_LDPID                                      = {0x1a, 0x19, 0x19, 0x19, 0x19, 0x19, 0x19, 0x19};
+
+Step 2: Setup Linux
+sh conf.sh
+
+Step 3: Setup in IROS
+iros > source gem_map.tcl
+iros > source nat.tcl
+

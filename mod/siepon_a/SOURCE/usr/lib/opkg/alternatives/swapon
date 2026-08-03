@@ -1,0 +1,2 @@
+/sbin/swapon
+/bin/busybox.nosuid 50

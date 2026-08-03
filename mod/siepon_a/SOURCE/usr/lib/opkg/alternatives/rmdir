@@ -1,0 +1,2 @@
+/bin/rmdir
+/bin/busybox.nosuid 50

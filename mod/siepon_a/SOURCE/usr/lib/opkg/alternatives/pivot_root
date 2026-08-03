@@ -1,0 +1,2 @@
+/sbin/pivot_root
+/bin/busybox.nosuid 50

@@ -1,0 +1,2 @@
+/usr/bin/nc
+/bin/busybox.nosuid 50

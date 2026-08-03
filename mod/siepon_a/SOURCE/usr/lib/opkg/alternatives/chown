@@ -1,0 +1,2 @@
+/bin/chown
+/bin/busybox.nosuid 50

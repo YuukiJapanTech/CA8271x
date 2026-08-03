@@ -1,0 +1,2 @@
+/bin/chattr
+/bin/busybox.nosuid 50

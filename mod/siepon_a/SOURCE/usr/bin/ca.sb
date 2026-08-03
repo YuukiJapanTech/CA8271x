@@ -1,0 +1,85 @@
+#!/usr/bin/env sh
+
+usage()
+{
+	echo "ca.sb -a val1 -v val2 -c val2 sbx"
+	echo "sbx => sb0 or sb1"
+}
+
+new_sbx_value=0
+sb_flag=0
+
+while getopts a:v:c:s? argv 
+do
+	case $argv in
+		a)
+			if [ "$OPTARG" != "0" ]; then
+				if [ "$OPTARG" != "1" ]; then
+					usage
+					exit
+				fi
+
+				new_sbx_value=$(($new_sbx_value | 1))
+
+			fi
+			sb_flag=$(($sb_flag | 1))
+			;;
+		v)
+			if [ "$OPTARG" != "0" ]; then
+				if [ "$OPTARG" != "1" ]; then
+					usage
+					exit
+				fi
+				new_sbx_value=$(($new_sbx_value | 2))
+
+			fi
+			sb_flag=$(($sb_flag | 2))
+			;;
+		c)
+			if [ "$OPTARG" != "0" ]; then
+				if [ "$OPTARG" != "1" ]; then
+					usage
+					exit
+				fi
+				new_sbx_value=$(($new_sbx_value | 4))
+			fi
+			sb_flag=$(($sb_flag | 4))
+			;;
+		?)
+			usage
+			exit
+			;;
+	esac
+done
+
+if [ $sb_flag -ne 7 ]; then
+	usage
+	exit 
+fi
+
+shift $(($OPTIND - 1))
+sb=$1
+
+if [ "${sb}" != "sb0" ] && [ "$sb" != "sb1" ]; then
+	usage
+	exit 0
+fi
+
+old_sb_value=$(fw_printenv -n sb_flag)
+old_sb0_value=$((${old_sb_value} &  0x0f ))
+old_sb1_value=$((${old_sb_value} >> 4 ))
+
+gen_sb()
+{
+	echo $((($2 << 4) + $1))
+}
+
+
+if [ "${sb}" = "sb0" ]; then
+	new_sb=$(gen_sb $new_sbx_value $old_sb1_value)
+else
+	new_sb=$(gen_sb $old_sb0_value $new_sbx_value)
+fi
+
+fw_setenv sb_flag $new_sb
+

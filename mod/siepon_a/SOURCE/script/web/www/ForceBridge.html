@@ -1,0 +1,41 @@
+<html>
+<body>
+
+<h2>Forced Bridge mode</h2>
+<hr>
+<p>This ignores the PON Classifier rules from the OLT and forces the addition of bridge settings.<br>
+  When enabled, this will forcibly bridge LLID 0-15 and UNI.<br>
+  If your ISP has enabled 802.1x authentication, 802.1x authentication will be forcibly bypassed.</p>
+
+<form method="POST" action="cgi-bin/set_ForceBridge_set.sh">
+  Forced Bridge mode : <br>
+  <input type="radio" name="ForceBridge" value="Disable" id="fb_off">Disable<br>
+  <input type="radio" name="ForceBridge" value="Enable" id="fb_on">Enable<br>
+  <br>
+  <br>
+  Specifies the MAC addresses allowed upstream when Forced Bridge mode is enabled.<br>
+  Generally, this value will be the Router ( HGW / CPE ) WAN MAC address.<br>
+  Specifying 00:00:00:00:00:00 will allow all MAC addresses.<br>
+  <br>
+  MAC Filter : <input type="text" id="MacAddr" name="MacAddr" pattern="^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$" placeholder="AA:BB:CC:11:22:33" required><br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+  fetch("cgi-bin/set_ForceBridge_get.sh")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("MacAddr").value = data.MacAddr;
+      if (data.CA8271_FORCE_BRIDGE === "1") {
+        document.getElementById("fb_on").checked = true;
+      } else {
+        document.getElementById("fb_off").checked = true;
+      }
+    })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>
+

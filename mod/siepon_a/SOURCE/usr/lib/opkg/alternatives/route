@@ -1,0 +1,2 @@
+/sbin/route
+/bin/busybox.nosuid 50

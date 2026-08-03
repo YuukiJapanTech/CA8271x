@@ -1,0 +1,2 @@
+/usr/sbin/rfkill
+/bin/busybox.nosuid 50

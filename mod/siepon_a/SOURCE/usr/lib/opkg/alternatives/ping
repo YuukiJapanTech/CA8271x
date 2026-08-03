@@ -1,0 +1,2 @@
+/bin/ping
+/bin/busybox.suid 50

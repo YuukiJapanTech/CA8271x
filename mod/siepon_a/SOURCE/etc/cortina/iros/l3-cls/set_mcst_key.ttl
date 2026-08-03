@@ -1,0 +1,49 @@
+;;please enter app-cli config/aal/l3_cls tree before sending the following commands
+
+;;clean mcst key fields in key table index 64
+sendln 'key_clean 64 5'
+
+;;set the key of dest_addr to 00:13:25:00:00:02
+sendln 'mcst_key dest_addr_3 64 0'
+sendln 'mcst_key dest_addr_2 64 0'
+sendln 'mcst_key dest_addr_1 64 0x00000013'
+sendln 'mcst_key dest_addr_0 64 0x25000002'
+sendln 'mcst_key dest_addr_type 64 0'
+sendln 'mcst_key msk_dest_addr 64 0'
+
+;;set the key of vlan_cnt to 1
+sendln 'mcst_key vlan_cnt 64 1'
+sendln 'mcst_key msk_vlan_cnt 64 0'
+
+;;set the key of top_vid to 10
+sendln 'mcst_key top_vid 64 10'
+sendln 'mcst_key msk_top_vid 64 0'
+
+;;set the key of top_802_1p to 5
+sendln 'mcst_key top_802_1p 64 5'
+sendln 'mcst_key msk_top_vl_802_1p 64 0'
+
+;;enable the key
+sendln 'mcst_key cls_key_valid 64 1'
+sendln 'mcst_key cls_pri 64 10'
+sendln 'mcst_key cls_rslt_type 64 1'
+
+;;clean fib 3 fields in fib table index 256
+sendln 'fib_clean 256 3'
+
+;;set the fib of vid to 100
+sendln 'fib_3 vlan_cnt 256 1'
+sendln 'fib_3 top_tpid_enc 256 1'
+sendln 'fib_3 top_vid 256 100'
+sendln 'fib_3 top_dei 256 0'
+sendln 'fib_3 top_dei_sel 256 0'
+sendln 'fib_3 vlan_vld 256 1'
+
+;;set the fib of top_802_1p to change to 3
+sendln 'fib_3 top_802_1p 256 3'
+sendln 'fib_3 top_802_1p_sel 256 2'
+
+;;show key and fib settings
+sendln 'show aal l3_cls mcst_key 64'
+sendln 'show aal l3_cls fib_3 256'
+

@@ -1,0 +1,42 @@
+;;please enter app-cli config/aal/l3_cls tree before sending the following commands
+
+;;clean full key fields in key table index 64
+sendln 'key_clean 64 6'
+
+;;set the key of lspid
+sendln 'full_key lspid 64 0x19'
+sendln 'full_key msk_lspid 64 0'
+
+;;set the key of ip_sa to 6000::1, msk 128
+sendln 'full_key ip_sa_3 64 0x60000000'
+sendln 'full_key ip_sa_2 64 0'
+sendln 'full_key ip_sa_1 64 0'
+sendln 'full_key ip_sa_0 64 0x00000001'
+sendln 'full_key msk_ip_sa_h 64 1'
+sendln 'full_key msk_ip_sa_l 64 0'
+
+;;set the key of ip_da to 3000::1, msk 128
+sendln 'full_key ip_da_3 64 0x30000000'
+sendln 'full_key ip_da_2 64 0'
+sendln 'full_key ip_da_1 64 0'
+sendln 'full_key ip_da_0 64 0x00000001'
+sendln 'full_key msk_ip_da_h 64 1'
+sendln 'full_key msk_ip_da_l 64 0'
+
+;;enable the key
+sendln 'full_key cls_key_valid 64 1'
+sendln 'full_key cls_pri 64 10'
+sendln 'full_key cls_rslt_type 64 1'
+
+;;clean fib 0 fields in fib table index 260
+sendln 'fib_clean 260 0'
+
+;;set the fib of mcgid to 0x2
+sendln 'fib_0 dpid_vld 260 1'
+sendln 'fib_0 permit 260 1'
+sendln 'fib_0 mcgid 260 0x02'
+
+;;show key and fib settings
+sendln 'show aal l3_cls full_key 64'
+sendln 'show aal l3_cls fib_0 260'
+

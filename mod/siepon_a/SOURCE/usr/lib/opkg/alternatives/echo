@@ -1,0 +1,2 @@
+/bin/echo
+/bin/busybox.nosuid 50

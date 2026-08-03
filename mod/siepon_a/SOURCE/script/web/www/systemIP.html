@@ -1,0 +1,26 @@
+<html>
+<body>
+
+<h2>System IP</h2>
+<hr>
+<p>Configure the ONU management IP address.</p>
+
+<form method="POST" action="cgi-bin/set_ip_set.sh">
+  ONU Managemnt IP (Exanple : 192.168.0.1)<br>
+  Managemnt IP : <input type="text" id="IPAddr" name="IPAddr" pattern="^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$" required><br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+fetch("cgi-bin/set_ip_get.sh")
+  .then(res => res.json())
+  .then(data => {
+    if (data.IPAddr)  document.getElementById("IPAddr").value = data.IPAddr;
+  })
+  .catch(err => console.error(err));
+  </script>
+
+</body>
+</html>
+

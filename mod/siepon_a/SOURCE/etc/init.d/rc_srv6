@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#devmem 0x44100050 32 0x0300001C
+devmem 0x441000CC 32 0x4000
+rboot -z /taroko/srv6_dp0.bin
+

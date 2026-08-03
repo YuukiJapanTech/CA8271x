@@ -1,0 +1,55 @@
+#!/bin/sh
+
+I2CFLAG=/tmp/i2c_lock
+BUS=0
+DEV=0x50
+FILE="$1"
+MODEL=$(cat /tmp/stick)
+
+if [ -z "$FILE" ]; then
+    echo "Usage: $0 <hex_file>"
+    exit 1
+fi
+
+HEX=$(tr -d ' \r\n\t' < "$FILE")
+LEN=${#HEX}
+
+if [ $((LEN % 2)) -ne 0 ]; then
+    echo "Invalid hex string length"
+    exit 1
+fi
+
+if [ "$MODEL" = "Hisence LTF726x-BH+" ]; then
+    echo "Not supported Stick!"
+    exit 1
+fi
+
+echo "Start write. Stop SFP-IF..."
+
+echo 1 > $I2CFLAG
+
+iros <<'EOF'
+ca_port_enable_set 0 0x30006 0
+EOF
+
+ADDR=0
+
+while [ "$ADDR" -lt $((LEN / 2)) ]; do
+    BYTE=$(printf "%s" "$HEX" | cut -c $((ADDR*2+1))-$((ADDR*2+2)))
+
+    printf "0x%02X <- 0x%s, " "$ADDR" "$BYTE"
+
+    busybox.full i2cset -y "$BUS" "$DEV" "$(printf "0x%02X" "$ADDR")" "0x$BYTE"
+
+    ADDR=$((ADDR + 1))
+done
+
+iros <<'EOF'
+ca_port_enable_set 0 0x30006 1
+EOF
+
+rm $I2CFLAG
+
+echo "Done. Rebooting..."
+
+reboot

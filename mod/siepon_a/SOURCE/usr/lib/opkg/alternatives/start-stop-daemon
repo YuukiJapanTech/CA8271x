@@ -1,0 +1,2 @@
+/sbin/start-stop-daemon
+/bin/busybox.nosuid 50

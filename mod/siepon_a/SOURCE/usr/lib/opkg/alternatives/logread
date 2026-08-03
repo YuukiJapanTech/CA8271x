@@ -1,0 +1,2 @@
+/sbin/logread
+/bin/busybox.nosuid 50

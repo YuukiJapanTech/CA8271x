@@ -1,0 +1,27 @@
+<html>
+<body>
+
+<h2>Manufacture Info (D7/06)</h2>
+<hr>
+<p>Configure the ONU Manufacture Info.<br>
+  The configured value will be reported to the OLT as the DPoE TLV D7/0006 value.</p>
+
+<form method="POST" action="cgi-bin/set_TLV_D706_set.sh">
+  Manufacture Info ( ASCII Max 64 chars. If no input is provided, NULL will be reported to OLT)<br>
+  Manufacture Info : <input type="text" id="info" name="info" pattern="^[\x20-\x21\x23-\x7E]*$" maxlength="64" style="width: 500px;"><br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+fetch("cgi-bin/set_TLV_D706_get.sh")
+  .then(res => res.json())
+  .then(data => {
+    if (data.info)  document.getElementById("info").value = data.info;
+  })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>
+

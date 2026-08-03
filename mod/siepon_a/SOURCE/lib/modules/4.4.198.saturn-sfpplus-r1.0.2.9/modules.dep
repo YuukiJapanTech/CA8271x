@@ -1,0 +1,8 @@
+kernel/drivers/net/phy/libphy.ko:
+kernel/drivers/of/of_mdio.ko: kernel/drivers/net/phy/libphy.ko
+kernel/net/ipv6/ipv6.ko:
+extra/ca-plat-kernel.ko:
+extra/libscfg.ko: extra/ca-plat-kernel.ko
+extra/ca-sdk-cb.ko: extra/ca-ne.ko extra/libscfg.ko extra/ca-plat-kernel.ko kernel/drivers/net/phy/libphy.ko
+extra/ca-ne.ko: extra/libscfg.ko extra/ca-plat-kernel.ko kernel/drivers/net/phy/libphy.ko
+extra/cli-drv.ko: extra/ca-ne.ko extra/libscfg.ko extra/ca-plat-kernel.ko kernel/drivers/net/phy/libphy.ko

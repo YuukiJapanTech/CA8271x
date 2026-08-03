@@ -1,0 +1,41 @@
+;;please enter app-cli config/aal/l3_cls tree before sending the following commands
+
+;;clean ipv4 short key fields in key table index 64
+sendln 'key_clean 64 2'
+
+;;set the key of top_vid_ptag to 1
+sendln 'ipv4_short_key top_vid_ptag_0 64 1'
+sendln 'ipv4_short_key msk_top_vid_ptag_0 64 0'
+
+;;set the key of ip_fragment to 1
+sendln 'ipv4_short_key ip_fragment_0 64 1'
+sendln 'ipv4_short_key msk_ip_fragment_0 64 0'
+
+;;enable the key
+sendln 'ipv4_short_key cls_key_valid 64 1'
+sendln 'ipv4_short_key cls_pri 64 10'
+sendln 'ipv4_short_key cls_rslt_type 64 1'
+
+;;clean fib 3 fields in fib table index 256
+sendln 'fib_clean 256 3'
+
+;;set the fib of top_vid to 100 and inner_vid to 200
+sendln 'fib_3 vlan_cnt 256 2'
+sendln 'fib_3 top_tpid_enc 256 1'
+sendln 'fib_3 top_vid 256 100'
+sendln 'fib_3 top_dei 256 0'
+sendln 'fib_3 top_dei_sel 256 0'
+sendln 'fib_3 inner_tpid_enc 256 1'
+sendln 'fib_3 inner_vid 256 200'
+sendln 'fib_3 inner_dei 256 0'
+sendln 'fib_3 inner_dei_sel 256 0'
+sendln 'fib_3 vlan_vld 256 1'
+
+;;set the fib of top_802_1p to change to 3
+sendln 'fib_3 top_802_1p 256 3'
+sendln 'fib_3 top_802_1p_sel 256 2'
+
+;;show key and fib settings
+sendln 'show aal l3_cls ipv4_short_key 64'
+sendln 'show aal l3_cls fib_3 256'
+

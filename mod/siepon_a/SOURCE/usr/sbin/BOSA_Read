@@ -1,0 +1,29 @@
+#!/bin/sh
+
+I2CFLAG=/tmp/i2c_lock
+BUS=0
+DEV=0x50
+OUT="$1"
+
+if [ -z "$OUT" ]; then
+    echo "Usage: $0 <hex_file>"
+    exit 1
+fi
+
+echo 1 > $I2CFLAG
+
+: > "$OUT"
+
+i=0
+while [ $i -lt 256 ]; do
+    reg=$(printf "0x%02X" "$i")
+    val=$(busybox.full i2cget -y "$BUS" "$DEV" "$reg")
+    printf "%s" "${val#0x}" >> "$OUT"
+    i=$((i+1))
+done
+
+echo >> "$OUT"
+
+rm $I2CFLAG
+
+echo "Done."

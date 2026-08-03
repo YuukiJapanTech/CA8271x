@@ -3,3 +3,4 @@
 *.db
 Picture/XG-99S/Thumbs.db
 *.db
+.DS_Store

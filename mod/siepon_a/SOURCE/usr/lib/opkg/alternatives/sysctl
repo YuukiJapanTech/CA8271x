@@ -1,0 +1,2 @@
+/sbin/sysctl
+/bin/busybox.nosuid 50

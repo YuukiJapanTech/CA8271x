@@ -1,0 +1,2 @@
+/bin/mknod
+/bin/busybox.nosuid 50

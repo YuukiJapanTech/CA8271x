@@ -1,0 +1,3 @@
+/sbin/halt
+/bin/busybox.nosuid 50
+/sbin/halt.sysvinit 200

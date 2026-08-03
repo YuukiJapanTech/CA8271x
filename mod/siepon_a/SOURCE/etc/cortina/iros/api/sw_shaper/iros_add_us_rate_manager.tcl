@@ -1,0 +1,11 @@
+set rate_mgr [ us_rate_manager_app_spec_stream_create ]
+us_rate_manager_app_spec_stream_set_app_stream_id $rate_mgr 10
+us_rate_manager_app_spec_stream_set_cir_kbps $rate_mgr 20000
+us_rate_manager_app_spec_stream_set_pir_kbps $rate_mgr 20000
+us_rate_manager_app_spec_stream_set_strict_prio $rate_mgr 1
+
+ca_us_rate_manager_entry_add 0 $rate_mgr
+
+
+
+

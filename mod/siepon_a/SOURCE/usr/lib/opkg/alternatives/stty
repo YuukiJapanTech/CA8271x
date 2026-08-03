@@ -1,0 +1,2 @@
+/bin/stty
+/bin/busybox.nosuid 50

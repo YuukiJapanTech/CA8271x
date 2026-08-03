@@ -1,0 +1,27 @@
+<html>
+<body>
+
+<h2>Hardware Version (D7/13)</h2>
+<hr>
+<p>Configure the ONU Hardware Version.<br>
+  The configured value will be reported to the OLT as the DPoE TLV D7/0013 value.</p>
+
+<form method="POST" action="cgi-bin/set_TLV_D713_set.sh">
+  ONU Hardware Version (ASCII Max 4 chars. If no input is provided, NULL will be reported to OLT)<br>
+  Hardware Version : <input type="text" id="HWVer" name="HWVer" pattern="^[\x20-\x7E]*$" maxlength="4"><br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+fetch("cgi-bin/set_TLV_D713_get.sh")
+  .then(res => res.json())
+  .then(data => {
+    if (data.HWVer)  document.getElementById("HWVer").value = data.HWVer;
+  })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>
+

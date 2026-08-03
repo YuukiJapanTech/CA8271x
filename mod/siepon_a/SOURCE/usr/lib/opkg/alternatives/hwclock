@@ -1,0 +1,2 @@
+/sbin/hwclock
+/bin/busybox.nosuid 50

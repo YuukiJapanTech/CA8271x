@@ -1,0 +1,2 @@
+/sbin/switch_root
+/bin/busybox.nosuid 50

@@ -1,0 +1,60 @@
+#!/usr/bin/env sh
+
+get_boot_index()
+{
+        sb0=$(($1 & 0x0f))
+        sb1=$(($1 >> 4))
+
+        commit=4
+
+        if [ $((sb0 & $commit)) -eq $commit ]; then
+                echo 0
+                return
+        fi
+
+        echo 1
+}
+
+show_sb_values()
+{
+        index=$1
+
+	if [ $index -eq 0 ];then
+                value=$(($2 & 0x0f))
+        else
+                value=$(($2 >> 4))
+	fi
+
+	echo -n "sb$1 : "
+	echo -n "actve $(($value & 0x1)) "
+	echo -n "valid $((($value & 0x2) >> 1)) "
+	echo -n "commit $((($value & 0x4) >> 2 )) "
+	echo
+}
+
+
+if [ $# -ne 1 ]; then
+        echo "Please tell me the upgrade result."
+        echo "Successful or Failed or Preupgrade"
+        exit 0
+fi
+
+boot_result=$1
+
+sb_val=$(fw_printenv -n sb_flag)
+boot=$(get_boot_index $sb_val)
+standby=$((1 - ${boot}))
+echo "boot partition group is ${boot}. standby partition group is ${standby}"
+
+if [ ${boot_result} = 'Successful' ]; then
+    ca.sb -a 0 -v 1 -c 0 sb${standby}
+elif [ "${boot_result}" = 'ENG_Successful' ]; then
+    ca.sb -a 0 -v 1 -c 0 sb${boot}
+    ca.sb -a 1 -v 1 -c 1 sb${standby}
+elif [ "${boot_result}" = 'Preupgrade' ]; then
+    ca.sb -a 0 -v 0 -c 0 sb${standby}
+else
+    ca.sb -a 0 -v 0 -c 0 sb${standby}
+fi
+
+echo "sb_flag update : ${sb_val} -> $(fw_printenv -n sb_flag)"

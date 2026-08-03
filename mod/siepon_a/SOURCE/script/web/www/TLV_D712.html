@@ -1,0 +1,27 @@
+<html>
+<body>
+
+<h2>Model Number (D7/12)</h2>
+<hr>
+<p>Configure the ONU Model Number ( ONU Model name )<br>
+  The configured value will be reported to the OLT as the DPoE TLV D7/0012 value.</p>
+
+<form method="POST" action="cgi-bin/set_TLV_D712_set.sh">
+  Model Number ( ASCII Max 32 chars. If no input is provided, NULL will be reported to OLT)<br>
+  Model Number : <input type="text" id="model" name="model" pattern="^[\x20-\x21\x23-\x7E]*$" maxlength="32" style="width: 500px;"><br>
+  <br>
+  <input type="submit" value="Save">
+</form>
+
+<script>
+fetch("cgi-bin/set_TLV_D712_get.sh")
+  .then(res => res.json())
+  .then(data => {
+    if (data.model)  document.getElementById("model").value = data.model;
+  })
+  .catch(err => console.error(err));
+</script>
+
+</body>
+</html>
+

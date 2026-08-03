@@ -1,0 +1,2 @@
+/sbin/loadkmap
+/bin/busybox.nosuid 50

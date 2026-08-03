@@ -1,0 +1,2 @@
+/sbin/mkswap
+/bin/busybox.nosuid 50

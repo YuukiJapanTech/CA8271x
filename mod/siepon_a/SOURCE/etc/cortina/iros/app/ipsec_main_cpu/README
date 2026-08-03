@@ -1,0 +1,93 @@
+IPSec runs on main CPU configuration guide(Bug 51898, 51989)
+
+Topology
+	PC_A <--> LAN(ROUTER_A)WAN <--> WAN(ROUTER_B)LAN <--> PC_B
+
+Devices setting
+	PC_A: 10.1.1.2/24
+	PC_B: 10.1.2.2/24
+	ROUTER_A_LAN: 10.1.1.1/24
+	ROUTER_A_WAN: 60.1.1.1/24
+	ROUTER_B_LAN: 10.1.2.1/24
+	ROUTER_B_WAN: 60.1.1.2/24
+
+Setup steps
+ROUTER_A(G3):
+	## Disable the kernel hook
+	root@g3-eng:~# vi /config/scfg.txt
+	INT             CFG_ID_KERNEL_HOOK_ENABLE                       = 0;
+	root@g3-eng:~# reboot
+
+	## assign HW to run on different CPU
+	root@g3-eng:~# echo 2 > /proc/irq/13/smp_affinity
+	root@g3-eng:~# echo 4 > /proc/irq/14/smp_affinity
+
+	root@g3-eng:~# echo 1 > /proc/irq/48/smp_affinity
+	root@g3-eng:~# echo 1 > /proc/irq/49/smp_affinity
+	root@g3-eng:~# echo 1 > /proc/irq/50/smp_affinity
+	root@g3-eng:~# echo 8 > /proc/irq/53/smp_affinity
+	root@g3-eng:~# echo 8 > /proc/irq/54/smp_affinity
+	root@g3-eng:~# echo 8 > /proc/irq/55/smp_affinity
+
+	## load Linux crypto kernel hook
+	root@g3-eng:~# rmmod elpmpmcrypt.ko
+	root@g3-eng:~# modprobe elpspacccrypt.ko
+
+	## config LAN(eth1)/WAN(eth0) interface IP
+	root@g3-eng:~# ifconfig eth0 60.1.1.1/24
+	root@g3-eng:~# ifconfig eth1 10.1.1.1/24
+
+	## traffic forward
+	root@g3-eng:~# echo 1 > /proc/sys/net/ipv4/conf/all/forwarding
+	root@g3-eng:~# ip route add default dev eth0 via 60.1.1.2
+	root@g3-eng:~# sh tunnel_ipsec_aes_left.sh 60.1.1.1 60.1.1.2 10.1.1.0/24 10.1.2.0/24
+
+	#login IROS 
+	ca-iros -> wca_classifier_rule_add -src_port 0xa0019 -priority 7 -action_forward 3 -action_dest_port 0x40011
+	ca-iros -> wca_classifier_rule_add -src_port 0xa0007 -priority 7 -action_forward 3 -action_dest_port 0x40010
+
+ROUTER_B(G3):
+	## Disable the kernel hook
+	root@g3-eng:~# vi /config/scfg.txt
+	INT             CFG_ID_KERNEL_HOOK_ENABLE                       = 0;
+	root@g3-eng:~# reboot
+
+	## assign HW to run on different CPU
+	root@g3-eng:~# echo 2 > /proc/irq/13/smp_affinity
+	root@g3-eng:~# echo 4 > /proc/irq/14/smp_affinity
+
+	root@g3-eng:~# echo 1 > /proc/irq/48/smp_affinity
+	root@g3-eng:~# echo 1 > /proc/irq/49/smp_affinity
+	root@g3-eng:~# echo 1 > /proc/irq/50/smp_affinity
+	root@g3-eng:~# echo 8 > /proc/irq/53/smp_affinity
+	root@g3-eng:~# echo 8 > /proc/irq/54/smp_affinity
+	root@g3-eng:~# echo 8 > /proc/irq/55/smp_affinity
+
+        ## load Linux crypto kernel hook
+	root@g3-eng:~# rmmod elpmpmcrypt.ko
+        root@g3-eng:~# modprobe elpspacccrypt.ko
+
+	## config LAN(eth1)/WAN(eth0) interface IP
+	root@g3-eng:~# ifconfig eth0 60.1.1.2/24
+	root@g3-eng:~# ifconfig eth1 10.1.2.1/24
+
+	## traffic forward
+	root@g3-eng:~# echo 1 > /proc/sys/net/ipv4/conf/all/forwarding
+	root@g3-eng:~# ip route add default dev eth0 via 60.1.1.1
+	root@g3-eng:~# sh tunnel_ipsec_aes_right.sh 60.1.1.2 60.1.1.1 10.1.2.0/24 10.1.1.0/24
+
+	#login  IROS 
+	ca-iros -> wca_classifier_rule_add -src_port 0xa0019 -priority 7 -action_forward 3 -action_dest_port 0x40011
+	ca-iros -> wca_classifier_rule_add -src_port 0xa0007 -priority 7 -action_forward 3 -action_dest_port 0x40010
+
+### MPM crypto(difference compared with SPAcc engine)
+	## assign HW to run on different CPU
+	root@g3-eng:~# echo 2 > /proc/irq/13/smp_affinity
+	root@g3-eng:~# echo 4 > /proc/irq/14/smp_affinity
+
+	root@g3-eng:~# echo 4 > /proc/irq/46/smp_affinity
+	root@g3-eng:~# echo 2 > /proc/irq/51/smp_affinity
+
+	## load Linux crypto kernel hook
+	root@g3-eng:~# rmmod elpspacccrypt.ko
+	root@g3-eng:~# modprobe elpmpmcrypt.ko

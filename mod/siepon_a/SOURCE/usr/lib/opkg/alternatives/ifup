@@ -1,0 +1,2 @@
+/sbin/ifup
+/bin/busybox.nosuid 50
