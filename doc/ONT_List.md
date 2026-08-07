@@ -12,7 +12,7 @@
 | XGS800E | SFP+ | CA8271S | XGS, XG | PPTP | Linux-4.4.198.saturn-sfpplus-r1 | Hisense LTF-7267-BH+ | 192.168.0.1 | UART/Telnet/Web |
 | [CIG XG-99M](https://www.cigtech.com/product_portfolio/xg-99m/) | ONT | CA8271A | XGS | PPTP | Linux-4.4.140.saturn-sfu-R1.0.0 | - | 192.168.0.1 | UART/Telnet |
 | Frontier FOX222 | ONT | CA8271A | XGS | PPTP | Linux-4.4.140.saturn-sfu-R1.0.0 | CIG XG-99M | 192.168.188.1 | UART |
-| Nokia XS-010X-R | ONT | CA8271NI | XGS | PPTP | Linux-4.14.172.saturn2-sfu-r2.2.1.3 | CIG XG-99YF | 192.168.100.1 | UART/Telnet/Web |
+| Nokia XS-010X-R | ONT | CA8271NI | XGS | PPTP | Linux-4.14.172.saturn2-sfu-r2.2.1.3 | CIG XG-99YR | 192.168.100.1 / 192.168.188.1 | Telnet/Web |
 | NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON<br>(SIEPON-B) | Linux-4.14.172.saturn2-sfu-r2.1 | - | 192.168.1.1 | UART |
 | NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | ONT | NLD0605APB (CA8271 OEM) | 10GE | SFU EPON<br>(SIEPON-B) | Linux-4.14.172.saturn2-sfu-r2.1 | - | 192.168.1.1 | UART |
 | HOSECOM X67S | ONT | RTL9615C (CA8289 Customize) | XGS, XG | PPTP/VEIP | RTK arm64 kernel 5.10.70 | - | 192.168.1.1 | UART/Telnet/SSH/Web |
