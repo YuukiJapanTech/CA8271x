@@ -61,3 +61,32 @@ Use programmer to extract the firmware, then modify it using tools like WinHex.<
 2. Select range `3500000` to `3b00000`, replace with <br>
 `/mtd/NOKIA_XS-010X-Q/patch/kernel0.bin`, and save the file.<br>
 3. Use programmer to write the modified firmware back to flash memory.
+
+## Nokia XS-010X-R
+
+Send the manufacturing-test Ethernet frame first to enable factory mode and factory-test user.
+
+1. Connect PC directly to the 10GE port.
+2. Send the following Layer-2 broadcast frame:
+
+```text
+Dst MAC:   ff:ff:ff:ff:ff:ff
+EtherType: 0xc199
+Payload:   00 00 00 01 + 42 bytes of 00
+```
+
+3. Connect via Telnet:
+
+```text
+telnet 192.168.100.1 / 192.168.188.1
+Login as: ATE
+Password: CATS2388
+```
+
+4. Switch to the root shell by executing the following command.
+
+```
+#ONT> system/shell
+#ONT/System/Shell>
+```
+The factory-test mode is volatile and will be cleared after reboot.
