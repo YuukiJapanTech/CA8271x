@@ -110,6 +110,7 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | Hisense LTF-7267-BH+ | PPTP | 192.168.0.1 | |
 | NATYWISH LTF-7267-BH+ | PPTP | 192.168.1.1 | Hisense LTF-7267-BH+ NATYWISH Custom Firm |
 | XGS800E | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM |
+| ZTE 033030400065 | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM |
 
 > [!TIP]
 > The following devices use the same hardware and can be switched by changing the firmware.
