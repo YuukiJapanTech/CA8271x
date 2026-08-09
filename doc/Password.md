@@ -133,3 +133,18 @@ To configure it, you must log in via `UART` or `Telnet` or `SSH`.<br>
 | User | Password |
 | --- | --- |
 | `root` | none or `admin` |
+
+
+## Nokia XS-010X-R
+
+This ONT have Telnet and web console. but, most settings are not available on the web.<br>
+To configure it, you must log in via `Telnet`.
+
+- Telnet IP : `192.168.100.1:23` or `192.168.188.1:23`
+- Web `http://192.168.100.1/login.html` or `http://192.168.188.1/login.html`
+
+| Console | User | Password |
+| --- | --- | --- |
+| Telnet | `admin` | `1234` |
+| Telnet (Factry mode) | `ATE` | `CATS2388` |
+| Web | `admin` | `1234` |

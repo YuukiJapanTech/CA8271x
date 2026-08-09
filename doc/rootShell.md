@@ -74,6 +74,10 @@ Dst MAC:   ff:ff:ff:ff:ff:ff
 EtherType: 0xc199
 Payload:   00 00 00 01 + 42 bytes of 00
 ```
+Manufacturing-test Ethernet frame transmission command :
+```
+sudo python3 -c 'from scapy.all import *;[(sendp(Ether(dst="ff:ff:ff:ff:ff:ff",type=0xc199)/Raw(load=b"\x00\x00\x00\x01"+b"\x00"*42),iface=i,count=1,verbose=False)) for i in get_if_list() if i!="lo"]'
+```
 
 3. Connect via Telnet:
 
