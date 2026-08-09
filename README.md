@@ -75,8 +75,8 @@ However, by flashing custom firmware onto these ONTs, it is possible to enable s
 All SIEPON-A ONTs in the table below can be replaced with stick-type custom firmware.
 | Device | EPON | SoC |
 | ------ | ------------ | --- |
-| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | SIEPON-B | NLD0605APB (CA8271 OEM) |
-| NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | SIEPON-B | NLD0605APB (CA8271 OEM) |
+| NTT 10G-EPON &lt;O&gt;C ONU &lt;4&gt; | SIEPON-B | NLD0605APB (CA8271NI OEM) |
+| NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | SIEPON-B | NLD0605APB (CA8271NI OEM) |
 | NEC BL3000HM | SIEPON-A | CA8289 |
 | Sumitomo FTE7263R | SIEPON-A | CA8271A |
 
@@ -168,9 +168,14 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | SoC | family | CodeName | OEM Vendor | Applications |
 | --- | --- |--- | --- | --- |
 | CA8271A | CA8271 | SATURN | CORTINA | Cable TV RF / PON SFU ONT |
-| CA8271S | CA8271 | SATURN | CORTINA | SFP+ ONT Stick |
+| CA8271N | CA8271 | ? | CORTINA | PON SFU ONT |
 | CA8271NI | CA8271 | SATURN2 | CORTINA | PON SFU ONT |
-| NLD0605APB | CA8271 | SATURN2 | NTT Electronics | NTT-East/West 10GE-PON ONU in japan
+| NLD0605APB (CA8271NI OEM) | CA8271 | SATURN2 | NTT Electronics | NTT-East/West 10GE-PON ONU in japan |
+| CA8271NS | CA8271 | ? | CORTINA | ? |
+| CA8271S | CA8271 | SATURN | CORTINA | SFP+ ONT Stick |
+| CA8271VI | CA8271 | ? | CORTINA | NOKIA Use? |
+| CA8271VD | CA8271 | ? | CORTINA | ? |
+| CA8277VD | CA8277 | ? | CORTINA | ? |
 | CA8289 | CA8289 | VENUS | CORTINA | PON HGU ONT |
 | RTL9615C | CA8289 base | TAURUS | Realtek | Realtek XG/XGS PON ONT |
 | CA7774 | CA7774 | G3 | CORTINA | Router ( Without PON ) |
