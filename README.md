@@ -58,6 +58,7 @@ However, by flashing custom firmware onto these ONTs, it is possible to enable s
 | ------ | ------------ | ------- |------------- |
 | [Hisense LTF-7263-BH+](https://ja.aliexpress.com/item/1005005067825095.html) | SIEPON-C | 192.168.0.1 | ✅ |
 | [CIG XE-99S](https://item.taobao.com/item.htm?id=695062358407) | SIEPON-C | 192.168.0.1 | ✅ |
+| Raisecom ISCOM HT801-XSFP (CIG XE-99S OEM) | SIEPON-C | 192.168.0.1 | ✅ |
 
 > [!TIP]
 > The following devices use the same hardware and can be switched by changing the firmware.
@@ -79,6 +80,8 @@ All SIEPON-A ONTs in the table below can be replaced with stick-type custom firm
 | NTT 10G-EPON &lt;M&gt;C ONU &lt;4&gt; | SIEPON-B | NLD0605APB (CA8271NI OEM) |
 | NEC BL3000HM | SIEPON-A | CA8289 |
 | Sumitomo FTE7263R | SIEPON-A | CA8271A |
+| Freebox Ultra F-GW09A | SIEPON-A | CA8271NS |
+| ATW-1000G-C | ? | CA8271N |
 
 ## Other EPON Devices
 All SIEPON-A ONTs in the table below can be replaced with stick-type custom firmware.
@@ -107,10 +110,12 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | CIG XG-99S | PPTP | 192.168.100.1 | |
 | ECIN EN-XGSFPP-OMAC-V1 | PPTP |192.168.100.1 | CIG XG-99S OEM |
 | [FS XGSPON ONU Stick SFP+,N1,Ind (SKU:185594)](https://www.fs.com/jp/products/185594.html) | PPTP |192.168.100.1 | CIG XG-99S OEM, **NOT SKU:378865** |
+| Nokia XS-010S-Q | PPTP | 192.168.100.1 | CIG XG-99S OEM |
 | Hisense LTF-7267-BH+ | PPTP | 192.168.0.1 | |
 | NATYWISH LTF-7267-BH+ | PPTP | 192.168.1.1 | Hisense LTF-7267-BH+ NATYWISH Custom Firm |
 | XGS800E | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM |
-| ZTE 033030400065 | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM |
+| ZTE E910F | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM |
+| Raisecom ISCOM HT801-XGSFP | PPTP |192.168.0.1 | Hisense LTF-7267-BH+ OEM (LTF7263 Model) |
 
 > [!TIP]
 > The following devices use the same hardware and can be switched by changing the firmware.
@@ -124,10 +129,12 @@ While many ISPs adopt VEIP, most ONTs based on the CA8271x currently do not supp
 | ------ | ---- | ------- | --- | ---- |
 | CIG XG-99M | PPTP | 192.168.0.1 | CA8271A | |
 | Frontier FOX222 | PPTP | 192.168.188.1 | CA8271A | CIG XG-99M OEM |
-| Nokia XS-010X-R | PPTP | 192.168.100.1 | CA8271NI | CIG XG-99YF OEM |
+| Nokia XS-010X-Q | PPTP | 192.168.100.1 | CA8271A | CIG XG-99YF OEM |
+| Nokia XS-010X-R | PPTP | 192.168.100.1 | CA8271NI | CIG XG-99YR OEM |
 | HOSECOM X67S | PPTP VEIP | 192.168.1.1 | RTL9615C | |
 | Nokia XS-2426X-A | PPTP VEIP | | CA8289 | |
 | Nokia XS-2426G-B | PPTP VEIP | | CA8289 | |
+| ATW-1000G-C | PPTP | | CA8271N | |
 
 # Guide, Document
 1. SIEPON-A Custom Firmware
