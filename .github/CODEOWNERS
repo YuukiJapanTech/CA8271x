@@ -1,0 +1,6 @@
+# Changes to these files require review by the repository owner.
+# Enforced when the `main` branch ruleset has "Require review from Code Owners" turned on.
+
+/AGENTS.md          @YuukiJapanTech
+/AGENTS.ja.md       @YuukiJapanTech
+/.github/CODEOWNERS @YuukiJapanTech
