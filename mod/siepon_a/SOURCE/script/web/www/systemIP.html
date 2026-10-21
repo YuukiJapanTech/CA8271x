@@ -3,7 +3,7 @@
 
 <h2>System IP</h2>
 <hr>
-<p>Configure the ONU management IP address.</p>
+<p>Configure the ONU management IP address. The new address takes effect after reboot.</p>
 
 <form method="POST" action="cgi-bin/set_ip_set.sh">
   ONU Managemnt IP (Exanple : 192.168.0.1)<br>
@@ -20,7 +20,7 @@ fetch("cgi-bin/set_ip_get.sh")
   })
   .catch(err => console.error(err));
   </script>
+<script src="save.js"></script>
 
 </body>
 </html>
-

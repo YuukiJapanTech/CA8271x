@@ -1,7 +1,19 @@
 #!/bin/sh
 
-echo "Content-Type: text/html"
-echo ""
+reply() {
+    if [ "$1" != "200 OK" ]; then
+        echo "Status: $1"
+    fi
+    echo "Content-Type: text/plain; charset=utf-8"
+    echo "Cache-Control: no-store"
+    echo ""
+    echo "$2"
+}
+
+fail_request() {
+    reply "$1" "$2"
+    exit 1
+}
 
 read POSTDATA
 
@@ -18,20 +30,28 @@ BootCRC=$(urldecode "$(get_param BootCRC)")
 FirmVer=$(urldecode "$(get_param FirmVer)")
 FirmCRC=$(urldecode "$(get_param FirmCRC)")
 
-echo "$BootVer" | grep -Eq '^[0-9A-Fa-f]{4}$' || { echo "Invalid BootVer"; exit 1; }
-echo "$BootCRC" | grep -Eq '^[0-9A-Fa-f]{8}$' || { echo "Invalid BootCRC"; exit 1; }
-echo "$FirmVer" | grep -Eq '^[0-9A-Fa-f]{4}$' || { echo "Invalid FirmVer"; exit 1; }
-echo "$FirmCRC" | grep -Eq '^[0-9A-Fa-f]{8}$' || { echo "Invalid FirmCRC"; exit 1; }
+echo "$BootVer" | grep -Eq '^[0-9A-Fa-f]{4}$' ||
+    fail_request "400 Bad Request" "Invalid BootVer"
+echo "$BootCRC" | grep -Eq '^[0-9A-Fa-f]{8}$' ||
+    fail_request "400 Bad Request" "Invalid BootCRC"
+echo "$FirmVer" | grep -Eq '^[0-9A-Fa-f]{4}$' ||
+    fail_request "400 Bad Request" "Invalid FirmVer"
+echo "$FirmCRC" | grep -Eq '^[0-9A-Fa-f]{8}$' ||
+    fail_request "400 Bad Request" "Invalid FirmCRC"
 
 BootVer=$(echo "$BootVer" | tr 'a-f' 'A-F')
 BootCRC=$(echo "$BootCRC" | tr 'a-f' 'A-F')
 FirmVer=$(echo "$FirmVer" | tr 'a-f' 'A-F')
 FirmCRC=$(echo "$FirmCRC" | tr 'a-f' 'A-F')
 
-fw_setenv CA8271_FW_BOOTVER "$BootVer"
-fw_setenv CA8271_FW_BOOTCRC "$BootCRC"
-fw_setenv CA8271_FW_FWVER "$FirmVer"
-fw_setenv CA8271_FW_FWCRC "$FirmCRC"
+if ! fw_setenv -s - <<EOF
+CA8271_FW_BOOTVER $BootVer
+CA8271_FW_BOOTCRC $BootCRC
+CA8271_FW_FWVER $FirmVer
+CA8271_FW_FWCRC $FirmCRC
+EOF
+then
+    fail_request "500 Internal Server Error" "Save failed."
+fi
 
-echo "Saved"
-
+reply "200 OK" "Saved"

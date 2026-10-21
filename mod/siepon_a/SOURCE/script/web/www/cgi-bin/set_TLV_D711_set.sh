@@ -1,8 +1,19 @@
 #!/bin/sh
 
+reply() {
+    if [ "$1" != "200 OK" ]; then
+        echo "Status: $1"
+    fi
+    echo "Content-Type: text/plain; charset=utf-8"
+    echo "Cache-Control: no-store"
+    echo ""
+    echo "$2"
+}
 
-echo "Content-Type: text/html"
-echo ""
+fail_request() {
+    reply "$1" "$2"
+    exit 1
+}
 
 read POSTDATA
 
@@ -24,13 +35,13 @@ if [ "$LEN" -gt 28 ]; then
     HEX=$(printf '%s' "$HEX" | cut -c1-28)
 else
     PAD=$(( (28 - LEN) / 2 ))
-    while [ $PAD -gt 0 ]; do
+    while [ "$PAD" -gt 0 ]; do
         HEX="${HEX}00"
         PAD=$((PAD - 1))
     done
 fi
 
-fw_setenv CA8271_VEN_NAME $HEX
+fw_setenv CA8271_VEN_NAME "$HEX" ||
+    fail_request "500 Internal Server Error" "Save failed."
 
-echo "Saved"
-
+reply "200 OK" "Saved"
